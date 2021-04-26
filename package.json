@@ -1,5 +1,5 @@
 {
-  "name": "donation-connection",
+  "name": "donation-connection-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
