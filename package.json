@@ -12,7 +12,7 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
-    "lint": "npm run eslint"
+    "lint": "npm run lint"
   },
   "author": "",
   "license": "ISC",
