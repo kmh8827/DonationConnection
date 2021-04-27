@@ -1,0 +1,11 @@
+const router = require('express').Router();
+const donationController = require('../../controllers/DonationController');
+
+router.route('/give')
+    .get(donationController.findDonation)
+    .post(donationController.addDonation)
+    .delete(donationController.removeDonation);
+
+router.route('/recieve')
+    .get(donationController.findAll)
+    .post(donationController.reserve)
