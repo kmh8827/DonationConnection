@@ -20,13 +20,12 @@ const DonationsSchema = new Schema({
         trim: true
     },
     address: {
-        Type: String,
+        type: String,
         trim: true
     },
     allergies: {
-        type: Boolean,
-        default: 'yes',
-        allergyInfo: {
+        options: ['egg', 'lactose', 'gluten', 'peanut', 'tree nut', 'shellfish', 'soy', 'other'],
+        otherInfo: {
             type: String,
             trim: true
         }
