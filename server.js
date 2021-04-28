@@ -23,13 +23,23 @@ app.use(session({
     saveUninitialized: false
 }));
 
-if (process.env.NODE_ENV === 'production') app.use(express.static('client/build'));
+if (process.env.NODE_ENV === 'production') {
+    const path= require('path');
+    app.use('static', express.static(path.join(__dirname, '../client/build/static')));
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/build/'));
+    });
+}
 
+// Adding API Routes
 app.use(routes);
 
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/donation"
-);
+// Error Handler
+app.use( (err, req, res, next) => {
+    console.log('===== ERROR =====');
+    console.error(err.stack);
+    res.status(500);
+});
 
 app.listen(PORT, () => {
     console.log(`Server listening on PORT ${PORT}`);
