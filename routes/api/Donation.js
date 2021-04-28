@@ -9,3 +9,5 @@ router.route('/give')
 router.route('/recieve')
     .get(donationController.findAll)
     .post(donationController.reserve)
+
+module.exports = router;
