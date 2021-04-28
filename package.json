@@ -24,6 +24,7 @@
     "axios": "^0.18.0",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
+    "connect-mongo": "^4.4.1",
     "eslint": "^7.25.0",
     "express": "^4.16.3",
     "express-session": "^1.17.1",
