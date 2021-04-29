@@ -1,4 +1,5 @@
 import React from "react";
+import Allergic from "./allergies";
 class Form extends React.Component{
     state={
         companyName:"",
@@ -6,7 +7,7 @@ class Form extends React.Component{
         parishable: "",
         expiration: "",
         quantity: "",
-        allegies: "",
+        allergy: "",
         specialInstructions: ""
     };
 
@@ -44,7 +45,7 @@ class Form extends React.Component{
                     type="number"
                     placeholder="#"
                     />
-                    
+                    <Allergic />
                 </form>
             </div>
         )
