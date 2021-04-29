@@ -1,3 +1,4 @@
+const ObjectId = require('mongoose').Types.ObjectId;
 const db = require('../models');
 
 module.exports = {
@@ -15,23 +16,35 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addDonation: (req, res) => {
-        db.Donations
-            .create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+        db.User
+            .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
+            .then(() => {
+                db.Donations
+                .create(req.body)
+                .then(dbModel => res.json(dbModel))
+                .catch(err => res.status(422).json(err));
+            });
     },
     removeDonation: (req, res) => {
-        db.Donations
-            .findById({ _id: req.params.id })
-            .then(dbModel => dbModel.remove())
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+        db.User
+            .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
+            .then(() => {
+                db.Donations
+                .findById({ _id: req.params.id })
+                .then(dbModel => dbModel.remove())
+                .then(dbModel => res.json(dbModel))
+                .catch(err => res.status(422).json(err));
+        });
     },
     findDonation: (req, res) => {
-        db.Donations
-            .findById(req.params.id)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+        db.User
+            .findOne({ _id: req.user_id })
+            .then(() => {
+                db.Donations
+                .findById(req.params.id)
+                .then(dbModel => res.json(dbModel))
+                .catch(err => res.status(422).json(err));
+        });
     },
     sortDonation: (req, res) => {
         db.Donations
