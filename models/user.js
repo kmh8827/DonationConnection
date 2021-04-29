@@ -1,28 +1,19 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
+const bcrypt = require('bcryptjs');
+mongoose.promise = Promise;
 
 const UserSchema = new Schema({
-    email: {
-        type: String,
-        trim: true
-    },
-    name: {
-        firstname: {
-            type: String,
-            trim: true
-        },
-        lastname: {
-            type: String,
-            trim: true
+    firstName: { type: String, trim: true, unique: false },
+    lastName: { type: String, trim: true, unique: false },
+    username: { type: String, trim: true, unique: false, require: false },
+    password: { type: String, unique: false, required: false },
+    donations: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Donation'
         }
-    },
-    password: {
-        type: String
-    },
-    location: {
-        type: String
-    }
+    ]
 });
 
 const User = mongoose.model("User", UserSchema);
