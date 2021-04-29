@@ -34,5 +34,14 @@ module.exports = {
             return res.json({ msg: 'logging you out' });
         }
         else return res.json({ msg: 'no user to log out!' });
+    },
+    auth: (req, res, next) => {
+        next();
+    },
+    authenticate: (req, res) => {
+        const user = JSON.parse(JSON.stringify(req.user));
+        const cleanUser = Object.assign({}, user);
+        if (cleanUser) delete cleanUser.password;
+        res.json({ user: cleanUser });
     }
 };
