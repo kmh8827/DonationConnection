@@ -16,10 +16,14 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addDonation: (req, res) => {
-        db.Donations
-            .create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+        db.User
+            .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
+            .then(() => {
+                db.Donations
+                    .create(req.body)
+                    .then(dbModel => res.json(dbModel))
+                    .catch(err => res.status(422).json(err));
+            })
     },
     removeDonation: (req, res) => {
         db.Donations
