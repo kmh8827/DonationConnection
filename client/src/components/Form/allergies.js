@@ -10,8 +10,8 @@ class Allergic extends Component {
             <div>
                 <h3>Allergies</h3>
                 <select>
-                    <option value="dairy">Dairy</option>
                     <option value="egg">Egg</option>
+                    <option value="dairy">Dairy</option>
                     <option value="nuts">Nuts</option>
                     <option value="wheat">wheat</option>
                     <option value="fish">Fish</option>
