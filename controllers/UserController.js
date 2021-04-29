@@ -9,9 +9,12 @@ module.exports = {
     register: (req, res) => {
         const { firstName, lastName, username, password } = req.body;
         // Add Validation
-        db.User.findOne({ 'username': username }, (err, userMatch ) => {
-            if (userMatch) return res.json({ error: `Sorry, there is already someone with the username: ${username}` });
-        },
+        db.User.findOne({ 'username': username }, (err, userMatch) => {
+            if (userMatch) {
+                return res.json({ 
+                    error: `Sorry, there is already someone with the username: ${username}` 
+            });
+        }
         const newUser = new db.User({
             'firstName': firstName,
             'lastName': lastName,
@@ -22,5 +25,14 @@ module.exports = {
             if (err) return res.json(err);
             return res.json(savedUser);
         });
+    });
     },
+    logout: (req, res) => {
+        if (req.user) {
+            req.session.destroy();
+            res.clearCookie('connect.sid'); //Clean-Up
+            return res.json({ msg: 'logging you out' });
+        }
+        else return res.json({ msg: 'no user to log out!' });
+    }
 };
