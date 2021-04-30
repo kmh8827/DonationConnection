@@ -5,7 +5,7 @@ const strategy = new LocalStrategy(
     {
         usernameField: 'username'
     },
-    (username, password, done) {
+    (username, password, done) => {
         db.User.findOne({ 'username': username }, (err, userMatch) => {
             if (err) return done(err);
             if (!userMatch) return done(null, false, { message: 'Incorrect Username, Please try again or Register a new User' });
@@ -14,3 +14,5 @@ const strategy = new LocalStrategy(
         });
     }
 );
+
+module.exports = strategy;
