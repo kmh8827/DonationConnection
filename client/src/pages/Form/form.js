@@ -1,5 +1,6 @@
 import React from "react";
 import Allergic from "./allergies";
+
 class Form extends React.Component{
     state={
         companyName:"",
@@ -7,7 +8,6 @@ class Form extends React.Component{
         parishable: "",
         expiration: "",
         quantity: "",
-        allergy: "",
         specialInstructions: ""
     };
 
@@ -42,6 +42,12 @@ class Form extends React.Component{
                     <h3>How many?</h3>
                     <input 
                     value={this.state.quantity}
+                    type="number"
+                    placeholder="#"
+                    />
+                    <h3>Special Instructions</h3>
+                    <input 
+                    value={this.state.specialInstructions}
                     type="number"
                     placeholder="#"
                     />
