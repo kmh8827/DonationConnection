@@ -8,7 +8,8 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const passport = require('./passport');
-const MongoStore = requrie('connection-mongo')(session);
+const MongoStore = require('connect-mongo')(session);
+const dbConnection = require('./db');
 const routes = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,9 +24,13 @@ app.use(session({
     saveUninitialized: false
 }));
 
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 if (process.env.NODE_ENV === 'production') {
     const path= require('path');
-    app.use('static', express.static(path.join(__dirname, '../client/build/static')));
+    app.use('static', express.static(path.join(__dirname, './client/build/static')));
     app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname, '../client/build/'));
     });

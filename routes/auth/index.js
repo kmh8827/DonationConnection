@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const passport = requrie('../../passport');
+const passport = require('../../passport');
 const userController = require('../../controllers/UserController');
 
 router.get('user', userController.getUser)

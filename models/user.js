@@ -16,7 +16,7 @@ const UserSchema = new Schema({
     ]
 });
 
-userSchema.methods = {
+UserSchema.methods = {
     checkPassword: (inputPassword) => {
         return bcrypt.compareSync(inputPassword, this.password);
     },
@@ -25,7 +25,7 @@ userSchema.methods = {
     }
 };
 
-userSchema.pre('save', (next) => {
+UserSchema.pre('save', (next) => {
     if (!this.password) next();
     else {
         this.password = this.hashPassword(this.password);
