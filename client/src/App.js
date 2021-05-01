@@ -1,35 +1,8 @@
-<<<<<<< HEAD
-// import logo from './logo.svg';
-// // import './App.css';
-// import NavBar from './pages/Navbar/navbar'
-import Home from './pages/Home/home.js';
-
-function App() {
-  return (
-    <Home />
-    /* <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div> */
-=======
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import Form from "./pages/form";
 import Login from "./pages/login";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
 import Donation from "./pages/donation";
 
@@ -47,7 +20,6 @@ function App() {
           </Switch>
         </Router>
     </div>
->>>>>>> f2cabf63f14d8a701cba11c0e34d74f96bc8d746
   );
 }
 
