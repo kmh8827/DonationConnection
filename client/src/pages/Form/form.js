@@ -1,5 +1,5 @@
 import React from "react";
-import Allergic from "./allergies";
+import Allergic from "../../components/allergies";
 import NavBar from "../../components/header/header"
 
 class Form extends React.Component{
