@@ -1,6 +1,10 @@
 import React from "react";
 import "../../assets/scss/home.scss";
+<<<<<<< HEAD:client/src/pages/Home/home.js
 import Login from "./../Login/login.js";
+=======
+import Login from "./login.js";
+>>>>>>> f2cabf63f14d8a701cba11c0e34d74f96bc8d746:client/src/pages/home.js
 
 function Home() {
     return(
