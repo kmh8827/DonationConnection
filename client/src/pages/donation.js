@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Donation(props) {
+const  Donation = (props) => {
     <div>
         
     </div>

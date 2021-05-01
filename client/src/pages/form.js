@@ -1,9 +1,9 @@
 import React from "react";
 import Allergic from "../components/allergies";
-import NavBar from "../components/header"
+import NavBar from "../components/navbar";
 
 class Form extends React.Component{
-    state={
+    state = {
         companyName:"",
         address: "",
         parishable: "",

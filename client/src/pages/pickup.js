@@ -1,8 +1,9 @@
 import React from 'react';
+import reserveCard from '../components/reserveCard';
 
-function Pickup(props) {
+const Pickup = () => {
     <div>
-        
+        <reserveCard />
     </div>
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Footer() {
+const Footer = () => {
     return(
         <footer class="navbar bg-dark fixed-bottom">
             <div class="container d-flex justify-content-center">
