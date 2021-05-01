@@ -1,5 +1,6 @@
 import React from "react";
 import Allergic from "./allergies";
+import NavBar from "../../components/header/header"
 
 class Form extends React.Component{
     state={
@@ -14,6 +15,7 @@ class Form extends React.Component{
     render(){
         return (
             <div>
+                <NavBar />
                 <p>Donation Form</p>
                 <form>
                     <h3>Company Name</h3>
