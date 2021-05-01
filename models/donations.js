@@ -15,9 +15,9 @@ const DonationsSchema = new Schema({
         type: String,
         trim: true
     },
-    pickup: {
-        type: String,
-        trim: true
+    availablility: {
+        type: Boolean,
+        default: 'yes'
     },
     address: {
         type: String,
