@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.scss";
+import "../assets/scss/home.scss";
 import Login from "./../Login/login.js";
 
 function Home() {
