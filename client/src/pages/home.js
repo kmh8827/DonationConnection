@@ -1,6 +1,6 @@
 import React from "react";
-import "../assets/scss/home.scss";
-import Login from "./../Login/login.js";
+import "../../assets/scss/home.scss";
+import Login from "./login.js";
 
 function Home() {
     return(

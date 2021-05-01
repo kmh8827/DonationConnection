@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/donations", {
+mongoose.connect("mongodb://localhost/donationDB", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
@@ -183,4 +183,15 @@ let donationSeed = [
       }
     ]
   }
-]
+];
+
+db.Donations.deleteMany({})
+  .then(() => db.Donations.collection.insertMany(donationSeed))
+  .then(data => {
+    console.log(data.result.n, " record insterted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
