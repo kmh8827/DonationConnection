@@ -1,32 +1,35 @@
 import React from "react";
 import "../../assets/scss/home.scss";
+<<<<<<< HEAD:client/src/pages/Home/home.js
+import Login from "./../Login/login.js";
+=======
 import Login from "./login.js";
+>>>>>>> f2cabf63f14d8a701cba11c0e34d74f96bc8d746:client/src/pages/home.js
 
 function Home() {
     return(
         <div>
-            <nav>
-                <ul className="nav navbar ml-auto">
-                    <li className="nav-item">
-                        <a className="nav-link" href={{Login}} id="login-modal">Login</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href={{Login}}>Register</a>
-                    </li>
-                </ul>
-            </nav>
+            <div className="bg-image">
+            <section className="container">
+                <span className="navbar-toggler-icon"></span>
+                <section className="collapse navbar-collapse" id="navbar">
+                <section className="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <a className="nav-link" href={{Login}}>Login</a>
+                    <a className="nav-link" href={{Login}}>Register</a>
+                </section>
+                </section>
+            </section>
+            
 
+            </div>
             <div>
 
-                <div classNameName="bg-image"></div>
-
-                <div classNameName="bg-text">
+                <div className="bg-text">
                     <h1>Donation Connection</h1>
                     <p>Where hunger meets a helping hand.</p>
                 </div>
 
             </div>
-
         </div>
 
 
