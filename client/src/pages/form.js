@@ -1,6 +1,6 @@
 import React from "react";
-import Allergic from "../../components/allergies";
-import NavBar from "../../components/header/header"
+import Allergic from "../components/allergies";
+import NavBar from "../components/header"
 
 class Form extends React.Component{
     state={
