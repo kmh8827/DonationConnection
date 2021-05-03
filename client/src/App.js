@@ -11,10 +11,11 @@ function App() {
     <div className="App">
         <Router>
           <Switch>
-            <Route exact path={["/"]} component={Home} />
+            <Route exact path={["/"]} component={Pickup} />
             <Route exact path={["/form"]} component={Form} />
             <Route exact path={["/login"]} component={Login} />
             <Route exact path={["/dashboard"]} component={Dashboard} />
+            <Route exact path={["/home"]} component={Home} />
             <Route exact path={["/pickup"]} component={Pickup}/>
             <Route exact path={["/donation"]} component={Donation} />
           </Switch>

@@ -2,7 +2,7 @@ import React from "react";
 import "../assets/scss/home.scss";
 import Login from "./login.js";
 
-function Home() {
+const Home = () => {
     return(
         <div>
             <div className="bg-image">
