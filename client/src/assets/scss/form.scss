@@ -1,0 +1,17 @@
+.board{
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    background-color: rgba(82, 45, 45, 0.931);
+    margin-bottom: 20px;
+}
+.background{
+    background: url("../images//formImg.png") no-repeat center center fixed; 
+    background-size: cover;
+    height:100vh;
+}
+.submit{
+    margin-top: 30px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
