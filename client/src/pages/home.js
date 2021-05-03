@@ -1,8 +1,9 @@
 import React from "react";
-import "../assets/scss/home.scss";
+import "../../assets/scss/home.scss";
 import Login from "./login.js";
+import Footer from "../../components/footer.js";
 
-const Home = () => {
+function Home() {
     return(
         <div>
             <div className="bg-image">
@@ -26,6 +27,7 @@ const Home = () => {
                 </div>
 
             </div>
+            <Footer />
         </div>
 
 
