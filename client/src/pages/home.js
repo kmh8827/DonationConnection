@@ -1,20 +1,19 @@
 import React from "react";
-import "../../assets/scss/home.scss";
+import "../assets/scss/home.scss";
 import Login from "./login.js";
-import Footer from "../../components/footer.js";
-
+import Footer from "../components/footer.js";
+ 
 function Home() {
     return(
         <div>
             <div className="bg-image">
             <section className="container">
-                <span className="navbar-toggler-icon"></span>
-                <section className="collapse navbar-collapse" id="navbar">
-                <section className="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <a className="nav-link" href={{Login}}>Login</a>
-                    <a className="nav-link" href={{Login}}>Register</a>
-                </section>
-                </section>
+                <div className="topnav">
+                    <section className="topnav-right">
+                        <a className="nav-link" href={{Login}}>Login</a>
+                        <a className="nav-link" href={{Login}}>Register</a>
+                    </section>
+                </div>
             </section>
             
 
@@ -27,6 +26,7 @@ function Home() {
                 </div>
 
             </div>
+
             <Footer />
         </div>
 

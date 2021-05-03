@@ -50,6 +50,18 @@ body, html {
 
   }
 
-  .navbar {
-    margin-right: 100%;
+  .topnav {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    overflow: hidden;
+    border-bottom: 3px solid $white-color;
+  }
+
+  .topnav-right {
+    float: right;
+    padding: 15px;
+    padding-right: 25px;
+    font-size: large;
+    font-weight: bold;
+
   }
