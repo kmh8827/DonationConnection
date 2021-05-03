@@ -6,7 +6,7 @@ router.route('/give')
     .post(donationController.addDonation)
     .delete(donationController.removeDonation);
 
-router.route('/recieve')
+router.route('/receive')
     .get(donationController.findAll)
     .post(donationController.reserve)
 

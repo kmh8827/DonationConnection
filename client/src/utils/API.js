@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default {
+const API = {
     getDonations: () => {
         return axios.get('/api/receive')
     },
@@ -17,3 +17,5 @@ export default {
         return axios.get('api/give')
     }
 };
+
+export default API;

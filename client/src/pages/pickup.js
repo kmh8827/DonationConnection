@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import API from '../../utils/API';
+import API from '../utils/API';
 import ReserveCard from '../components/reserveCard';
 
 const Pickup = () => {
@@ -12,14 +12,15 @@ const Pickup = () => {
     const loadPickups = () => {
         API.getDonations()
             .then(res => {
-                setData(res.data);
+                console.log('the data is ' + JSON.stringify(res.data));
+                setData(JSON.stringify(res.data));
             })
             .catch(err => console.log(err));
     };
 
     return (
     <div>
-        {data.map((thisDonation) =>
+        {/* {data.map((thisDonation) =>
             <ReserveCard 
                 key={data._id}
                 companyName={thisDonation.donation.companyName}
@@ -28,7 +29,7 @@ const Pickup = () => {
                 availability={thisDonation.donation.availability}
                 address={thisDonation.donation.address}
             />
-        )}
+        )} */}
     </div>
     );
 }
