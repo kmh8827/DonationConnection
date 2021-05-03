@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
-import reserveCard from '../components/reserveCard';
+import API from '../../utils/API';
+import ReserveCard from '../components/reserveCard';
 
 const Pickup = () => {
     const [data, setData] = useState({ donations: [] });
 
     useEffect(() => {
-        const fetchData = async () => {
-        const result = await axios.get('/');
-        setData(result.data);
-        };
-        fetchData();
+        loadPickups();
     }, []);
+
+    const loadPickups = () => {
+        API.getDonations()
+            .then(res => {
+                setData(res.data);
+            })
+            .catch(err => console.log(err));
+    };
 
     return (
     <div>
-        <reserveCard />
+        {data.map((thisDonation) =>
+            <ReserveCard 
+                key={data._id}
+                companyName={thisDonation.donation.companyName}
+                perishable={thisDonation.donation.perishable}
+                expDate={thisDonation.donation.expDate}
+                availability={thisDonation.donation.availability}
+                address={thisDonation.donation.address}
+            />
+        )}
     </div>
-    )
+    );
 }
 
 export default Pickup;
