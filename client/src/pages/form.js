@@ -1,7 +1,7 @@
 import React from "react";
 import Allergic from "../components/allergies";
 import NavBar from "../components/header";
-
+import "../assets/scss/form.scss";
 class Form extends React.Component{
     state = {
         companyName:"",
@@ -16,8 +16,9 @@ class Form extends React.Component{
         return (
             <div>
                 <NavBar />
+                <div className="background">
                 <p>Donation Form</p>
-                <form>
+                <form className="board">
                     <h3>Company Name</h3>
                     <input 
                     value={this.state.companyName}
@@ -54,7 +55,9 @@ class Form extends React.Component{
                     placeholder="#"
                     />
                     <Allergic />
+                    <button className="submit">Submit</button>
                 </form>
+                </div>
             </div>
         )
     }
