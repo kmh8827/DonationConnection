@@ -28,6 +28,7 @@ const Pickup = () => {
                 expDate={thisDonation.donation[0].expDate}
                 availability={thisDonation.donation[0].availability}
                 address={thisDonation.donation[0].address}
+                allergies={thisDonation.donation[0].allergies}
             />
         )}
     </div>
