@@ -28,11 +28,8 @@ const DonationsSchema = new Schema({
         trim: true
     },
     allergies: {
-        options: ['egg', 'lactose', 'gluten', 'peanut', 'tree nut', 'shellfish', 'soy', 'other'],
-        otherInfo: {
-            type: String,
-            trim: true
-        }
+        type: String,
+        trim: true
     }
 });
 

@@ -1,6 +1,7 @@
 import React from "react";
-import Allergic from "../components/allergies";
 import NavBar from "../components/header";
+import API from "../utils/API";
+
 import "../assets/scss/form.scss";
 class Form extends React.Component {
     state = {
@@ -9,8 +10,9 @@ class Form extends React.Component {
         address: "",
         perishable: "",
         expiration: "",
-        quantity: "",
-        specialInstructions: ""
+        specialInstructions: "",
+        allergies: "",
+        checked: true
     };
 
     handleInputChange = event => {
@@ -22,8 +24,43 @@ class Form extends React.Component {
         });
     };
 
-    handleSubmit(event) {
+    handleClick = event => {
+        const name = event.target.name;
+        const value = this.state.checked;
+
+        if (value === false) {
+            this.setState({
+                [name] : true
+            })
+        }
+
+        if (value === true) {
+            this.setState({
+                [name] : false
+            })
+        }
+
+        console.log(value);
+        console.log(this.state.checked);
+    
+    }
+
+    handleSubmit = event => {
         event.preventDefault();
+    
+        const newEntry = {
+            day: new Date().setDate(new Date().getDate()),
+            product: this.state.product,
+            companyName: this.state.companyName,
+            address: this.state.address,
+            perishable: this.state.checked ? 'false' : 'true',
+            expDate: this.state.expiration,
+            availability: 'true',
+            allergies: this.state.allergies
+        };
+        console.log('The new Entry is ' + JSON.stringify(newEntry));
+        API.newDonation(newEntry)
+            .catch(err => console.log(err));
     };
 
 
@@ -61,10 +98,9 @@ class Form extends React.Component {
                         />
                         <h3>Perishable</h3>
                         <input
-                            name="perishable"
-                            value={this.state.perishable}
+                            name="checked"
                             type="checkbox"
-                            placeholder="true or false"
+                            onChange={this.handleClick}
                         />
                         <h3>Expiration</h3>
                         <input
@@ -89,7 +125,15 @@ class Form extends React.Component {
                             placeholder="keep frozen"
                             onChange={this.handleInputChange}
                         />
-                        <Allergic />
+                        <h3>Allergies</h3>
+                        <input
+                            name="allergies"
+                            value={this.state.allergies}
+                            type="text"
+                            placeholder="Eggs, Milk"
+                            onChange={this.handleInputChange}
+                        />
+                        <br />
                         <button onClick={this.handleSubmit} className="submit">Submit</button>
                     </form>
                 </div>

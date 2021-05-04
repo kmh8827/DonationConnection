@@ -15,10 +15,8 @@ let donationSeed = [
     expDate: '5-10-21',
     availability: 'true',
     address: '112 Olive St, Franklin NC 28734',
-    allergies: {
-      options: ['egg'],
-      otherInfo: ""
-    }
+    allergies: 'egg'
+
   },
 
   {
@@ -29,10 +27,7 @@ let donationSeed = [
     expDate: '5-6-21',
     availability: 'true',
     address: '1008 Business dr, Franklin NC 28734',
-    allergies: {
-      options: ['egg'],
-      otherInfo: ""
-    }
+    allergies: 'egg'
   },
   {
     day: new Date().setDate(new Date().getDate() - 10),
@@ -42,10 +37,7 @@ let donationSeed = [
     expDate: '5-8-21',
     availability: 'true',
     address: '206 Jones rd, Waynesville NC 28734',
-    allergies: {
-      options: ['egg', 'lactose', 'gluten'],
-      otherInfo: ''
-    }
+    allergies: 'egg, lactose, gluten'
   },
   {
     day: new Date().setDate(new Date().getDate() - 10),
@@ -55,10 +47,8 @@ let donationSeed = [
     expDate: '5-10-21',
     availability: 'true',
     address: '502 Depot St, Ashville NC 28734',
-    allergies: {
-      options: ['other'],
-      otherInfo: 'Please ask us'
-    }
+    allergies: 'Please ask us',
+
   },
   {
     day: new Date().setDate(new Date().getDate() - 10),
@@ -68,10 +58,8 @@ let donationSeed = [
     expDate: '5-5-21',
     availability: 'true',
     address: '112 Olive St, Franklin NC 28734',
-    allergies: {
-      options: ['egg'],
-      otherInfo: ""
-    }
+    allergies: 'egg',
+
   },
   {
     day: new Date().setDate(new Date().getDate() - 10),
@@ -81,10 +69,7 @@ let donationSeed = [
     expDate: '5-23-21',
     availability: 'true',
     address: '125 Olive St, Franklin NC 28734',
-    allergies: {
-      options: ['egg'],
-      otherInfo: ""
-    }
+    allergies: 'egg',
   },
   {
     day: new Date().setDate(new Date().getDate() - 10),
@@ -94,25 +79,19 @@ let donationSeed = [
     expDate: '5-19-21',
     availability: 'true',
     address: '112 McCotter St, Franklin NC 28734',
-    allergies: {
-      options: ['egg'],
-      otherInfo: ""
-    }
+    allergies: 'egg'
+
 
   },
   {
     day: new Date().setDate(new Date().getDate() - 10),
-
     companyName: 'Arbys',
     product: '1 Ham Sandwich',
     perishable: 'true',
     expDate: '5-14-21',
     availability: 'true',
     address: '112 James Rd St, Franklin NC 28734',
-    allergies: {
-      options: ['egg'],
-      otherInfo: ""
-    }
+    allergies: 'egg'
 
   },
   {
@@ -123,10 +102,7 @@ let donationSeed = [
     expDate: '5-10-21',
     availability: 'true',
     address: '503 Main St, Waynesville NC 28734',
-    allergies: {
-      options: ['egg'],
-      otherInfo: ""
-    }
+    allergies: 'egg'
   },
   {
     day: new Date().setDate(new Date().getDate() - 10),
@@ -136,10 +112,7 @@ let donationSeed = [
     expDate: '5-8-21',
     availability: 'true',
     address: '128 Main, Franklin NC 28734',
-    allergies: {
-      options: ['gluten'],
-      otherInfo: ""
-    }
+    allergies: 'gluten'
   },
   {
     day: new Date().setDate(new Date().getDate() - 10),
@@ -149,10 +122,7 @@ let donationSeed = [
     expDate: '5-9-21',
     availability: 'true',
     address: '600 Main St, Franklin NC 28734',
-    allergies: {
-      options: ['gluten'],
-      otherInfo: ""
-    }
+    allergies: 'gluten'
   }
 ];
 
