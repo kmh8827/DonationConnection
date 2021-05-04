@@ -11,9 +11,10 @@ const reserveCard = (props) => {
     <div>
         <Card className="reserveCard">
         <CardBody>
-          <CardTitle tag="h5">{props.companyName}</CardTitle>
+          <CardTitle tag="h5">{props.product}</CardTitle>
           <CardText>
               <ul>
+                <li>Comapny Name: {props.companyName}</li>
                 <li>Perishable: {props.perishable}</li>
                 <li>Expiration Date: {props.expDate}</li>
                 <li>Availablity: {props.availability}</li>
@@ -23,7 +24,7 @@ const reserveCard = (props) => {
                   <li key={theseAllergies}>{theseAllergies}</li>  
                   )}
                   </ul>
-                <li>Other Allergy Information: {props.allergies.otherInfo}</li>
+                <li>Other Allergy Information: {props.allergies.otherInfo ? props.allergies.otherInfo : 'None'}</li>
               </ul> 
           </CardText>
           <ReserveButton id={props.id} text={'Reserve'} />

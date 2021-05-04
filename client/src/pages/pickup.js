@@ -24,8 +24,9 @@ const Pickup = () => {
         {donations && donations.map(thisDonation => 
             <ReserveCard 
                 key={thisDonation._id}
+                product={thisDonation.product}
                 companyName={thisDonation.companyName}
-                perishable={thisDonation.perishable}
+                perishable={thisDonation.perishable ? 'true' : 'false'}
                 expDate={thisDonation.expDate}
                 availability={thisDonation.availability ? 'true' : 'false'}
                 address={thisDonation.address}
