@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import "../assets/scss/form.scss";
 
 
 class Allergic extends Component {
@@ -8,12 +9,12 @@ class Allergic extends Component {
     render() {
         return (
             <div>
-                <h3>Allergies</h3>
+                <h3 className="h3">Allergies</h3>
                 <select>
                     <option value="egg">Egg</option>
                     <option value="dairy">Dairy</option>
                     <option value="nuts">Nuts</option>
-                    <option value="wheat">wheat</option>
+                    <option value="wheat">Wheat</option>
                     <option value="fish">Fish</option>
                     <option value="sesame">Sesame</option>
                     <option value="none">None</option>
