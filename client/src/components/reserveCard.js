@@ -1,10 +1,10 @@
 import React from 'react';
 
 import {
-    Card, CardText, CardBody,
-    CardTitle
+    Card, CardBody, CardTitle
   } from 'reactstrap';
 import ReserveButton from '../components/reserveButton';
+import ReserveList from '../components/reserveList';
 
 const reserveCard = (props) => {
   return (
@@ -12,21 +12,16 @@ const reserveCard = (props) => {
         <Card className="reserveCard">
         <CardBody>
           <CardTitle tag="h5">{props.product}</CardTitle>
-          <CardText>
-              <ul>
-                <li>Comapny Name: {props.companyName}</li>
-                <li>Perishable: {props.perishable}</li>
-                <li>Expiration Date: {props.expDate}</li>
-                <li>Availablity: {props.availability}</li>
-                <li>Address: {props.address}</li>
-                  <ul>
-                  {props.allergies.options.map(theseAllergies => 
-                  <li key={theseAllergies}>{theseAllergies}</li>  
-                  )}
-                  </ul>
-                <li>Other Allergy Information: {props.allergies.otherInfo ? props.allergies.otherInfo : 'None'}</li>
-              </ul> 
-          </CardText>
+          <ReserveList 
+            product={props.product}
+            companyName={props.companyName}
+            perishable={props.perishable ? 'true' : 'false'}
+            expDate={props.expDate}
+            availability={props.availability ? 'true' : 'false'}
+            address={props.address}
+            allergies={props.allergies}
+            id={props._id}
+          />
           <ReserveButton id={props.id} text={'Reserve'} />
         </CardBody>
       </Card>
