@@ -12,16 +12,16 @@ const DonationsSchema = new Schema({
         trim: true
     },
     perishable: {
-        type: Boolean,
+        type: String,
         default: true
     },
     expDate: {
         type: String,
         trim: true
     },
-    availablility: {
-        type: Boolean,
-        default: true
+    availability: {
+        type: String,
+        trim: true
     },
     address: {
         type: String,

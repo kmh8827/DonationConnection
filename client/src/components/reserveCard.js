@@ -15,9 +15,9 @@ const reserveCard = (props) => {
           <ReserveList 
             product={props.product}
             companyName={props.companyName}
-            perishable={props.perishable ? 'true' : 'false'}
+            perishable={props.perishable}
             expDate={props.expDate}
-            availability={props.availability ? 'true' : 'false'}
+            availability={props.availability}
             address={props.address}
             allergies={props.allergies}
             id={props._id}

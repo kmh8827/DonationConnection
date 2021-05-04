@@ -26,9 +26,9 @@ const Pickup = () => {
                 key={thisDonation._id}
                 product={thisDonation.product}
                 companyName={thisDonation.companyName}
-                perishable={thisDonation.perishable ? 'true' : 'false'}
+                perishable={thisDonation.perishable}
                 expDate={thisDonation.expDate}
-                availability={thisDonation.availability ? 'true' : 'false'}
+                availability={thisDonation.availability}
                 address={thisDonation.address}
                 allergies={thisDonation.allergies}
                 id={thisDonation._id}
