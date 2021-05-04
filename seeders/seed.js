@@ -17,7 +17,7 @@ let donationSeed = [
         availability: 'yes',
         address: '112 Olive St, Franklin NC 28734',
         allergies: {
-            options: 'egg',
+            options: ['egg'],
             otherInfo: ""
         }
       }
@@ -33,7 +33,7 @@ let donationSeed = [
         availability: 'yes',
         address: '1008 Business dr, Franklin NC 28734',
         allergies: {
-            options: 'egg',
+            options: ['egg'],
             otherInfo: ""
         }
       }
@@ -49,8 +49,8 @@ let donationSeed = [
         availability: 'yes',
         address: '206 Jones rd, Waynesville NC 28734',
         allergies: {
-            options: 'other',
-            otherInfo: 'Lactose gluten, and egg'
+            options: ['egg','lactose','gluten'],
+            otherInfo: ''
         }
       }
     ]
@@ -65,7 +65,7 @@ let donationSeed = [
         availability: 'yes',
         address: '502 Depot St, Ashville NC 28734',
         allergies: {
-            options: 'other',
+            options: ['other'],
             otherInfo: 'Please ask us'
         }
       }
@@ -81,7 +81,7 @@ let donationSeed = [
         availability: 'yes',
         address: '112 Olive St, Franklin NC 28734',
         allergies: {
-            options: 'egg',
+            options: ['egg'],
             otherInfo: ""
         }
       }
@@ -97,7 +97,7 @@ let donationSeed = [
         availability: 'yes',
         address: '125 Olive St, Franklin NC 28734',
         allergies: {
-            options: 'egg',
+            options: ['egg'],
             otherInfo: ""
         }
       }
@@ -113,7 +113,7 @@ let donationSeed = [
         availability: 'yes',
         address: '112 McCotter St, Franklin NC 28734',
         allergies: {
-            options: 'egg',
+            options: ['egg'],
             otherInfo: ""
         }
       }
@@ -129,7 +129,7 @@ let donationSeed = [
         availability: 'yes',
         address: '112 James Rd St, Franklin NC 28734',
         allergies: {
-            options: 'egg',
+            options: ['egg'],
             otherInfo: ""
         }
       }
@@ -145,7 +145,7 @@ let donationSeed = [
         availability: 'yes',
         address: '503 Main St, Waynesville NC 28734',
         allergies: {
-            options: 'egg',
+            options: ['egg'],
             otherInfo: ""
         }
       }
@@ -161,7 +161,7 @@ let donationSeed = [
         availability: 'yes',
         address: '128 Main, Franklin NC 28734',
         allergies: {
-            options: 'gluten',
+            options: ['gluten'],
             otherInfo: ""
         }
       }
@@ -177,7 +177,7 @@ let donationSeed = [
         availability: 'yes',
         address: '600 Main St, Franklin NC 28734',
         allergies: {
-            options: 'Gluten',
+            options: ['gluten'],
             otherInfo: ""
         }
       }

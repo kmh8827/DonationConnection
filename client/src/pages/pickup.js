@@ -3,33 +3,34 @@ import API from '../utils/API';
 import ReserveCard from '../components/reserveCard';
 
 const Pickup = () => {
-    const [data, setData] = useState({ donations: [] });
+    const [donations, setDonations] = useState([]);
 
     useEffect(() => {
         loadPickups();
-    }, []);
+    }, [])
 
     const loadPickups = () => {
         API.getDonations()
             .then(res => {
-                console.log('the data is ' + JSON.stringify(res.data));
-                setData(JSON.stringify(res.data));
+                let donationList = res.data;
+                setDonations(donationList);
             })
             .catch(err => console.log(err));
     };
 
     return (
     <div>
-        {/* {data.map((thisDonation) =>
+        {donations && donations.map(thisDonation => 
             <ReserveCard 
-                key={data._id}
-                companyName={thisDonation.donation.companyName}
-                perishable={thisDonation.donation.perishable}
-                expDate={thisDonation.donation.expDate}
-                availability={thisDonation.donation.availability}
-                address={thisDonation.donation.address}
+                key={thisDonation._id}
+                companyName={thisDonation.donation[0].companyName}
+                perishable={thisDonation.donation[0].perishable}
+                expDate={thisDonation.donation[0].expDate}
+                availability={thisDonation.donation[0].availability}
+                address={thisDonation.donation[0].address}
+                allergies={thisDonation.donation[0].allergies}
             />
-        )} */}
+        )}
     </div>
     );
 }
