@@ -1,11 +1,13 @@
 import React from "react";
 
-const Footer = () => {
+function Footer() {
     return(
-        <footer class="navbar bg-dark fixed-bottom">
-            <div class="container d-flex justify-content-center">
-            <span> &#169; Made By Team 5</span>
-            </div>
+        <footer>
+            <section className="container">
+                <div className="topnav">
+                    <p>Made By Team 5</p>
+                </div>
+            </section> 
         </footer>
     );
 }
