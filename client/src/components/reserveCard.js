@@ -16,7 +16,12 @@ const reserveCard = (props) => {
               <li>Expiration Date: {props.expDate}</li>
               <li>Availablity: {props.availability}</li>
               <li>Address: {props.address}</li>
-              {/* Array of Allergies */}
+              <ul>
+              {props.allergies.options.map(theseAllergies => 
+              <li>{theseAllergies}</li>  
+              )}
+              </ul>
+              <li>Other Allergy Information: {props.allergies.otherInfo}</li>
               </ul>
           </CardText>
           <Button color="primary">Reserve</Button>
