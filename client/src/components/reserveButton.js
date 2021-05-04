@@ -6,10 +6,17 @@ const reserveButton = (props) => {
           API.reserveDonations(id)
             .catch(err => console.log(err));
       };
-
+    
+    const reserved = (props.availability === 'true');
+    console.log(reserved);
+    console.log(props.isAvailable);
+    console.log(props);
     return (
         <div>
-            <Button onClick={() => reservePickup(props.id)}>{props.text}</Button>
+            { reserved
+             ? <Button onClick={() => reservePickup(props.id)}>{props.text}</Button>
+             : <Button disabled="true" onClick={() => reservePickup(props.id)}>{props.text}</Button>
+            }
         </div>
     )
 }

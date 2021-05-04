@@ -12,7 +12,7 @@ module.exports = {
     reserve: (req,res) => {
         console.log('The Id to update is ' + req.params.id);
         db.Donations
-            .findOneAndUpdate({_id: req.params.id}, { 'availability': 'No' }, { useFindAndModify: false})
+            .findOneAndUpdate({_id: req.params.id}, { 'availability': 'false' }, { useFindAndModify: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

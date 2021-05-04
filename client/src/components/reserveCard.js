@@ -22,7 +22,7 @@ const reserveCard = (props) => {
             allergies={props.allergies}
             id={props._id}
           />
-          <ReserveButton id={props.id} text={'Reserve'} />
+          <ReserveButton availability={props.availability} id={props.id} text={'Reserve'} />
         </CardBody>
       </Card>
     </div>
