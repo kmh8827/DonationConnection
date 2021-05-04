@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Router>
           <Switch>
-            <Route exact path={["/"]} component={Pickup} />
+            <Route exact path={["/"]} component={Form} />
             <Route exact path={["/form"]} component={Form} />
             <Route exact path={["/login"]} component={Login} />
             <Route exact path={["/dashboard"]} component={Dashboard} />
