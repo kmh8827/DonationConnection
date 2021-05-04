@@ -3,13 +3,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DonationsSchema = new Schema({
+    product: {
+        type: String,
+        trim: true
+    },
     companyName: {
         type: String,
         trim: true
     },
     perishable: {
         type: Boolean,
-        default: 'yes'
+        default: true
     },
     expDate: {
         type: String,
@@ -17,7 +21,7 @@ const DonationsSchema = new Schema({
     },
     availablility: {
         type: Boolean,
-        default: 'yes'
+        default: true
     },
     address: {
         type: String,

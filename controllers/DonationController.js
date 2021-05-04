@@ -10,8 +10,12 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     reserve: (req,res) => {
+        console.log('I MADE IT TO RESERVE');
+        console.log(req.params.id);
         db.Donations
-            .findOneAndUpdate({_id: req.params.id }, req.body)
+            .findOneAndUpdate({_id: req.params.id },
+                { availability : false }
+            )
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

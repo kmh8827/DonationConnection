@@ -5,7 +5,6 @@ const reserveButton = (props) => {
     const reservePickup = (id) => {
           API.reserveDonations(id)
             .catch(err => console.log(err));
-            console.log('hi');
       };
 
     return (

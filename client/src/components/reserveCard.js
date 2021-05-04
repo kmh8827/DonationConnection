@@ -7,8 +7,6 @@ import {
 import ReserveButton from '../components/reserveButton';
 
 const reserveCard = (props) => {
-  const apple = props.id;
-
   return (
     <div>
         <Card className="reserveCard">

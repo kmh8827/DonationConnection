@@ -13,6 +13,7 @@ const Pickup = () => {
         API.getDonations()
             .then(res => {
                 let donationList = res.data;
+                console.log(donationList);
                 setDonations(donationList);
             })
             .catch(err => console.log(err));
@@ -23,12 +24,13 @@ const Pickup = () => {
         {donations && donations.map(thisDonation => 
             <ReserveCard 
                 key={thisDonation._id}
-                companyName={thisDonation.donation[0].companyName}
-                perishable={thisDonation.donation[0].perishable}
-                expDate={thisDonation.donation[0].expDate}
-                availability={thisDonation.donation[0].availability}
-                address={thisDonation.donation[0].address}
-                allergies={thisDonation.donation[0].allergies}
+                companyName={thisDonation.companyName}
+                perishable={thisDonation.perishable}
+                expDate={thisDonation.expDate}
+                availability={thisDonation.availability ? 'true' : 'false'}
+                address={thisDonation.address}
+                allergies={thisDonation.allergies}
+                id={thisDonation._id}
             />
         )}
     </div>

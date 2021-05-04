@@ -7,6 +7,8 @@ router.route('/give')
 
 router.route('/receive')
     .get(donationController.findAll)
+
+router.route('/receive/:id')
     .post(donationController.reserve)
 
 module.exports = router;
