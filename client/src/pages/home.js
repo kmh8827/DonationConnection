@@ -14,7 +14,7 @@ function Home() {
                         <a className="nav-link" href={{Login}}>Register</a>
                     </section>
                 </div>
-            </section>
+            </section> 
             
 
             </div>
@@ -24,9 +24,7 @@ function Home() {
                     <h1>Donation Connection</h1>
                     <p>Where hunger meets a helping hand.</p>
                 </div>
-
             </div>
-
             <Footer />
         </div>
 
