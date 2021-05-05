@@ -5,12 +5,10 @@ import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
 import Donation from "./pages/donation";
-import Header from "./components/header"
 
 function App() {
   return (
     <div className="App">
-        <Header />
         <Router>
           <Switch>
             <Route exact path={["/"]} component={Form} />

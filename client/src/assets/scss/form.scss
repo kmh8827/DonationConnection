@@ -3,6 +3,7 @@
     display: inline-block;
 }
 .board{
+    padding-top: 10px;
     margin-left: 25%;
     margin-right: 25%;
     text-align: center;
@@ -10,7 +11,7 @@
     margin-bottom: 20px;
 }
 .background{
-    background: url("../images//formImg.png") no-repeat center center fixed; 
+    background: url("../images//formImg.png") repeat center fixed; 
     background-size: cover;
     height:100vh;
 }
@@ -21,4 +22,16 @@ h3{
     margin-top: 30px;
     font-size: 20px;
     margin-bottom: 30px;
+}
+.h3{
+    font-size: 30px;
+    color: cyan;
+}
+.h2{
+    padding-top: 10px;
+    font-size: 60px;
+    color: cyan;
+}
+.padding{
+    padding-top: 30px;
 }

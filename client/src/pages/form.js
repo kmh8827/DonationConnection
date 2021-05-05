@@ -152,7 +152,7 @@ class Form extends React.Component {
                         <button disabled={this.state.disable} onClick={this.handleSubmit} className="submit">Submit</button>
                     </form>
                 </div>
-            </div>
+                </div>
         )
     }
 }
