@@ -16,7 +16,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addDonation: (req, res) => {
-        console.log('I MADE IT HERE YAY');
         // db.User
         //     .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
         //     .then(() => {
