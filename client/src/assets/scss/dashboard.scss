@@ -1,29 +1,5 @@
 $white-color: whitesmoke;
 
-body, html {
-    margin-top: 0;
-    border: 0;
-    outline: 0;
-  }
-  
-* {
-box-sizing: border-box;
-}
-
-.bg-image {
-/* The image used */
-background-image: url("../images/food.jpg");
-
-
-/* Full height */
-height: 667px;
-
-/* Center and scale the image nicely */
-// background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-}
-
 .pickupBtn .tooltip {
     visibility: hidden;
     width: 120px;
