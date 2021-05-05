@@ -34,7 +34,7 @@ class Form extends React.Component {
             })
         } else {
             this.setState({
-                disable: true
+                disable: false
             })
         }
     };
@@ -85,8 +85,8 @@ class Form extends React.Component {
             <div>
                 <NavBar />
                 <div className="background">
-                    <p>Donation Form</p>
                     <form className="board">
+                        <h2>Donation Form</h2>
                         <h3>Product</h3>
                         <input
                             value={this.state.product}
