@@ -12,7 +12,7 @@ const Dashboard = (props) => {
         <div className="bg-image">
             <Header />
             <div className="container">
-                <div className="row ml-5">
+                <div className="row ml-5 mt-5">
                     <div className="pickup col">
                         <div className="btn btn-light m-4 mt-5">
                             <h5 className="p-3 text-center">Pickup</h5>
