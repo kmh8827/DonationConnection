@@ -1,19 +1,5 @@
 $white-color: whitesmoke;
 
-.pickupBtn .tooltip {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-  
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-  }
-
 .bigBtn {
     width: 75%;
     height: 85%;
@@ -39,13 +25,11 @@ h5 {
     height: auto;
 }
 
-.btn-dark:hover {
+.bigBtn:hover {
     background-color: rgba(0, 0, 0, 0.568); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.644); /* Black w/opacity/see-through */
     color: white;
     border: 3px solid $white-color;
 }
 
-.tooltip:hover .pickupBtn {
-    visibility: visible;
-  }
+
