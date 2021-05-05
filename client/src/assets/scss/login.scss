@@ -1,0 +1,26 @@
+.image {
+    background: url("../images/login.jpg") no-repeat center;
+    background-size: cover;
+    width: auto;
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.8);
+    top: 0;
+    left: 0;
+};
+.login {
+    background: url("../images/login1.jpg");
+    margin-left: 5%;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-right: 50%;
+    text-align: center;
+    padding: 3%;
+    box-shadow: 5px 10px 5px darkslategrey;
+};
+.loginBtn {
+    background: sandybrown;
+    text-align: center;
+};
+.form-label{
+    margin-right: 3px;
+}

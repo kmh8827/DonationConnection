@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "../assets/scss/login.scss";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Login = (props) => {
   const username = useFormInput('');
@@ -12,19 +14,25 @@ const Login = (props) => {
   }
 
   return (
-    <div>
-      Login<br /><br />
-      <div>
-        Username<br />
-        <input type="text" {...username} autoComplete="new-password" />
+    
+      <div className="image jumbotron">
+        <div>
+        <form className="login">
+          <h2>Login</h2><br />
+          <div className="mb-3">
+            <label for="inputUsername" className="form-label">Username </label>
+            <input type="text" {...username} autoComplete="new-password" />
+          </div>
+          <div>
+            <label for="inputPassword" className="form-label">Password </label>
+            <input type="password" {...password} autoComplete="new-password" />
+          </div>
+          {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
+          <input type="button" className="loginBtn" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />    
+        </form>
+        </div>
       </div>
-      <div style={{ marginTop: 10 }}>
-        Password<br />
-        <input type="password" {...password} autoComplete="new-password" />
-      </div>
-      {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-      <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
-    </div>
+    
   );
 }
 
