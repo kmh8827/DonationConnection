@@ -24,7 +24,21 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
-.btn-light {
+.pickupBtn .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+.btn-dark {
     width: 75%;
     height: 85%;
     background-color: rgb(0,0,0); /* Fallback color */
@@ -49,9 +63,13 @@ h5 {
     height: auto;
 }
 
-.btn-light:hover {
+.btn-dark:hover {
     background-color: rgba(0, 0, 0, 0.568); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.644); /* Black w/opacity/see-through */
     color: white;
     border: 3px solid $white-color;
 }
+
+.tooltip:hover .pickupBtn {
+    visibility: visible;
+  }
