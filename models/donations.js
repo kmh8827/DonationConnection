@@ -5,15 +5,17 @@ const Schema = mongoose.Schema;
 const DonationsSchema = new Schema({
     product: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
     companyName: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
     perishable: {
         type: String,
-        default: true
+        default: true,
     },
     expDate: {
         type: String,
@@ -21,15 +23,18 @@ const DonationsSchema = new Schema({
     },
     availability: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
     address: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
     allergies: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     }
 });
 

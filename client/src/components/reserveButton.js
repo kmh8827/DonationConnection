@@ -8,9 +8,6 @@ const reserveButton = (props) => {
       };
     
     const reserved = (props.availability === 'true');
-    console.log(reserved);
-    console.log(props.isAvailable);
-    console.log(props);
     return (
         <div>
             { reserved

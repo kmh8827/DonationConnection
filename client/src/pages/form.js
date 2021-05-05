@@ -8,11 +8,12 @@ class Form extends React.Component {
         product: "",
         companyName: "",
         address: "",
-        perishable: "",
         expiration: "",
         specialInstructions: "",
         allergies: "",
-        checked: true
+        checked: true,
+        disable: true,
+        quantity: 0
     };
 
     handleInputChange = event => {
@@ -22,6 +23,20 @@ class Form extends React.Component {
         this.setState({
             [name]: value
         });
+
+        if (
+            this.state.product !== "" && this.state.companyName !== "" &&
+            this.state.address !== "" && this.state.allergies !== "" && 
+            this.state.quantity !== 0
+        ) {
+            this.setState({
+                disable: false
+            })
+        } else {
+            this.setState({
+                disable: true
+            })
+        }
     };
 
     handleClick = event => {
@@ -134,7 +149,7 @@ class Form extends React.Component {
                             onChange={this.handleInputChange}
                         />
                         <br />
-                        <button onClick={this.handleSubmit} className="submit">Submit</button>
+                        <button disabled={this.state.disable} onClick={this.handleSubmit} className="submit">Submit</button>
                     </form>
                 </div>
             </div>
