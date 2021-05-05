@@ -3,32 +3,38 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DonationsSchema = new Schema({
+    product: {
+        type: String,
+        trim: true,
+        required: true
+    },
     companyName: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
     perishable: {
-        type: Boolean,
-        default: 'yes'
+        type: String,
+        default: true,
     },
     expDate: {
         type: String,
         trim: true
     },
-    availablility: {
-        type: Boolean,
-        default: 'yes'
+    availability: {
+        type: String,
+        trim: true,
+        required: true
     },
     address: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
     allergies: {
-        options: ['egg', 'lactose', 'gluten', 'peanut', 'tree nut', 'shellfish', 'soy', 'other'],
-        otherInfo: {
-            type: String,
-            trim: true
-        }
+        type: String,
+        trim: true,
+        required: true
     }
 });
 

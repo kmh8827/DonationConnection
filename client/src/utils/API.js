@@ -1,21 +1,20 @@
 import axios from "axios";
 
-const API = {
+export default {
+    // Gets a list of all Donations
     getDonations: () => {
         return axios.get('/api/donations/receive')
     },
-    reserveDonation: () => {
-        return axios.post('/api/donations/receive')
+    // Allows a user to reserve a donation
+    reserveDonations: (id) => {
+        return axios.post('/api/donations/receive/' + id)
     },
-    myDonations: (id) => {
-        return axios.get('api/donations/give')
-    },
-    newDonation: () => {
-        return axios.get('api/donations/give')
-    },
-    removeDonation: () => {
-        return axios.get('api/donations/give')
+    // Allows a user to create a donation
+    newDonation: (donation) => {
+        return axios({ 
+            method: 'POST',
+            url: 'api/donations/give',
+            data: donation
+        })
     }
 };
-
-export default API;
