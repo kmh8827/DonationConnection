@@ -17,46 +17,48 @@ class Form extends React.Component{
             <div>
                 <NavBar />
                 <div className="background">
-                <p>Donation Form</p>
+                <div className="padding">
                 <form className="board">
-                    <h3>Company Name</h3>
+                <h2 className="h2">Donation Form</h2>
+                    <h3 className="h3">Company Name</h3>
                     <input 
                     value={this.state.companyName}
                     type="text"
                     placeholder="Company Name"
                     />
-                    <h3>Address</h3>
+                    <h3 className="h3">Address</h3>
                     <input 
                     value={this.state.address}
                     type="text"
                     placeholder="Address"
                     />
-                    <h3>Perishable</h3>
+                    <h3 className="h3">Perishable</h3>
                     <input 
                     value={this.state.perishable}
                     type="boolean"
                     placeholder="yes or no"
                     />
-                    <h3>Expiration</h3>
+                    <h3 className="h3">Expiration</h3>
                     <input 
                     value={this.state.expiration}
                     type="date"
                     />
-                    <h3>How many?</h3>
+                    <h3 className="h3">How many?</h3>
                     <input 
                     value={this.state.quantity}
                     type="number"
                     placeholder="#"
                     />
-                    <h3>Special Instructions</h3>
+                    <h3 className="h3">Special Instructions</h3>
                     <input 
                     value={this.state.specialInstructions}
-                    type="number"
-                    placeholder="#"
+                    type="text"
+                    placeholder="freeze, refrigerate...etc"
                     />
                     <Allergic />
                     <button className="submit">Submit</button>
                 </form>
+                </div>
                 </div>
             </div>
         )
