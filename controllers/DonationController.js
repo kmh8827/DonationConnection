@@ -9,46 +9,46 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    reserve: (req,res) => {
+    reserve: (req, res) => {
         db.Donations
-            .findOneAndUpdate({_id: req.params.id }, req.body)
+            .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'false' }, { useFindAndModify: false })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     addDonation: (req, res) => {
-        db.User
-            .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
-            .then(() => {
-                db.Donations
-                .create(req.body)
-                .then(dbModel => res.json(dbModel))
-                .catch(err => res.status(422).json(err));
-            });
+        // db.User
+        //     .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
+        //     .then(() => {
+        db.Donations
+            .create(req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+        // });
     },
     removeDonation: (req, res) => {
         db.User
             .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
             .then(() => {
                 db.Donations
-                .findById({ _id: req.params.id })
-                .then(dbModel => dbModel.remove())
-                .then(dbModel => res.json(dbModel))
-                .catch(err => res.status(422).json(err));
-        });
+                    .findById({ _id: req.params.id })
+                    .then(dbModel => dbModel.remove())
+                    .then(dbModel => res.json(dbModel))
+                    .catch(err => res.status(422).json(err));
+            });
     },
     findDonation: (req, res) => {
         db.User
             .findOne({ _id: req.user_id })
             .then(() => {
                 db.Donations
-                .findById(req.params.id)
-                .then(dbModel => res.json(dbModel))
-                .catch(err => res.status(422).json(err));
-        });
+                    .findById(req.params.id)
+                    .then(dbModel => res.json(dbModel))
+                    .catch(err => res.status(422).json(err));
+            });
     },
     sortDonation: (req, res) => {
         db.Donations
-            .find({ })
+            .find({})
             .where(req.body).in(allergies)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

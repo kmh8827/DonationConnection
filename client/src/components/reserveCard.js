@@ -1,30 +1,28 @@
 import React from 'react';
+
 import {
-    Card, CardText, CardBody,
-    CardTitle, Button
+    Card, CardBody, CardTitle
   } from 'reactstrap';
+import ReserveButton from '../components/reserveButton';
+import ReserveList from '../components/reserveList';
 
 const reserveCard = (props) => {
   return (
     <div>
         <Card className="reserveCard">
         <CardBody>
-          <CardTitle tag="h5">{props.companyName}</CardTitle>
-          <CardText>
-              <ul>
-              <li>Perishable: {props.perishable}</li>
-              <li>Expiration Date: {props.expDate}</li>
-              <li>Availablity: {props.availability}</li>
-              <li>Address: {props.address}</li>
-              <ul>
-              {props.allergies.options.map(theseAllergies => 
-              <li>{theseAllergies}</li>  
-              )}
-              </ul>
-              <li>Other Allergy Information: {props.allergies.otherInfo}</li>
-              </ul>
-          </CardText>
-          <Button color="primary">Reserve</Button>
+          <CardTitle tag="h5">{props.product}</CardTitle>
+          <ReserveList 
+            product={props.product}
+            companyName={props.companyName}
+            perishable={props.perishable}
+            expDate={props.expDate}
+            availability={props.availability}
+            address={props.address}
+            allergies={props.allergies}
+            id={props._id}
+          />
+          <ReserveButton availability={props.availability} id={props.id} text={'Reserve'} />
         </CardBody>
       </Card>
     </div>
