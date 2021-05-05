@@ -16,10 +16,28 @@ body, html {
   
   
     /* Full height */
-    height: 700px;
+    height: 667px;
   
     /* Center and scale the image nicely */
     // background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+.card {
+    border: darkgray solid 3px;
+    border-radius: 20px;
+}
+
+#pickupImg {
+    width: 180px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+
+#donateImg {
+    width: 250px;
+    height: auto;
+}
+
