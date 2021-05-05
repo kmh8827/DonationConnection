@@ -5,7 +5,16 @@ import React from 'react';
 const Dashboard = (props) => {
     return (
         <>
-            {/* <Header /> */}
+         <div className="container">
+             <div className="row">
+                 <div className="pickup col">
+                    
+                 </div>
+                 <div className="donate col">
+
+                 </div>
+             </div>
+         </div>
 
 
         </>
