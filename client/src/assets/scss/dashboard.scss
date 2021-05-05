@@ -24,20 +24,19 @@ body, html {
     background-size: cover;
   }
 
-.card {
+.btn-light {
     border: darkgray solid 3px;
     border-radius: 20px;
+    width: 75%;
+    height: 85%;
 }
 
 #pickupImg {
-    width: 180px;
-    height: auto;
-    margin-top: 10px;
-    margin-bottom: 35px;
-}
-
-#donateImg {
     width: 250px;
     height: auto;
 }
 
+#donateImg {
+    width: 279px;
+    height: auto;
+}
