@@ -11,7 +11,7 @@ function App() {
     <div className="App">
         <Router>
           <Switch>
-            <Route exact path={["/"]} component={Form} />
+            <Route exact path={["/"]} component={Dashboard} />
             <Route exact path={["/form"]} component={Form} />
             <Route exact path={["/login"]} component={Login} />
             <Route exact path={["/dashboard"]} component={Dashboard} />
