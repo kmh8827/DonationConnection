@@ -14,11 +14,28 @@ const Login = (props) => {
   }
 
   return (
-    
-      <div className="image jumbotron">
+    <div>
+      
+
+      <div className="image jumbotron pt-0">
+
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="navbar-brand">Donation Connection</div>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <a className="nav-link" href="/home">Home</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
         <div>
         <form className="login">
-          <h2>Login</h2><br />
+          <h2 className="font">Login</h2><br />
           <div className="mb-3">
             <label for="inputUsername" className="form-label">Username </label>
             <input type="text" {...username} autoComplete="new-password" />
@@ -32,6 +49,7 @@ const Login = (props) => {
         </form>
         </div>
       </div>
+    </div>
     
   );
 }
