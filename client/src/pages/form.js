@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../components/header";
 import API from "../utils/API";
+import Footer from "../components/footer"
 
 import "../assets/scss/form.scss";
 class Form extends React.Component {
@@ -87,7 +88,7 @@ class Form extends React.Component {
                 <div className="background">
                     <form className="board">
                         <h2>Donation Form</h2>
-                        <h3>Product</h3>
+                        <h3>Product:</h3>
                         <input
                             value={this.state.product}
                             name="product"
@@ -95,7 +96,7 @@ class Form extends React.Component {
                             placeholder="cheese pizzas"
                             onChange={this.handleInputChange}
                         />
-                        <h3>Company Name</h3>
+                        <h3>Company Name:</h3>
                         <input
                             name="companyName"
                             value={this.state.companyName}
@@ -103,7 +104,7 @@ class Form extends React.Component {
                             placeholder="company name"
                             onChange={this.handleInputChange}
                         />
-                        <h3>Address</h3>
+                        <h3>Address:</h3>
                         <input
                             name="address"
                             value={this.state.address}
@@ -111,20 +112,20 @@ class Form extends React.Component {
                             placeholder="address"
                             onChange={this.handleInputChange}
                         />
-                        <h3>Perishable</h3>
+                        <h3>Perishable:</h3>
                         <input
                             name="checked"
                             type="checkbox"
                             onChange={this.handleClick}
                         />
-                        <h3>Expiration</h3>
+                        <h3>Expiration:</h3>
                         <input
                             name="expiration"
                             value={this.state.expiration}
                             type="date"
                             onChange={this.handleInputChange}
                         />
-                        <h3>How many?</h3>
+                        <h3>Quantity:</h3>
                         <input
                             name="quantity"
                             value={this.state.quantity}
@@ -132,7 +133,7 @@ class Form extends React.Component {
                             placeholder="#"
                             onChange={this.handleInputChange}
                         />
-                        <h3>Special Instructions</h3>
+                        <h3>Special Instructions:</h3>
                         <input
                             name="specialInstructions"
                             value={this.state.specialInstructions}
@@ -140,7 +141,7 @@ class Form extends React.Component {
                             placeholder="keep frozen"
                             onChange={this.handleInputChange}
                         />
-                        <h3>Allergies</h3>
+                        <h3>Allergies:</h3>
                         <input
                             name="allergies"
                             value={this.state.allergies}
@@ -152,6 +153,7 @@ class Form extends React.Component {
                         <button disabled={this.state.disable} onClick={this.handleSubmit} className="submit">Submit</button>
                     </form>
                 </div>
+                <Footer/>
                 </div>
         )
     }

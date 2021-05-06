@@ -15,7 +15,7 @@ const Dashboard = (props) => {
             <div className="container">
                 <div className="row ml-5 mt-5">
                     <div className="pickup col">
-                        <div data-tip data-for="pickupInfo" className="btn btn-dark bigBtn pickupBtn m-4 mt-5">
+                        <div type="button" onClick={event =>  window.location.href='/pickup'} data-tip data-for="pickupInfo" className="btn btn-dark bigBtn pickupBtn m-4 mt-5">
                             <h5 className="p-3 text-center">Pickup</h5>
                             <img id="pickupImg" className="m-3 mx-auto image-fluid" alt="Pickup" src={pickup}/>
                         </div>
@@ -24,7 +24,7 @@ const Dashboard = (props) => {
                         </ReactTooltip>
                     </div>
                     <div className="donate col">
-                        <div data-tip data-for="donationInfo" className="btn btn-dark bigBtn m-4 mt-5">
+                        <div type="button" onClick={event =>  window.location.href='/donate'} data-tip data-for="donationInfo" className="btn btn-dark bigBtn m-4 mt-5">
                             <h5 className="p-3 text-center">Donate</h5>
                             <img id="donateImg" className="mt-n3 m-3 mx-auto image-fluid" alt="Pickup" src={donate}/>
                         </div>
