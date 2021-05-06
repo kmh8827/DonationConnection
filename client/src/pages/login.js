@@ -13,9 +13,29 @@ const Login = (props) => {
     props.history.push('/dashboard');
   }
 
+  const handleInputChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  const useFormInput = initialValue => {
+    const [value, setValue] = useState(initialValue);
+
+    const handleChange = e => {
+      setValue(e.target.value);
+    }
+    return {
+      value,
+      onChange: handleChange
+    }
+  }
+
   return (
     <div>
-      
 
       <div className="image jumbotron pt-0">
 
@@ -34,36 +54,30 @@ const Login = (props) => {
         </nav>
 
         <div>
-        <form className="login">
-          <h2 className="font">Login</h2><br />
-          <div className="mb-3">
-            <label for="inputUsername" className="form-label">Username </label>
-            <input type="text" {...username} autoComplete="new-password" />
-          </div>
-          <div>
-            <label for="inputPassword" className="form-label">Password </label>
-            <input type="password" {...password} autoComplete="new-password" />
-          </div>
-          {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-          <input type="button" className="loginBtn" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />    
-        </form>
+          <form className="login">
+            <h2 className="font">Login</h2><br />
+            <div className="mb-3">
+              <label for="inputUsername" className="form-label">Username </label>
+              <input type="text" {...username}
+                autoComplete="new-password"
+                name="username"
+                onChange={this.handleInputChange}
+                value={username} />
+            </div>
+            <div>
+              <label for="inputPassword" className="form-label">Password </label>
+              <input type="password" {...password} autoComplete="new-password"
+                name="password" onChange={this.handleInputChange} value={password} />
+            </div>
+            {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
+            <input type="button" className="loginBtn" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
+          </form>
         </div>
       </div>
     </div>
-    
+
   );
 }
 
-const useFormInput = initialValue => {
-  const [value, setValue] = useState(initialValue);
-
-  const handleChange = e => {
-    setValue(e.target.value);
-  }
-  return {
-    value,
-    onChange: handleChange
-  }
-}
 
 export default Login;
