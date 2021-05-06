@@ -2,12 +2,8 @@ import React from "react";
 
 function Footer() {
     return(
-        <footer>
-            <section className="container">
-                <div className="topnav">
-                    <p>Made By Team 5</p>
-                </div>
-            </section> 
+        <footer className="fixed-bottom">
+            <div className="footerText">Made By Team 5</div>
         </footer>
     );
 }
