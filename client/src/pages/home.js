@@ -1,9 +1,11 @@
 import React from "react";
 import "../assets/scss/home.scss";
-import Login from "./login.js";
+// import Login from "./login.js";
 import Footer from "../components/footer.js";
  
 function Home() {
+
+
     return(
         <div>
             <div className="bg-image">
@@ -22,8 +24,8 @@ function Home() {
 
                     <div className="navv">
                         <section className="container">
-                            <button type="button" className="btn btn-light" href={{Login}}>Login</button>
-                            <button type="button" className="btn btn-light" href={{Login}}>Register</button>
+                            <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/login'}>Login</button>
+                            <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/login'}>Register</button>
                         </section>
                     </div>
                 </div>
