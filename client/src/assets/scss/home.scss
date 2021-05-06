@@ -112,6 +112,13 @@ body, html {
    font-size: large !important;
 
  }
+
+ button:hover {
+  background-color: rgba(0, 0, 0, 0.568); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.644); /* Black w/opacity/see-through */
+  color: white;
+  border: 3px solid $white-color;
+}
 //  .button1 {
 //   font: bold 11px Arial;
 //   text-decoration: none;
