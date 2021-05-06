@@ -8,7 +8,6 @@ const reserveList = (props) => {
                 <li>Availablity: {props.availability}</li>
                 <li>Address: {props.address}</li>
                 <li>Allergies: {props.allergies}</li>
-                <li>Other Allergy Information: {props.allergies.otherInfo ? props.allergies.otherInfo : 'None'}</li>
               </ul> 
         </div>
     )
