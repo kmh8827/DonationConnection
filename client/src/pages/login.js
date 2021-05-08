@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../assets/scss/login.scss";
+import Footer from "../components/footer";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Login = (props) => {
@@ -47,7 +48,8 @@ const Login = (props) => {
             <input type="button" className="loginBtn" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
           </form>
         </div>
-
+        <Footer />
+        
       </div>
     </div>
     
