@@ -25,7 +25,7 @@ const Pickup = () => {
     return (
     <div className="bg-image-pickup">
         <Header />
-        <div className="container">
+        <div className="container pickupContainer">
             {donations && donations.map(thisDonation => 
                 <ReserveCard 
                     key={thisDonation._id}
