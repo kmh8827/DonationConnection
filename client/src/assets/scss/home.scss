@@ -66,12 +66,6 @@ body, html {
 
   // }
 
- footer {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  text-align: center;
- }
-
  .bottom {
    text-align: center;
  }
@@ -130,9 +124,3 @@ body, html {
 //   border-bottom: 1px solid #333333;
 //   border-left: 1px solid #CCCCCC;
 // }
-
-.footerText {
-  color: $white-color;
-  padding: 10px;
-}
-
