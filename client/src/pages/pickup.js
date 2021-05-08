@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../components/header'
 import API from '../utils/API';
 import ReserveCard from '../components/reserveCard';
 import '../assets/scss/pickup.scss';
@@ -23,6 +24,7 @@ const Pickup = () => {
 
     return (
     <div className="bg-image-pickup">
+        <Header />
         <div className="container">
             {donations && donations.map(thisDonation => 
                 <ReserveCard 
