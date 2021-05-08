@@ -40,7 +40,7 @@ const Login = (props) => {
               <input type="text" {...username} autoComplete="new-password" />
             </div>
             <div>
-              <label for="inputPassword" className="form-label">Password </label>
+              <label for="inputPassword" className="form-label" id="password">Password </label>
               <input type="password" {...password} autoComplete="new-password" />
             </div>
             {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
