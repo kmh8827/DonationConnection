@@ -10,7 +10,7 @@ import Header from '../components/header'
 const Dashboard = (props) => {
     return (
         <>
-        <div className="bg-image">
+        <div className="bg-image-home">
             <Header />
             <div className="container">
                 <div className="row ml-5 mt-5">
