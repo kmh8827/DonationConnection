@@ -1,0 +1,13 @@
+$white-color: whitesmoke;
+
+.footerText {
+    color: $white-color;
+    padding: 10px;
+  }
+  
+footer {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.719); /* Black w/opacity/see-through */
+    text-align: center;
+}
+  

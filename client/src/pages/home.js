@@ -1,7 +1,6 @@
 import React from "react";
 import "../assets/scss/home.scss";
 // import Login from "./login.js";
-import Footer from "../components/footer.js";
  
 function Home() {
 
