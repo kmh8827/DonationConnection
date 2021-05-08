@@ -14,12 +14,11 @@ const Login = (props) => {
   }
 
   return (
-    <div>
-      
+    <div>      
 
-      <div className="image jumbotron pt-0">
+      <div className="bg-image">
 
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="navbar-brand">Donation Connection</div>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -33,21 +32,22 @@ const Login = (props) => {
           </div>
         </nav>
 
-        <div>
-        <form className="login">
-          <h2 className="font">Login</h2><br />
-          <div className="mb-3">
-            <label for="inputUsername" className="form-label">Username </label>
-            <input type="text" {...username} autoComplete="new-password" />
-          </div>
-          <div>
-            <label for="inputPassword" className="form-label">Password </label>
-            <input type="password" {...password} autoComplete="new-password" />
-          </div>
-          {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-          <input type="button" className="loginBtn" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />    
-        </form>
+        <div className="container">
+          <form className="login">
+            <h2 className="font">Login</h2><br />
+            <div className="mb-3">
+              <label for="inputUsername" className="form-label">Username </label>
+              <input type="text" {...username} autoComplete="new-password" />
+            </div>
+            <div>
+              <label for="inputPassword" className="form-label" id="password">Password </label>
+              <input type="password" {...password} autoComplete="new-password" />
+            </div>
+            {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
+            <input type="button" className="loginBtn" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
+          </form>
         </div>
+
       </div>
     </div>
     
