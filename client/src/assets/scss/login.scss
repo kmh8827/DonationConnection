@@ -1,18 +1,19 @@
-.image {
-    background: url("../images/login.jpg") no-repeat center;
+.bg-image {
+    background: url("../images/food.jpg") no-repeat center;
     background-size: cover;
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
     background-color: rgba(20, 20, 20, 0.8);
     top: 0;
     left: 0;
+    padding-bottom: 25%;
 };
 .login {
     background: url("../images/login1.jpg");
-    margin-left: 5%;
+    margin-left: 30%;
     margin-top: 25%;
-    margin-bottom: 25%;
-    margin-right: 50%;
+    // margin-bottom: 25%;
+    margin-right: 30%;
     text-align: center;
     padding: 3%;
     box-shadow: 9px 12px 8px rgb(27, 48, 48);
@@ -25,6 +26,23 @@
     background: sandybrown;
     text-align: center;
 };
-.form-label{
-    margin-right: 3px;
+
+.loginBtn:hover {
+    background: rgb(173, 98, 32);
+};
+
+.form-label {
+    margin-right: 5px;
+};
+
+.navbar {
+opacity: 0.4;
+};
+
+.navbar:hover {
+    opacity: 0.9;
+};
+
+#password {
+    margin-right: 10px;
 }
