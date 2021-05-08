@@ -11,7 +11,7 @@ const reserveButton = (props) => {
     const reserved = (props.availability === 'true');
 
     return (
-        <div>
+        <div className="reserveBtn">
             { reserved
              ? <Button onClick={() => reservePickup(props.id)}>{props.text}</Button>
              : <Button disabled={true} onClick={() => reservePickup(props.id)}>{props.text}</Button>

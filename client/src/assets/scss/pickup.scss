@@ -12,5 +12,17 @@ $white-color: whitesmoke;
   color: white;
   font-weight: bold;
   border: 3px solid $white-color;
+  width: auto;
+}
 
+// .pickupTitle {
+//   ali: center;
+// }
+
+.infoList {
+  float: left;
+}
+
+.reserveBtn {
+  float: right;
 }

@@ -11,8 +11,8 @@ const reserveCard = (props) => {
     <div>
         <Card className="reserveCard card m-3">
         <CardBody>
-          <CardTitle tag="h5">{props.product}</CardTitle>
-          <ReserveList 
+          <CardTitle className="text-center" tag="h5">{props.product}</CardTitle>
+          <ReserveList
             product={props.product}
             companyName={props.companyName}
             perishable={props.perishable}
