@@ -6,6 +6,15 @@ mongoose.connect("mongodb://localhost/donationDB", {
   useFindAndModify: false
 });
 
+let userSeed = [
+  {
+  firstName: 'Kevin',
+  lastName: 'Hellman',
+  username: 'kmh8827',
+  password: '123abc'
+  }
+];
+
 let donationSeed = [
   {
     day: new Date().setDate(new Date().getDate() - 10),
@@ -126,6 +135,17 @@ let donationSeed = [
   }
 ];
 
+db.Users.deleteMany({})
+.then(() => db.Users.collection.insertMany(userSeed))
+.then(data => {
+  console.log(data.result.n, " record insterted!");
+  process.exit(0);
+})
+.catch(err => {
+  console.error(err);
+  process.exit(1);
+});
+
 db.Donations.deleteMany({})
   .then(() => db.Donations.collection.insertMany(donationSeed))
   .then(data => {
@@ -136,3 +156,4 @@ db.Donations.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+

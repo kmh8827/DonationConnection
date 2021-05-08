@@ -9,13 +9,13 @@ module.exports = {
     register: (req, res) => {
         const { firstName, lastName, username, password } = req.body;
         // Add Validation
-        db.User.findOne({ 'username': username }, (err, userMatch) => {
+        db.Users.findOne({ 'username': username }, (err, userMatch) => {
             if (userMatch) {
                 return res.json({ 
                     error: `Sorry, there is already someone with the username: ${username}` 
             });
         }
-        const newUser = new db.User({
+        const newUser = new db.Users({
             'firstName': firstName,
             'lastName': lastName,
             'username': username,
