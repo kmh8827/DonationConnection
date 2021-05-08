@@ -13,6 +13,7 @@ const Pickup = () => {
     const loadPickups = () => {
         API.getDonations()
             .then(res => {
+                console.log("helo!!!!!");
                 let donationList = res.data;
                 console.log(donationList);
                 setDonations(donationList);

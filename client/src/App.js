@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
-import Form from "./pages/form";
+import Form from "./pages/donationForm";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
