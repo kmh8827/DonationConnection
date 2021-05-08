@@ -9,10 +9,10 @@ import ReserveList from '../components/reserveList';
 const reserveCard = (props) => {
   return (
     <div>
-        <Card className="reserveCard card m-5">
+        <Card className="reserveCard card m-3">
         <CardBody>
-          <CardTitle tag="h5">{props.product}</CardTitle>
-          <ReserveList 
+          <CardTitle className="text-center" tag="h5">{props.product}</CardTitle>
+          <ReserveList
             product={props.product}
             companyName={props.companyName}
             perishable={props.perishable}
