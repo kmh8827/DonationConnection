@@ -5,7 +5,7 @@ import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
 import Donation from "./pages/donation";
-
+import Footer from "./components/footer";
 function App() {
   return (
     <div className="App">
@@ -19,6 +19,7 @@ function App() {
             <Route exact path={["/pickup"]} component={Pickup}/>
             <Route exact path={["/donation"]} component={Donation} />
           </Switch>
+          <Footer />
         </Router>
     </div>
   );
