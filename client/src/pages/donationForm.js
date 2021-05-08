@@ -154,7 +154,7 @@ class Form extends React.Component {
                     </form>
                 </div>
                 <Footer/>
-                </div>
+            </div>
         )
     }
 }
