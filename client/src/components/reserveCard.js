@@ -9,7 +9,7 @@ import ReserveList from '../components/reserveList';
 const reserveCard = (props) => {
   return (
     <div>
-        <Card className="reserveCard">
+        <Card className="reserveCard card m-5">
         <CardBody>
           <CardTitle tag="h5">{props.product}</CardTitle>
           <ReserveList 
