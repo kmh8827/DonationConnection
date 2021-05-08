@@ -8,7 +8,7 @@ function Home() {
 
     return(
         <div>
-            <div className="bg-image">
+            <div className="bg-image-home">
 
                 <div className="wrapper">
                     <div className="bg-text container">
