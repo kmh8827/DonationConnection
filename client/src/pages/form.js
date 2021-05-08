@@ -2,8 +2,8 @@ import React from "react";
 import NavBar from "../components/header";
 import API from "../utils/API";
 import Footer from "../components/footer"
-
 import "../assets/scss/form.scss";
+
 class Form extends React.Component {
     state = {
         product: "",
@@ -23,21 +23,22 @@ class Form extends React.Component {
 
         this.setState({
             [name]: value
+        }, () => {
+            if (
+                this.state.product !== "" && this.state.companyName !== "" &&
+                this.state.address !== "" && this.state.allergies !== "" && 
+                this.state.quantity !== 0
+            ) {
+                this.setState({
+              
+                    disable: false
+                })
+            } else {
+                this.setState({
+                    disable: true
+                })
+            }
         });
-
-        if (
-            this.state.product !== "" && this.state.companyName !== "" &&
-            this.state.address !== "" && this.state.allergies !== "" && 
-            this.state.quantity !== 0
-        ) {
-            this.setState({
-                disable: false
-            })
-        } else {
-            this.setState({
-                disable: false
-            })
-        }
     };
 
     handleClick = event => {

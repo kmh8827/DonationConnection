@@ -19,6 +19,16 @@ const Pickup = () => {
             .catch(err => console.log(err));
     };
 
+    const reservePickup = (id) => {
+        API.reserveDonations(id)
+          .then(response => {
+              if (response.status === 200) {
+                  loadPickups()
+              }
+          })
+          .catch(err => console.log(err));
+    };
+
     return (
     <div>
         {donations && donations.map(thisDonation => 
@@ -32,6 +42,7 @@ const Pickup = () => {
                 address={thisDonation.address}
                 allergies={thisDonation.allergies}
                 id={thisDonation._id}
+                reservePickup={reservePickup}
             />
         )}
     </div>

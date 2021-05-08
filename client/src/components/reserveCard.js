@@ -1,28 +1,25 @@
 import React from 'react';
 
 import {
-    Card, CardBody, CardTitle
-  } from 'reactstrap';
-import ReserveButton from '../components/reserveButton';
-import ReserveList from '../components/reserveList';
+  Card, CardBody, CardTitle, Button
+} from 'reactstrap';
 
 const reserveCard = (props) => {
+  const reserved = (props.availability === 'true');
   return (
     <div>
-        <Card className="reserveCard">
+      <Card className="reserveCard">
         <CardBody>
           <CardTitle tag="h5">{props.product}</CardTitle>
-          <ReserveList 
-            product={props.product}
-            companyName={props.companyName}
-            perishable={props.perishable}
-            expDate={props.expDate}
-            availability={props.availability}
-            address={props.address}
-            allergies={props.allergies}
-            id={props._id}
-          />
-          <ReserveButton availability={props.availability} id={props.id} text={'Reserve'} />
+          <ul>
+            <li>Comapny Name: {props.companyName}</li>
+            <li>Perishable: {props.perishable}</li>
+            <li>Expiration Date: {props.expDate}</li>
+            <li>Availablity: {props.availability}</li>
+            <li>Address: {props.address}</li>
+            <li>Allergies: {props.allergies}</li>
+          </ul>
+          <Button disabled={reserved} onClick={() => props.reservePickup(props.id)}>Reserved</Button>
         </CardBody>
       </Card>
     </div>

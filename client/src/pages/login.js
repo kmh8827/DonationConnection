@@ -3,36 +3,40 @@ import "../assets/scss/login.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Login = (props) => {
-  const username = useFormInput('');
-  const password = useFormInput('');
+  // const username = useFormInput('');
+  // const password = useFormInput('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [userObject, setUserObject] = useState({
+    username: '',
+    password: ''
+  });
 
   // handle button click of login form
-  const handleLogin = () => {
+  const handleLogin = (event) => {
     props.history.push('/dashboard');
+    event.preventDefault();
+    props.login(userObject.username, userObject.password);
   }
 
   const handleInputChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-
-    this.setState({
-      [name]: value
+    setUserObject({
+      ...userObject,
+      [event.target.name]: event.target.value
     });
-  }
+  };
 
-  const useFormInput = initialValue => {
-    const [value, setValue] = useState(initialValue);
+  // const useFormInput = initialValue => {
+  //   const [value, setValue] = useState(initialValue);
 
-    const handleChange = e => {
-      setValue(e.target.value);
-    }
-    return {
-      value,
-      onChange: handleChange
-    }
-  }
+  //   const handleChange = e => {
+  //     setValue(e.target.value);
+  //   }
+  //   return {
+  //     value,
+  //     onChange: handleChange
+  //   }
+  // }
 
   return (
     <div>
@@ -58,19 +62,23 @@ const Login = (props) => {
             <h2 className="font">Login</h2><br />
             <div className="mb-3">
               <label for="inputUsername" className="form-label">Username </label>
-              <input type="text" {...username}
+              <input type="text"
                 autoComplete="new-password"
                 name="username"
-                onChange={this.handleInputChange}
-                value={username} />
+                onChange={handleInputChange}
+                value={userObject.username} />
             </div>
             <div>
               <label for="inputPassword" className="form-label">Password </label>
-              <input type="password" {...password} autoComplete="new-password"
-                name="password" onChange={this.handleInputChange} value={password} />
+              <input type="password"
+               autoComplete="new-password"
+               name="password" 
+               onChange={handleInputChange} 
+               value={userObject.password} />
             </div>
             {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-            <input type="button" className="loginBtn" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
+            <input type="button" className="loginBtn" value={loading ? 'Loading...' : 'Login'} 
+            onClick={handleLogin} disabled={loading} /><br />
           </form>
         </div>
       </div>

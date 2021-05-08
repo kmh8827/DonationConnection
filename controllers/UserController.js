@@ -36,6 +36,7 @@ module.exports = {
         else return res.json({ msg: 'no user to log out!' });
     },
     auth: (req, res, next) => {
+        console.log(req.body);
         next();
     },
     authenticate: (req, res) => {

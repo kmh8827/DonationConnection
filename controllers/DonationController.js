@@ -6,7 +6,7 @@ module.exports = {
         db.Donations
             .find()
             .sort({ date: -1 })
-            .then(dbModel => res.json(dbModel))
+            .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
     },
     reserve: (req, res) => {
