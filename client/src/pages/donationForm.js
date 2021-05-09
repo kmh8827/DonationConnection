@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/header";
+import Header from "../components/header";
 import API from "../utils/API";
 import Footer from "../components/footer"
 
@@ -84,9 +84,9 @@ class Form extends React.Component {
     render() {
         return (
             <div>
-                <NavBar />
+                <Header />
                 <div className="background">
-                    <form className="board">
+                    {/* <form className="board">
                         <h2>Donation Form</h2>
                         <h3>Product:</h3>
                         <input
@@ -151,7 +151,7 @@ class Form extends React.Component {
                         />
                         <br />
                         <button disabled={this.state.disable} onClick={this.handleSubmit} className="submit">Submit</button>
-                    </form>
+                    </form> */}
                 </div>
                 <Footer/>
             </div>
