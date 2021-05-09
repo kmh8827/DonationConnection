@@ -21,7 +21,7 @@ nav {
 .appTitle {
     font-family: cursive;
     font-weight: bolder;
-    font-size: x-large;
+    font-size: xx-large;
     text-shadow:
     -1px -1px 0 rgba(255, 255, 255, 0),
     1px 1px 0 rgba(0,0,0,.25),
@@ -40,4 +40,8 @@ nav {
     3px 3px 3px rgba(0,0,0,.25),
     10px 10px 20px rgba(0,0,0,.5),
     20px 40px 40px rgba(0,0,0,.5); 
+}
+
+.appTitle, .navBtn {
+    color: rgb(44, 44, 44);
 }

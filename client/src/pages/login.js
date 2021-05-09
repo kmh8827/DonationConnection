@@ -17,7 +17,7 @@ const Login = (props) => {
 
   return (
     <div>
-      <nav className="navbar navTitleBar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <nav className="navbar navTitleBar navbar-expand-lg fixed-top">
         <div className="navbar-brand appTitle">Donation Connection</div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
