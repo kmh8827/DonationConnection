@@ -95,7 +95,7 @@ class Form extends React.Component {
                     </div>
                     <form className="pb-5">
                         <div className="form-group">
-                            <label for="inputCompany" className="form-label">Company Name:</label>
+                            <label className="form-label">Company Name:</label>
                             <input 
                             type="text" 
                             className="form-control"
@@ -107,7 +107,7 @@ class Form extends React.Component {
                             />
                         </div>
                         <div className="form-group mb-4">
-                            <label for="inputProduct" className="form-label">Address:</label>
+                            <label className="form-label">Address:</label>
                             <input 
                             type="text" 
                             className="form-control"
@@ -119,7 +119,7 @@ class Form extends React.Component {
                             />
                         </div>
                         <div className="form-group mb-4">
-                            <label for="inputProduct" className="form-label">Product:</label>
+                            <label className="form-label">Product:</label>
                             <input 
                             type="text" 
                             className="form-control"
@@ -139,11 +139,11 @@ class Form extends React.Component {
                             id="perishableCheck"
                             onChange={this.handleClick}
                             />
-                            <label className="form-check-label" for="defaultCheck1">Perishable</label>
+                            <label className="form-check-label">Perishable</label>
                         </div>
                         <div className={hidden}>
                             <div className="form-group mb-4">
-                                <label for="inputProduct" className="form-label">Expiration Date:</label>
+                                <label className="form-label">Expiration Date:</label>
                                 <input 
                                 type="date" 
                                 className="form-control"
@@ -155,7 +155,7 @@ class Form extends React.Component {
                             </div>
                         </div>
                         <div className="form-group mb-4">
-                            <label for="inputProduct" className="form-label">Quantity:</label>
+                            <label className="form-label">Quantity:</label>
                             <input
                             type="number" 
                             className="form-control"
@@ -167,7 +167,7 @@ class Form extends React.Component {
                             />
                         </div>
                         <div className="form-group mb-4">
-                            <label for="inputProduct" className="form-label">Special Instructions:</label>
+                            <label className="form-label">Special Instructions:</label>
                             <input 
                             type="text" 
                             className="form-control"
@@ -179,7 +179,7 @@ class Form extends React.Component {
                             />
                         </div>
                         <div className="form-group mb-4">
-                            <label for="inputProduct" className="form-label">Allergies:</label>
+                            <label className="form-label">Allergies:</label>
                             <input 
                             type="text" 
                             className="form-control"

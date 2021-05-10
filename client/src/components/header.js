@@ -5,7 +5,7 @@ import BrandIcon from '../assets/images/icons/BrandIcon.png'
 function Header() {
   return (
     <nav className="nav navbar navTitleBar navbar-expand-md fixed-top">
-      <img id="brandIcon" className=" mx-auto image-fluid" alt="Pickup" src={BrandIcon}/>
+      <img id="brandIcon" className=" image-fluid" alt="Pickup" src={BrandIcon}/>
       <div className="navbar-brand appTitle ml-4">Donation Connection</div>
       <div className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

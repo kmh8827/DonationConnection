@@ -40,11 +40,11 @@ const Login = (props) => {
         </div>
         <form>
           <div className="form-group">
-            <label for="inputUsername" className="form-label">Email address</label>
+            <label className="form-label">Email address</label>
             <input type="text" {...username} autoComplete="new-password" className="form-control" id="login" />
           </div>
           <div className="form-group mb-4">
-            <label for="inputPassword" className="form-label" id="password">Password</label>
+            <label className="form-label" id="password">Password</label>
             <input type="password" {...password} className="form-control" autoComplete="new-password" />
           </div>
         </form>

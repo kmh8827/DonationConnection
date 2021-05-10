@@ -33,16 +33,17 @@ nav {
     font-weight: bold;
     font-size: large;
     text-shadow:
-    -1px -1px 0 rgba(255, 255, 255, 0),
+    -1px -1px 0 rgba(0, 0, 0, 0),
     1px 1px 0 rgba(0,0,0,.25),
     3px 3px 3px rgba(0,0,0,.25);
 }
 
 .appTitle, .navBtn {
-    color: rgb(248, 247, 247);
+    color: rgb(150, 141, 141);
 }
 
 #brandIcon {
     width: 50px;
     height: auto;
 }
+
