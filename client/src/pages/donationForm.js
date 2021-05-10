@@ -83,7 +83,10 @@ class Form extends React.Component {
 
 
     render() {
+        const hidden =  this.state.checked === true ? 'd-none' : '';
+        
         return (
+            
             <div>
                 <Header />
                 <div className="container loginContainer mb-5 w-50 h-50">
@@ -133,23 +136,23 @@ class Form extends React.Component {
                             type="checkbox" 
                             name="checked"
                             value="" 
-                            id="perishableCheck" 
+                            id="perishableCheck"
                             onChange={this.handleClick}
                             />
-                            <label className="form-check-label" for="defaultCheck1">
-                                Perishable
-                            </label>
+                            <label className="form-check-label" for="defaultCheck1">Perishable</label>
                         </div>
-                        <div className="form-group mb-4">
-                            <label for="inputProduct" className="form-label">Expiration Date:</label>
-                            <input 
-                            type="date" 
-                            className="form-control"
-                            id="expiration"
-                            name="expiration"
-                            value={this.state.expiration}
-                            onChange={this.handleInputChange}
-                            />
+                        <div className={hidden}>
+                            <div className="form-group mb-4">
+                                <label for="inputProduct" className="form-label">Expiration Date:</label>
+                                <input 
+                                type="date" 
+                                className="form-control"
+                                id="expiration"
+                                name="expiration"
+                                value={this.state.expiration}
+                                onChange={this.handleInputChange}
+                                />
+                            </div>
                         </div>
                         <div className="form-group mb-4">
                             <label for="inputProduct" className="form-label">Quantity:</label>
