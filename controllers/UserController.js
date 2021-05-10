@@ -36,10 +36,12 @@ module.exports = {
         else return res.json({ msg: 'no user to log out!' });
     },
     auth: (req, res, next) => {
+        console.log('HI HI USERCONTROLELR AUTH HERE');
         console.log(req.body);
         next();
     },
     authenticate: (req, res) => {
+        console.log('hello');
         const user = JSON.parse(JSON.stringify(req.user));
         const cleanUser = Object.assign({}, user);
         if (cleanUser) delete cleanUser.password;

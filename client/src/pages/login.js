@@ -16,12 +16,15 @@ const Login = (props) => {
 
   // handle button click of login form
   const handleLogin = (event) => {
-    props.history.push('/dashboard');
+    // props.history.push('/dashboard');
     event.preventDefault();
-    props.login(userObject.username, userObject.password);
-    setRedirectTo('/dashboard');
+    props.login(userObject.username, userObject.password)
+    //   if (result.status === '200')
+    //   setRedirectTo('/dashboard');
+    // });
   }
 
+  // Updates the username and password while being typed in
   const handleInputChange = (event) => {
     setUserObject({
       ...userObject,

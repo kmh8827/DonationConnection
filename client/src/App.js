@@ -43,6 +43,7 @@ function App() {
   };
 
   const login = (username, password) => {
+    console.log('login function');
     AUTH.login(username, password).then(response => {
       console.log(response.data);
       if (response.status === 200) {
@@ -60,9 +61,9 @@ function App() {
           <Header user={user} logout={logout}/>
           <Router>
             <Switch>
-              <Route exact path={["/"]} component={Dashboard} />
+              <Route exact path={["/"]} render={(props) => <Login {...props} login = {login} /> } />
               {/* <Route exact path={["/register"]} component={Register}/ > */}
-              <Route exact path={["/login"]} component={() => <Login login={login}/>} />
+              <Route exact path={["/login"]} component={(props) => <Login {...props} login = {login} />} />
               <Route exact path={["/donate"]} component={Form} />
               <Route exact path={["/dashboard"]} component={Dashboard} />
               <Route exact path={["/home"]} component={Home} />
@@ -75,7 +76,8 @@ function App() {
       { !loggedIn && (
         <Router>
           <Switch>
-            <Route exact path={["/"]} component={Login} />
+            <Route exact path={["/"]} render={(props) => <Login {...props} login = {login} /> } />
+            <Route exact path={["/dashboard"]} render={(props) => <Login {...props} login = {login} /> } />
             {/* <Route exact path={["/register"]} component={Register}/ > */}
             {/* <Route component={Error} /> */}
           </Switch>

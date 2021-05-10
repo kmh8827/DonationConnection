@@ -6,6 +6,7 @@ const strategy = new LocalStrategy(
         usernameField: 'username'
     },
     (username, password, done) => {
+        console.log('HI I AM LOCAL STRATEGY');
         db.User.findOne({ 'username': username }, (err, userMatch) => {
             if (err) return done(err);
             if (!userMatch) return done(null, false, { message: 'Incorrect Username, Please try again or Register a new User' });
