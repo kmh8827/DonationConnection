@@ -26,6 +26,7 @@ const Pickup = () => {
     <div className="bg-image-pickup">
         <Header />
         <div className="container pickupContainer">
+            {/* need something like lazy loading for better loading */}
             {donations && donations.map(thisDonation => 
                 <ReserveCard 
                     key={thisDonation._id}

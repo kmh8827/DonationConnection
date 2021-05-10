@@ -6,6 +6,7 @@ import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
 import Register from "./pages/register";
 import Footer from "./components/footer";
+
 function App() {
   return (
     <div className="App">

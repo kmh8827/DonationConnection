@@ -4,7 +4,7 @@ import "../assets/scss/footer.scss"
 function Footer() {
     return(
         <footer className="fixed-bottom">
-            <div className="footerText">Made By Team 5</div>
+            <div className="footerText">&#169; Made By Team 5</div>
         </footer>
     );
 }

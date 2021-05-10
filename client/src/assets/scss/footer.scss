@@ -2,12 +2,15 @@ $white-color: whitesmoke;
 
 .footerText {
     color: $white-color;
-    padding: 10px;
+    padding-top: 2px;
+
   }
   
 footer {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.719); /* Black w/opacity/see-through */
     text-align: center;
+    height: 32px;
+    border-top: 1px solid $white-color;
 }
   
