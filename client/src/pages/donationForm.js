@@ -4,6 +4,7 @@ import API from "../utils/API";
 import Footer from "../components/footer"
 
 import "../assets/scss/form.scss";
+
 class Form extends React.Component {
     state = {
         product: "",
@@ -27,7 +28,7 @@ class Form extends React.Component {
 
         if (
             this.state.product !== "" && this.state.companyName !== "" &&
-            this.state.address !== "" && this.state.allergies !== "" && 
+            this.state.address !== "" && this.state.allergies !== "" &&
             this.state.quantity !== 0
         ) {
             this.setState({
@@ -46,24 +47,24 @@ class Form extends React.Component {
 
         if (value === false) {
             this.setState({
-                [name] : true
+                [name]: true
             })
         }
 
         if (value === true) {
             this.setState({
-                [name] : false
+                [name]: false
             })
         }
 
         console.log(value);
         console.log(this.state.checked);
-    
+
     }
 
     handleSubmit = event => {
         event.preventDefault();
-    
+
         const newEntry = {
             day: new Date().setDate(new Date().getDate()),
             product: this.state.product,
@@ -85,8 +86,117 @@ class Form extends React.Component {
         return (
             <div>
                 <Header />
-                <div className="background">
-                    {/* <form className="board">
+                <div className="container loginContainer mb-5 w-50 h-50">
+                    <div className="row mb-2 ml-1">
+                        <h2 className="font">Donate</h2>
+                    </div>
+                    <form className="pb-5">
+                        <div className="form-group">
+                            <label for="inputCompany" className="form-label">Company Name:</label>
+                            <input 
+                            type="text" 
+                            className="form-control"
+                            placeholder="Ex. Papa John's" 
+                            id="companyName"
+                            name="companyName"
+                            value={this.state.companyName}
+                            onChange={this.handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-4">
+                            <label for="inputProduct" className="form-label">Address:</label>
+                            <input 
+                            type="text" 
+                            className="form-control"
+                            placeholder="Ex. 1003 main st Newbern NC" 
+                            id="address"
+                            name="address"
+                            value={this.state.address}
+                            onChange={this.handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-4">
+                            <label for="inputProduct" className="form-label">Product:</label>
+                            <input 
+                            type="text" 
+                            className="form-control"
+                            placeholder="Ex. cheese pizzas" 
+                            id="Product"
+                            name="product"
+                            value={this.state.product}
+                            onChange={this.handleInputChange}
+                            />
+                        </div>
+                        <div className="ml-3 form-group mb-4">
+                            <input 
+                            className="form-check-input" 
+                            type="checkbox" 
+                            name="checked"
+                            value="" 
+                            id="perishableCheck" 
+                            onChange={this.handleClick}
+                            />
+                            <label className="form-check-label" for="defaultCheck1">
+                                Perishable
+                            </label>
+                        </div>
+                        <div className="form-group mb-4">
+                            <label for="inputProduct" className="form-label">Expiration Date:</label>
+                            <input 
+                            type="date" 
+                            className="form-control"
+                            id="expiration"
+                            name="expiration"
+                            value={this.state.expiration}
+                            onChange={this.handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-4">
+                            <label for="inputProduct" className="form-label">Quantity:</label>
+                            <input
+                            type="number" 
+                            className="form-control"
+                            placeholder="#" 
+                            id="quantity"
+                            name="quantity"
+                            value={this.state.quantity}
+                            onChange={this.handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-4">
+                            <label for="inputProduct" className="form-label">Special Instructions:</label>
+                            <input 
+                            type="text" 
+                            className="form-control"
+                            placeholder="Ex. keep frozen until ready to eat" 
+                            id="specInstructions"
+                            name="specialInstructions"
+                            value={this.state.specialInstructions}
+                            onChange={this.handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-4">
+                            <label for="inputProduct" className="form-label">Allergies:</label>
+                            <input 
+                            type="text" 
+                            className="form-control"
+                            placeholder="Ex. Peanuts"
+                            id="allergies"
+                            name="allergies"
+                            value={this.state.allergies}
+                            onChange={this.handleInputChange}
+                            />
+                        </div>
+                        <div 
+                        disabled={this.state.disable}
+                        type="button" 
+                        className="btn btn-info float-right submit"
+                        onClick={this.handleSubmit}
+                        >Info</div>
+                    </form>
+                </div>
+                    {/* <div className="background">
+                    <form className="board">
                         <h2>Donation Form</h2>
                         <h3>Product:</h3>
                         <input
@@ -151,10 +261,10 @@ class Form extends React.Component {
                         />
                         <br />
                         <button disabled={this.state.disable} onClick={this.handleSubmit} className="submit">Submit</button>
-                    </form> */}
+                    </form>
+                </div> */}
+                    <Footer />
                 </div>
-                <Footer/>
-            </div>
         )
     }
 }
