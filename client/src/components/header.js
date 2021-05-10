@@ -1,10 +1,12 @@
 import React from 'react';
 import '../assets/scss/nav.scss'
+import BrandIcon from '../assets/images/icons/BrandIcon.png'
 
 function Header() {
   return (
     <nav className="nav navbar navTitleBar navbar-expand-md fixed-top">
-      <div className="navbar-brand appTitle">Donation Connection</div>
+      <img id="brandIcon" className="m-3 mx-auto image-fluid" alt="Pickup" src={BrandIcon}/>
+      <div className="navbar-brand appTitle ml-4">Donation Connection</div>
       <div className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </div>
