@@ -192,7 +192,7 @@ class Form extends React.Component {
                         type="button" 
                         className="btn btn-info float-right submit"
                         onClick={this.handleSubmit}
-                        >Info</div>
+                        >Donate</div>
                     </form>
                 </div>
                     {/* <div className="background">
