@@ -1,14 +1,13 @@
 import React from "react";
 import "../assets/scss/home.scss";
 // import Login from "./login.js";
-import Footer from "../components/footer.js";
  
 function Home() {
 
 
     return(
         <div>
-            <div className="bg-image">
+            <div className="bg-image-home">
 
                 <div className="wrapper">
                     <div className="bg-text container">
@@ -18,7 +17,7 @@ function Home() {
 
                     <div className="about">
                         <section className="container">
-                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+                            <p>Our mission is to help connect those in need with those who are willing to lend a helping hand. On one end restaurants, businesses, and any other organizations are able to reduce food waste by donating food items. On the other end, those who are in need of food items can search and find donations around them for pickup.</p>
                         </section>
                     </div>
 
@@ -31,7 +30,6 @@ function Home() {
                 </div>
             
             </div>
-            <Footer />
         </div>
 
 

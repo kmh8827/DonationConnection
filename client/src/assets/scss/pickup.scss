@@ -1,0 +1,32 @@
+$white-color: whitesmoke;
+
+
+.pickupContainer {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+.reserveCard {
+  background-color: rgba(245, 245, 245, 0.788);
+  border-radius: 15px;
+  color: rgb(44, 44, 44);
+  font-weight: bold;
+  border: 3px solid $white-color;
+  box-shadow:
+  -1px -1px 0 rgba(255, 255, 255, 0),
+  2px 2px 0 rgba(0,0,0,.25),
+  6px 6px 6px rgba(0,0,0,.25);
+  width: auto;
+}
+
+// .pickupTitle {
+//   ali: center;
+// }
+
+.infoList {
+  float: left;
+}
+
+.reserveBtn {
+  float: right;
+}

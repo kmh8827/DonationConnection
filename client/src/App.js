@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/home";
-import Form from "./pages/form";
+import donationForm from "./pages/donationForm";
 import Login from "./pages/login";
 // import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
 import AUTH from './utils/AUTH';
 import Header from "./components/header";
+import Register from "./pages/register";
+import Footer from "./components/footer";
 
 function App() {
     const [loggedIn, setLogIn] = useState(false);
@@ -64,7 +66,7 @@ function App() {
               <Route exact path={["/"]} render={(props) => <Login {...props} login = {login} /> } />
               {/* <Route exact path={["/register"]} component={Register}/ > */}
               <Route exact path={["/login"]} component={(props) => <Login {...props} login = {login} />} />
-              <Route exact path={["/donate"]} component={Form} />
+              <Route exact path={["/donate"]} component={Pickup} />
               <Route exact path={["/dashboard"]} component={Dashboard} />
               <Route exact path={["/home"]} component={Home} />
               <Route exact path={["/pickup"]} component={Pickup} />
@@ -80,7 +82,15 @@ function App() {
             <Route exact path={["/dashboard"]} render={(props) => <Login {...props} login = {login} /> } />
             {/* <Route exact path={["/register"]} component={Register}/ > */}
             {/* <Route component={Error} /> */}
+            <Route exact path={["/"]} component={Home} />
+            <Route exact path={["/donate"]} component={donationForm} />
+            <Route exact path={["/login"]} component={Login} />
+            <Route exact path={["/dashboard"]} component={Dashboard} />
+            <Route exact path={["/home"]} component={Home} />
+            <Route exact path={["/pickup"]} component={Pickup}/>
+            <Route exact path={["/register"]} component={Register} />
           </Switch>
+          <Footer />
         </Router>
       )}
     </div>

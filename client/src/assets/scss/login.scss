@@ -1,30 +1,64 @@
-.image {
-    background: url("../images/login.jpg") no-repeat center;
-    background-size: cover;
-    width: auto;
-    height: 100%;
-    background-color: rgba(20, 20, 20, 0.8);
-    top: 0;
-    left: 0;
-};
-.login {
-    background: url("../images/login1.jpg");
-    margin-left: 5%;
-    margin-top: 25%;
-    margin-bottom: 25%;
-    margin-right: 50%;
+.loginContainer {
+    margin-top: 150px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding: 60px;
+    box-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    2px 2px 0 rgba(0,0,0,.25),
+    6px 6px 6px rgba(0,0,0,.25);
+
+}
+
+.loginBtn {
+    width: 90px;
+    float: right;
     text-align: center;
-    padding: 3%;
-    box-shadow: 9px 12px 8px rgb(27, 48, 48);
 };
+.registerBtn {
+    margin-top: 7px;
+    margin-right: 16px;
+}
+
+.floater {
+    float: right;
+    text-align: center;
+};
+// .login {
+//     background: url("../images/login1.jpg");
+//     margin-left: 30%;
+//     margin-top: 25%;
+//     // margin-bottom: 25%;
+//     margin-right: 30%;
+//     text-align: center;
+//     padding: 3%;
+//     box-shadow: 9px 12px 8px rgb(27, 48, 48);
+// };
 .font {
     color: black;
 };
 
-.loginBtn {
-    background: sandybrown;
-    text-align: center;
-};
-.form-label{
-    margin-right: 3px;
-}
+// .loginBtn {
+//     background: sandybrown;
+//     text-align: center;
+// };
+
+// .loginBtn:hover {
+//     background: rgb(173, 98, 32);
+// };
+
+// .form-label {
+//     margin-right: 5px;
+// };
+
+// // .navbar {
+// //     opacity: 0.4;
+// // };
+
+// // .navbar:hover {
+// //     opacity: 0.9;
+// // };
+
+// #password {
+//     margin-right: 10px;
+// }

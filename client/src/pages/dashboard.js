@@ -10,10 +10,10 @@ import Header from '../components/header'
 const Dashboard = (props) => {
     return (
         <>
-        <div className="bg-image">
+        <div className="">
             <Header />
-            <div className="container">
-                <div className="row ml-5 mt-5">
+            <div className="container dashContainer">
+                <div className="row ml-5">
                     <div className="pickup col">
                         <div type="button" onClick={event =>  window.location.href='/pickup'} data-tip data-for="pickupInfo" className="btn btn-dark bigBtn pickupBtn m-4 mt-5">
                             <h5 className="p-3 text-center">Pickup</h5>
@@ -26,7 +26,7 @@ const Dashboard = (props) => {
                     <div className="donate col">
                         <div type="button" onClick={event =>  window.location.href='/donate'} data-tip data-for="donationInfo" className="btn btn-dark bigBtn m-4 mt-5">
                             <h5 className="p-3 text-center">Donate</h5>
-                            <img id="donateImg" className="mt-n3 m-3 mx-auto image-fluid" alt="Pickup" src={donate}/>
+                            <img id="donateImg" className="mt-n3 m-3 mx-auto image-fluid" alt="Donate" src={donate}/>
                         </div>
                         <ReactTooltip id="donationInfo" place="top" effect="solid">
                             Post available donation(s) in your area
