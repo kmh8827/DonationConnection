@@ -6,7 +6,7 @@ import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
 import Register from "./pages/register";
 import Footer from "./components/footer";
-
+import Error from "./pages/errorPage";
 function App() {
   return (
     <div className="App">
@@ -19,6 +19,7 @@ function App() {
             <Route exact path={["/home"]} component={Home} />
             <Route exact path={["/pickup"]} component={Pickup}/>
             <Route exact path={["/register"]} component={Register} />
+            <Route exact path={["/error"]} component={Error} />
           </Switch>
           <Footer />
         </Router>
