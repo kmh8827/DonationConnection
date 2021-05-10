@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "../assets/scss/login.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import BrandIcon from '../assets/images/icons/BrandIcon.png'
+
 
 const Login = (props) => {
   const username = useFormInput('');
@@ -18,7 +20,8 @@ const Login = (props) => {
   return (
     <div>
       <nav className="navbar navTitleBar navbar-expand-lg fixed-top">
-        <div className="navbar-brand appTitle">Donation Connection</div>
+        <img id="brandIcon" className=" mx-auto image-fluid" alt="Pickup" src={BrandIcon}/>
+        <div className="navbar-brand appTitle ml-4">Donation Connection</div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -37,11 +40,11 @@ const Login = (props) => {
         </div>
         <form>
           <div className="form-group">
-            <label for="inputUsername" className="form-label">Email address</label>
+            <label className="form-label">Email address</label>
             <input type="text" {...username} autoComplete="new-password" className="form-control" id="login" />
           </div>
           <div className="form-group mb-4">
-            <label for="inputPassword" className="form-label" id="password">Password</label>
+            <label className="form-label" id="password">Password</label>
             <input type="password" {...password} className="form-control" autoComplete="new-password" />
           </div>
         </form>

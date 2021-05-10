@@ -8,8 +8,7 @@ body {
 
     /* The image used */
   background: url("../src/assets/images/food.jpg") fixed;
-
-
+  /* overflow-y: scroll; */
   /* Full height */
   height: 100%;
 
@@ -18,6 +17,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* html {
+  zoom: 70%;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
