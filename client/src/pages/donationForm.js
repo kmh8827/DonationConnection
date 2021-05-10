@@ -127,7 +127,7 @@ class Form extends React.Component {
                             onChange={this.handleInputChange}
                             />
                         </div>
-                        <div className="ml-3 form-group mb-4">
+                        <div className="ml-4 form-group mb-4">
                             <input 
                             className="form-check-input" 
                             type="checkbox" 

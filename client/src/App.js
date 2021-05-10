@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
-import Form from "./pages/donationForm";
+import donationForm from "./pages/donationForm";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
@@ -13,7 +13,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path={["/"]} component={Dashboard} />
-            <Route exact path={["/donate"]} component={Form} />
+            <Route exact path={["/donate"]} component={donationForm} />
             <Route exact path={["/login"]} component={Login} />
             <Route exact path={["/dashboard"]} component={Dashboard} />
             <Route exact path={["/home"]} component={Home} />
