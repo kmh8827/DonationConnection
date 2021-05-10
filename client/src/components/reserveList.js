@@ -1,7 +1,7 @@
 const reserveList = (props) => {
     return(
         <ul className="infoList">
-            <li>Comapny Name: {props.companyName}</li>
+            <li>Company Name: {props.companyName}</li>
             <li>Perishable: {props.perishable}</li>
             <li>Expiration Date: {props.expDate}</li>
             <li>Availablity: {props.availability}</li>
