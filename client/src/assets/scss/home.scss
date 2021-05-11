@@ -62,10 +62,10 @@ body, html {
  }
 
  .about {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  border: 3px solid $white-color;
+  // background-color: rgb(0,0,0); /* Fallback color */
+  // background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  // color: white;
+  // border: 3px solid $white-color;
   position: absolute;
   top: 68%;
   left: 50%;
@@ -91,7 +91,7 @@ body, html {
  
  button {
    padding: 10px !important;
-   margin: 10px !important;
+   margin: 30px !important;
    width: 120px;
    font-weight: bold !important;
    font-size: large !important;
@@ -142,6 +142,29 @@ body, html {
     }
   }
 }
+
+.speech-bubble {
+	position: relative;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  border-radius: .4em;
+  color: white;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 24px solid transparent;
+	border-top-color: rgba(0,0,0, 0.4);;
+	border-bottom: 0;
+	margin-left: -24px;
+	margin-bottom: -24px;
+}
+
 
 
 

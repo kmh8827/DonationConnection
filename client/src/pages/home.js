@@ -4,16 +4,6 @@ import "../assets/scss/home.scss";
  
 function Home() {
 
-    $(document).ready(function(){
-        // set up hover panels
-        // although this can be done without JavaScript, we've attached these events
-        // because it causes the hover to be triggered when the element is tapped on a touch device
-        $('.hover').hover(function(){
-          $(this).addClass('flip');
-        },function(){
-          $(this).removeClass('flip');
-        });
-      });
 
     return(
         <div>
@@ -28,8 +18,12 @@ function Home() {
 
                     <div className="about">
                         <section className="container">
+                            <div className="speech-bubble">
+                            <br></br>
                             <h2>Where hunger meets a helping hand.</h2>
-                            <p>Our mission is to help connect those in need with those who are willing to lend a helping hand. On one end restaurants, businesses, and any other organizations are able to reduce food waste by donating food items. On the other end, those who are in need of food items can search and find donations around them for pickup.</p>
+                            <p>Our mission is to help connect those in need with those who are willing to lend a helping hand. On one end restaurants, businesses, and any other organizations are able to reduce food waste by donating food items. On the other end, those who are in need of food items can search and find donations around them for pickup.</p> 
+                            <br></br>
+                            </div>
                         </section>
                     </div>
 
