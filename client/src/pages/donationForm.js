@@ -292,9 +292,9 @@ class Form extends React.Component {
                             <div
                                 disabled={this.state.disable}
                                 type="button"
-                                className="btn btn-info float-right submit"
+                                className="btn btn-success float-right submit"
                                 onClick={this.handleSubmit}
-                            >Donate</div>
+                            >Donate!</div>
                         </div>
                     </form>
                 </div>
