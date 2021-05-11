@@ -143,12 +143,6 @@ class Form extends React.Component {
     render() {
         // hides expiration date unless perishable is checked
         const hidden = this.state.checked === true ? 'd-none' : '';
-    
-
-        // const businessInfo = '';
-        // const donationInfo = 'd-none';
-        // const foodInfo = 'd-none';
-
         return (
 
             <div>
