@@ -10,35 +10,26 @@ body, html {
     box-sizing: border-box;
   }
   
-  // .bg-image-home {
-  //   /* The image used */
-  //   background-image: url("../images/food.jpg");
+  .bg-image-home {
+    /* The image used */
+    background-image: url("../images/food.jpg");
   
   
-  //   /* Full height */
-  //   height: 100vh;
   
-  //   /* Center and scale the image nicely */
-  //   // background-position: center;
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
-  // }
+  }
   
   /* Position text in the middle of the page/image */
   .bg-text {
 
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-    color: white;
-    font-weight: bold;
-    border: 3px solid $white-color;
+
+    font-weight: bolder;
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
     width: 80%;
-    padding: 20px;
+    padding: 0px;
     text-align: center;
   }
 
@@ -76,11 +67,11 @@ body, html {
   color: white;
   border: 3px solid $white-color;
   position: absolute;
-  top: 65%;
+  top: 68%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 60%;
+  width: 80%;
   padding: 20px;
   text-align: center;
  }
@@ -89,7 +80,7 @@ body, html {
   font-weight: bold;
   font-size: x-large;
   position: absolute;
-  top: 85%;
+  top: 89%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -99,8 +90,8 @@ body, html {
  }
  
  button {
-   padding: 15px !important;
-   margin: 15px !important;
+   padding: 10px !important;
+   margin: 10px !important;
    width: 120px;
    font-weight: bold !important;
    font-size: large !important;
@@ -124,3 +115,35 @@ body, html {
 //   border-bottom: 1px solid #333333;
 //   border-left: 1px solid #CCCCCC;
 // }
+
+
+.donation {
+  background: 50% 100% / 50% 50% no-repeat
+              radial-gradient(ellipse at bottom, #fff, transparent, transparent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 8vw;
+  font-family: "Source Sans Pro", sans-serif;
+  animation: reveal 3000ms ease-in-out forwards 200ms,
+             glow 2500ms linear infinite 2000ms;
+
+  @keyframes reveal {
+    80%{
+      letter-spacing: 8px;
+    }
+    100% {
+      background-size: 300% 300%;
+    }
+  }
+  @keyframes glow {
+    40% {
+      text-shadow: 0 0 8px #fff;
+    }
+  }
+}
+
+
+
+
+
