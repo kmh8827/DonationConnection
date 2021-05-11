@@ -6,9 +6,11 @@ class Error extends React.Component {
     return(
         <div>
                 <div classname="errorImage">
-                <h3 className="errorh3">Whoopsss! You shouldnt be here!</h3>
+                <div className="errorh3">
+                <h3 className="newTag">Whoops!!! You took a wrong turn!</h3>
                 <div className="margin">
                 <button type="button" className="btn btn-light return" onClick={event =>  window.location.href='/'}>Click Here To Return</button>
+                </div>
                 </div>
                 </div>
         </div>
