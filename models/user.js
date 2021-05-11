@@ -16,15 +16,17 @@ const UserSchema = new Schema({
 });
 
 UserSchema.methods = {
-    checkPassword: (inputPassword) => {
+    checkPassword: function(inputPassword) {
+        console.log('inputPassword', inputPassword);
+        console.log(this);
         return bcrypt.compareSync(inputPassword, this.password);
     },
-    hashPassword: plainTextPassword => {
+    hashPassword: function(plainTextPassword) {
         return bcrypt.hashSync(plainTextPassword, 10);
     }
 };
 
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function(next) {
     if (!this.password) next();
     else {
         this.password = this.hashPassword(this.password);

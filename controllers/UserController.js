@@ -3,7 +3,8 @@ const db = require('../models');
 // Defining Methods for userController
 module.exports = {
     getUser: (req, res, next) => {
-        if (req.user) return res.json({ user: req.user });
+        console.log('GETUSER HERE');
+        if (req.username) return res.json({ username: req.username });
         return res.json({ user: null });
     },
     register: (req, res) => {
@@ -28,7 +29,7 @@ module.exports = {
     });
     },
     logout: (req, res) => {
-        if (req.user) {
+        if (req.username) {
             req.session.destroy();
             res.clearCookie('connect.sid'); //Clean-Up
             return res.json({ msg: 'logging you out' });
@@ -41,10 +42,10 @@ module.exports = {
         next();
     },
     authenticate: (req, res) => {
-        console.log('hello');
-        const user = JSON.parse(JSON.stringify(req.user));
-        const cleanUser = Object.assign({}, user);
+        console.log('NOW ARRIVING AT AUTHENTICATE STATION');
+        const username = JSON.parse(JSON.stringify(req.username));
+        const cleanUser = Object.assign({}, username);
         if (cleanUser) delete cleanUser.password;
-        res.json({ user: cleanUser });
+        res.json({ username: cleanUser });
     }
 };
