@@ -1,6 +1,4 @@
 .errorh3{
-    text-align: center;
-    font-size: 70px;
     background: url("../images//prisonMike.png");
     position: fixed;
     height: 100%;
@@ -8,15 +6,16 @@
     z-index: -1;
 }
 .margin{
-    padding-left: 45%;
-    padding-top: 25%;
+    padding-left: 48%;
 }
 .return{
     background-color:blue;
     color:pink;
     z-index: +1;
 }
-.errorImage{
-    background: url("../images//prisonMike.png");
-    
+.newTag{
+    text-align: center;
+    font-size: 70px;
+    margin-top: 13%;
+    color:pink;
 }
