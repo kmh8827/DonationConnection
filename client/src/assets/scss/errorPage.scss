@@ -1,0 +1,21 @@
+.errorh3{
+    background: url("../images//prisonMike.png");
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.margin{
+    padding-left: 48%;
+}
+.return{
+    background-color:blue;
+    color:pink;
+    z-index: +1;
+}
+.newTag{
+    text-align: center;
+    font-size: 70px;
+    margin-top: 13%;
+    color:pink;
+}

@@ -10,7 +10,7 @@ import AUTH from './utils/AUTH';
 import Header from "./components/header";
 import Register from "./pages/register";
 import Footer from "./components/footer";
-
+import Error from "./pages/errorPage";
 function App() {
     const [loggedIn, setLogIn] = useState(false);
     const [user, setUser] = useState(null);
@@ -89,6 +89,7 @@ function App() {
             <Route exact path={["/home"]} component={Home} />
             <Route exact path={["/pickup"]} component={Pickup}/>
             <Route exact path={["/register"]} component={Register} />
+            <Route exact path={["/error"]} component={Error} />
           </Switch>
           <Footer />
         </Router>
