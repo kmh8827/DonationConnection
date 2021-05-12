@@ -24,7 +24,7 @@ function Home() {
                     <div className="navv">
                         <section className="container">
                             <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/login'}>Login</button>
-                            <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/login'}>Register</button>
+                            <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/register'}>Register</button>
                         </section>
                     </div>
                 </div>

@@ -43,7 +43,10 @@ module.exports = {
     },
     authenticate: (req, res) => {
         console.log('NOW ARRIVING AT AUTHENTICATE STATION');
-        const username = JSON.parse(JSON.stringify(req.username));
+        console.log(req.body);
+        console.log(req.body.username);
+        console.log(JSON.parse(JSON.stringify(req.body.username)));
+        const username = JSON.parse(JSON.stringify(req.body.username));
         const cleanUser = Object.assign({}, username);
         if (cleanUser) delete cleanUser.password;
         res.json({ username: cleanUser });

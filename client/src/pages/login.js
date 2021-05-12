@@ -19,9 +19,9 @@ const Login = (props) => {
   const handleLogin = (event) => {
     // props.history.push('/dashboard');
     event.preventDefault();
-    props.login(userObject.username, userObject.password)
-    //   if (result.status === '200')
-    //   setRedirectTo('/dashboard');
+    props.login(userObject.username, userObject.password);
+    setRedirectTo('/');
+
     // });
   }
 

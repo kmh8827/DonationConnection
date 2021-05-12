@@ -12,6 +12,7 @@ const strategy = new LocalStrategy(
             if (!userMatch) return done(null, false, { message: 'Incorrect Username, Please try again or Register a new User' });
             if (!userMatch.checkPassword(password)) return done(null, false, { message: 'Incorrect Password' })
             console.log('NOW LEAVING LOCAL STRATEGY');
+            console.log(userMatch);
             return done(null, userMatch);
         });
     }

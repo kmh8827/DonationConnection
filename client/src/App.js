@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import Home from "./pages/home";
 import donationForm from "./pages/donationForm";
 import Login from "./pages/login";
-// import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
 import AUTH from './utils/AUTH';
@@ -11,10 +10,11 @@ import Header from "./components/header";
 import Register from "./pages/register";
 import Footer from "./components/footer";
 import Error from "./pages/errorPage";
+
 function App() {
-    const [loggedIn, setLogIn] = useState(false);
-    const [user, setUser] = useState(null);
-    const [userIds, setDonationArray] = useState([]);
+  const [loggedIn, setLogIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const [userIds, setDonationArray] = useState([]);
 
   useEffect(() => {
     AUTH.getUser().then(response => {
@@ -58,41 +58,38 @@ function App() {
 
   return (
     <div className="App">
-      { loggedIn && (
+      { !loggedIn && (
         <div>
-          <Header user={user} logout={logout}/>
+          <Header user={user} logout={logout} />
           <Router>
             <Switch>
-              <Route exact path={["/"]} render={(props) => <Login {...props} login = {login} /> } />
-              {/* <Route exact path={["/register"]} component={Register}/ > */}
-              <Route exact path={["/login"]} component={(props) => <Login {...props} login = {login} />} />
-              <Route exact path={["/donate"]} component={Pickup} />
-              <Route exact path={["/dashboard"]} component={Dashboard} />
+              <Route exact path={["/"]} component={Home} />
+              <Route exact path={["/register"]} component={(props) => <Register {...props} login={login} />} />
+              <Route exact path={["/login"]} component={(props) => <Login {...props} login={login} />} />
               <Route exact path={["/home"]} component={Home} />
-              <Route exact path={["/pickup"]} component={Pickup} />
-              {/* <Route component={Error} /> */}
+              <Route component={Error} />
             </Switch>
           </Router>
         </div>
       )}
-      { !loggedIn && (
-        <Router>
-          <Switch>
-            <Route exact path={["/"]} render={(props) => <Login {...props} login = {login} /> } />
-            <Route exact path={["/dashboard"]} render={(props) => <Login {...props} login = {login} /> } />
-            {/* <Route exact path={["/register"]} component={Register}/ > */}
-            {/* <Route component={Error} /> */}
-            <Route exact path={["/"]} component={Home} />
-            <Route exact path={["/donate"]} component={donationForm} />
-            <Route exact path={["/login"]} component={Login} />
-            <Route exact path={["/dashboard"]} component={Dashboard} />
-            <Route exact path={["/home"]} component={Home} />
-            <Route exact path={["/pickup"]} component={Pickup}/>
-            <Route exact path={["/register"]} component={Register} />
-            <Route exact path={["/error"]} component={Error} />
-          </Switch>
-          <Footer />
-        </Router>
+      { loggedIn && (
+        <div>
+          <Header user={user} logout={logout} />
+          <Router>
+            <Switch>
+              <Route exact path={["/"]} render={(props) => <Home {...props} login={login} />} />
+              <Route exact path={["/"]} component={Home} />
+              <Route exact path={["/donate"]} component={donationForm} />
+              <Route exact path={["/login"]} component={(props) => <Login {...props} login={login} />} />
+              <Route exact path={["/dashboard"]} component={Dashboard} />
+              <Route exact path={["/home"]} component={Home} />
+              <Route exact path={["/pickup"]} component={Pickup} />
+              <Route exact path={["/register"]} component={Register} />
+              <Route component={Error} />
+            </Switch>
+            <Footer />
+          </Router>
+        </div>
       )}
     </div>
   );
