@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext, useMemo } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/home";
 import donationForm from "./pages/donationForm";
@@ -10,25 +10,30 @@ import Header from "./components/header";
 import Register from "./pages/register";
 import Footer from "./components/footer";
 import Error from "./pages/errorPage";
+import { loginContext } from "./components/loginContext";
 
 function App() {
-  const [loggedIn, setLogIn] = useState(false);
-  const [user, setUser] = useState(null);
-  const [userIds, setDonationArray] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState("");
+  const [userDonations, setDonations] = useState([]);
+  const loggedInMemo = useMemo(() => ({loggedIn, setLoggedIn}), [loggedIn, setLoggedIn]);
+  const userMemo = useMemo(() => ({user, setUser}), [user, setUser]);
+  const donationMemo = useMemo(() => ({userDonations, setDonations}), [userDonations, setDonations]);
 
   useEffect(() => {
     AUTH.getUser().then(response => {
-      if (response.data.username) {
-        setLogIn(true);
+      console.log('THE RESPONSE DATA IS ', response.data);
+      if (!!response.data.username) {
+        setLoggedIn(true);
         setUser(response.data.username);
       } else {
-        setLogIn(false);
+        setLoggedIn(false);
         setUser(null);
       }
     });
 
     return () => {
-      setLogIn(false);
+      setLoggedIn(false);
       setUser(null);
     };
   }, []);
@@ -38,20 +43,8 @@ function App() {
 
     AUTH.logout().then(response => {
       if (response.status === 200) {
-        setLogIn(false);
+        setLoggedIn(false);
         setUser(null);
-      }
-    });
-  };
-
-  const login = (username, password) => {
-    console.log('login function');
-    AUTH.login(username, password).then(response => {
-      console.log(response.data);
-      if (response.status === 200) {
-        setLogIn(true);
-        setUser(response.data.username);
-        setDonationArray(response.data.donation);
       }
     });
   };
@@ -60,13 +53,14 @@ function App() {
     <div className="App">
       { !loggedIn && (
         <div>
-          <Header user={user} logout={logout} />
+            <Header />
           <Router>
             <Switch>
               <Route exact path={["/"]} component={Home} />
-              <Route exact path={["/register"]} component={(props) => <Register {...props} login={login} />} />
-              <Route exact path={["/login"]} component={(props) => <Login {...props} login={login} />} />
-              <Route exact path={["/home"]} component={Home} />
+              <Route exact path={["/register"]} component={Register} />
+              <loginContext.Provider value={{ loggedInMemo, userMemo, donationMemo }}>
+                <Route exact path={["/login"]} component={Login} />
+              </loginContext.Provider>
               <Route component={Error} />
             </Switch>
           </Router>
@@ -74,13 +68,15 @@ function App() {
       )}
       { loggedIn && (
         <div>
-          <Header user={user} logout={logout} />
+          <logoutContext.Provider value={{ loggedInMemo, userMemo, donationMemo }}>
+            <Header />
+          </logoutContext.Provider>
           <Router>
             <Switch>
-              <Route exact path={["/"]} render={(props) => <Home {...props} login={login} />} />
               <Route exact path={["/"]} component={Home} />
-              <Route exact path={["/donate"]} component={donationForm} />
-              <Route exact path={["/login"]} component={(props) => <Login {...props} login={login} />} />
+              <donationContext.Provider value={{ user, userDonations, setDonations }}>
+                <Route exact path={["/donate"]} component={donationForm} />
+              </donationContext.Provider>
               <Route exact path={["/dashboard"]} component={Dashboard} />
               <Route exact path={["/home"]} component={Home} />
               <Route exact path={["/pickup"]} component={Pickup} />

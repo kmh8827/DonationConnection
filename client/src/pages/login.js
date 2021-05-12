@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import "../assets/scss/login.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
+import { loginContext } from '../components/loginContext';
+import AUTH from "../utils/AUTH";
 
 const Login = (props) => {
   // const username = useFormInput('');
@@ -14,12 +16,28 @@ const Login = (props) => {
     username: '',
     password: ''
   });
+  const { user, setUser, loggedIn, setLoggedIn, userDonations, setDonations } = useContext(loginContext);
+
+  const login = (username, password) => {
+    console.log('login function');
+    AUTH.login(username, password).then(response => {
+      console.log(response.data);
+      console.log('Logged in ', loggedIn);
+      setLoggedIn(true);
+      setUser(response.data.username);
+      console.log(response.data.username);
+      console.log(user);
+      setDonations(response.data.donation);
+      console.log(userDonations);
+      console.log('Logged in ', loggedIn);
+    });
+  };
 
   // handle button click of login form
   const handleLogin = (event) => {
     // props.history.push('/dashboard');
     event.preventDefault();
-    props.login(userObject.username, userObject.password);
+    login(userObject.username, userObject.password);
     setRedirectTo('/');
 
     // });
