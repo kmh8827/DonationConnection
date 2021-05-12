@@ -1,4 +1,5 @@
 import React from "react";
+import "../assets/scss/accountInfo.scss";
 
 class AccountInfo extends React.Component {
     state ={
@@ -8,8 +9,8 @@ class AccountInfo extends React.Component {
         return(
             <div>
                 <div>
-                    <h2>Account Info</h2>
                 <div className="companyAbout">
+                    <h2 className="companyAbout accInfo">Account Info:</h2>
                 <div>
                     <label className="form-label">Company Name:</label>
                 </div>
@@ -20,15 +21,11 @@ class AccountInfo extends React.Component {
                     <label className="form-label">Total Donations:</label>
                 </div>
                 </div>
-                <div>
-                    <label className="form-label">Donations on hold:</label>
-                </div>
-                <div>
-                    <label className="form-label">Available Donations:</label>
-                </div>
-                <div>
-                    <label className="form-label">Cancel Donation:</label>
-                </div>
+                <React.Fragment>
+                    <label className="form-label onHold">Donations on hold:</label>
+                    <label className="form-label onHold">Available Donations:</label>
+                    <label className="form-label onHold">Cancel Donation:</label>
+                </React.Fragment>
                 </div>
             </div>
         )
