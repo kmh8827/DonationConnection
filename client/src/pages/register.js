@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
+import "../assets/scss/register.scss";
 
 const Register = () => {
     const [userObject, setUserObject] = useState({
@@ -51,24 +52,25 @@ const Register = () => {
 
     return (
         <div>
-            <div className="container">
+            <div className="container registerPage">
                 <h2>New User Registration Form</h2><br/>
-                <form className="row g-3 needs-validation" novalidate>
-                    <div className="col-md-4">
+                <form className="row g-1 needs-validation" novalidate>
+
+                    <div className="col-md-8">
                         <label for="validationCustom01" className="form-label">First name</label>
                         <input type="text" className="form-control" id="validationCustom01" onChange={handleChange} value={userObject.firstName} required/>
                         <div className="valid-feedback">
                         Looks good!
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-8">
                         <label for="validationCustom02" className="form-label">Last name</label>
                         <input type="text" className="form-control" id="validationCustom02" onChange={handleChange} value={userObject.lastName} required />
                         <div className="valid-feedback">
                         Looks good!
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-8">
                         <label for="validationCustomUsername" className="form-label">Username</label>
                         <div className="input-group has-validation">
                         <span className="input-group-text" id="inputGroupPrepend">@</span>
@@ -78,7 +80,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-8">
                         <label for="validationCustomPassword" className="form-label">Password</label>
                         <div className="input-group has-validation">
                         <input type="password" className="form-control" id="validationCustomPassword" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.password} required />
@@ -87,7 +89,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-8">
                         <label for="validationCustomPassword" className="form-label">Confirm password</label>
                         <div className="input-group has-validation">
                         <input type="password" className="form-control" id="validationCustomConfirmPassword" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.confirmPassword} required />
@@ -97,9 +99,11 @@ const Register = () => {
                         </div>
                     </div>
                     <div className="col-12">
-                        <button className="btn btn-primary" onClick={handleSubmit}>Register</button>
+                        <button className="btn btn-info registerBtn" onClick={handleSubmit}>Register</button>
+                        <a href="/login">Login</a>
                     </div>
-                    </form>
+                   
+                </form>
                 </div>
         </div>
     );
