@@ -53,8 +53,8 @@ const Register = () => {
     return (
         <div>
             <div className="container registerPage">
-                <div>
-                    <h2>New User Registration Form</h2>
+                <div className="headingRegister">
+                    <h2 style={{color: "black"}}>New User Registration Form</h2>
                 </div>                
                 <form className="row g-1 needs-validation" noValidate>
                     <div className="col-md-9 registerField">
