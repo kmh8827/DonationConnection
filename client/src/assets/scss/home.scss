@@ -1,4 +1,5 @@
 $white-color: whitesmoke;
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pangolin&family=Patrick+Hand&family=Russo+One&display=swap');
 
 body, html {
     margin-top: 0;
@@ -74,6 +75,7 @@ body, html {
   width: 80%;
   padding: 40px;
   text-align: center;
+  font-family: 'Indie Flower', cursive;
  }
 
  .navv {
@@ -95,6 +97,7 @@ body, html {
    width: 120px;
    font-weight: bold !important;
    font-size: large !important;
+   font-family: "Pangolin", sans serif;
 
  }
 
@@ -125,7 +128,7 @@ body, html {
   color: transparent;
   font-size: 8vw;
   margin-bottom: 15px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Pangolin", sans-serif;
   animation: reveal 3000ms ease-in-out forwards 200ms,
              glow 2500ms linear infinite 2000ms;
 
@@ -167,7 +170,7 @@ body, html {
 }
 
 p {
-  font-size: small;
+  font-size: large;
   margin-right: 7px;
   margin-left: 7px;
   margin-bottom: 0px;
