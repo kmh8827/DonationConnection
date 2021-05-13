@@ -57,6 +57,7 @@ const Register = () => {
                     <h2 style={{color: "black"}}>New User Registration Form</h2>
                 </div>                
                 <form className="row g-1 needs-validation" noValidate>
+                    
                     <div className="col-md-9 registerField">
                         <label for="validationCustom01" className="form-label">First name</label>
                         <input type="text" className="form-control" id="validationCustom01" onChange={handleChange} value={userObject.firstName} required/>
@@ -99,9 +100,9 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-12">
-                        <button className="btn btn-info registerBtn" onClick={handleSubmit}>Register</button>
-                        <a href="/login">Login</a>
+                    <div className="col-md-9 floater mr-10">
+                        <button className="btn btn-info registerBtn ml-3 mr-0" onClick={handleSubmit}>Register</button>
+                        <a href="/login" className="loginBtn">Login</a>
                     </div>
                    
                 </form>
