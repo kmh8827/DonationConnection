@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "../assets/scss/register.scss";
-
+import BrandIcon from '../assets/images/icons/BrandIcon.png'
 
 const Register = () => {
     const [userObject, setUserObject] = useState({
@@ -54,6 +54,7 @@ const Register = () => {
     return (
         <div>
             <nav className="navbar navTitleBar navbar-expand-lg fixed-top">
+                <img id="brandIcon" className=" mx-auto image-fluid" alt="Pickup" src={BrandIcon}/>
                 <div className="navbar-brand appTitle ml-4">Donation Connection</div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
