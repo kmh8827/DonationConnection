@@ -70,7 +70,7 @@ const Register = () => {
 
             <div className="container registerPage">
                 <div className="headingRegister">
-                    <h2 style={{color: "black"}}>New User Registration Form</h2>
+                    <h2 style={{color: "black"}}>Registration Form</h2>
                 </div>                
                 <form className="row g-1 needs-validation" noValidate>
                     
@@ -91,7 +91,6 @@ const Register = () => {
                     <div className="col-md-9 registerField">
                         <label for="validationCustomUsername" className="form-label">Username</label>
                         <div className="input-group has-validation">
-                        <span className="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.username} required />
                         <div className="invalid-feedback">
                             Please choose a username.
@@ -117,7 +116,7 @@ const Register = () => {
                         </div>
                     </div>
                     <div className="col-md-9 floater mr-10">
-                        <button className="btn btn-info registerBtn ml-2 mr-0" onClick={handleSubmit}>Register</button>
+                        <button className="btn btn-info registerBtn ml-2 mr-0" onClick={handleSubmit}>Register Now</button>
                         <a href="/login" className="loginBtn">Login</a>
                     </div>
                    
