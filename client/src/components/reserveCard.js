@@ -19,7 +19,8 @@ const reserveCard = (props) => {
             <li>Address: {props.address}</li>
             <li>Allergies: {props.allergies}</li>
           </ul>
-          <Button disabled={reserved} onClick={() => props.reservePickup(props.id)}>Reserved</Button>
+          {console.log(reserved)}
+          <Button disabled={!reserved} onClick={() => props.reservePickup(props.id)}>Reserved</Button>
         </CardBody>
       </Card>
     </div>

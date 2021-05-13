@@ -29,13 +29,8 @@ function Home() {
 
                     <div className="navv">
                         <section className="container">
-<<<<<<< HEAD
-                            <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/login'}>Login</button>
-                            <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/register'}>Register</button>
-=======
                             <button type="button" className="buttonz btn btn-light" onClick={event =>  window.location.href='/login'}>Login</button>
                             <button type="button" className=" buttonz btn btn-light" onClick={event =>  window.location.href='/register'}>Register</button>
->>>>>>> 4c09ae86dc5527f04d81da320b96a4de4775fc53
                         </section>
                     </div>
                 </div>

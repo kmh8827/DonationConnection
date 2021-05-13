@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import { Redirect, Link } from "react-router-dom";
-import AUTH from "../utils/AUTH";
-=======
 import { Redirect } from "react-router-dom";
-import axios from "axios";
+import AUTH from "../utils/AUTH";
 import "../assets/scss/register.scss";
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
->>>>>>> 4c09ae86dc5527f04d81da320b96a4de4775fc53
 
 const Register = () => {
     const [userObject, setUserObject] = useState({
@@ -104,19 +99,7 @@ const Register = () => {
                     <div className="col-md-9 registerField">
                         <label for="validationCustomUsername" className="form-label">Username</label>
                         <div className="input-group has-validation">
-<<<<<<< HEAD
-                        <span className="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text"
-                        name="username"
-                        className="form-control" 
-                        id="validationCustomUsername" 
-                        aria-describedby="inputGroupPrepend" 
-                        onChange={handleChange} 
-                        value={userObject.username} 
-                        required />
-=======
                         <input type="text" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.username} required />
->>>>>>> 4c09ae86dc5527f04d81da320b96a4de4775fc53
                         <div className="invalid-feedback">
                             Please choose a username.
                         </div>

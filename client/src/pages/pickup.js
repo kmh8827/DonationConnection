@@ -48,6 +48,7 @@ const Pickup = () => {
                     address={thisDonation.address}
                     allergies={thisDonation.allergies}
                     id={thisDonation._id}
+                    reservePickup={reservePickup}
                 />
             )}
         </div>

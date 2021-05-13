@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import donationForm from "./pages/donationForm";
@@ -32,10 +32,6 @@ function App() {
       }
     });
   }, []);
-
-  useEffect(() => {
-    console.log('user changed', user.user);
-  }, [user.user]);
 
   return (
     <div className="App">
