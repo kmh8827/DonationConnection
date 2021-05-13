@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../assets/scss/nav.scss'
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
+// import AUTH from "../utils/AUTH";
+import { CurrentUserContext } from "../context/currentUser";
 
 function Header() {
+
+    const user = useContext(CurrentUserContext);
+
+  // const logout = (e) => {
+  //   e.preventDefault();
+
+  //   AUTH.logout().then(response => {
+  //     if (response.status === 200) {
+  //       setLoggedIn({loggedIn: false});
+  //       setUser({});
+  //     }
+  //   });
+  // };
+
   return (
     <nav className="nav navbar navTitleBar navbar-expand-md fixed-top">
       <img id="brandIcon" className=" image-fluid" alt="Pickup" src={BrandIcon}/>

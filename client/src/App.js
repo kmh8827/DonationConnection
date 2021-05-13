@@ -1,5 +1,5 @@
-import React, { useState, useEffect, createContext, useMemo } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import React, { useState, useContext, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import donationForm from "./pages/donationForm";
 import Login from "./pages/login";
@@ -10,83 +10,69 @@ import Header from "./components/header";
 import Register from "./pages/register";
 import Footer from "./components/footer";
 import Error from "./pages/errorPage";
-import { loginContext } from "./components/loginContext";
+import { CurrentUserContext } from "./context/currentUser";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState("");
-  const [userDonations, setDonations] = useState([]);
-  const loggedInMemo = useMemo(() => ({loggedIn, setLoggedIn}), [loggedIn, setLoggedIn]);
-  const userMemo = useMemo(() => ({user, setUser}), [user, setUser]);
-  const donationMemo = useMemo(() => ({userDonations, setDonations}), [userDonations, setDonations]);
+  const user = useContext(CurrentUserContext);
 
   useEffect(() => {
+    console.log(user);
     AUTH.getUser().then(response => {
       console.log('THE RESPONSE DATA IS ', response.data);
-      if (!!response.data.username) {
-        setLoggedIn(true);
-        setUser(response.data.username);
+      if (!!response.data.user) {
+        console.log('hi')
+        user.handleLogin(true);
+        user.handleSetUser(response.data.user);
+        console.log('USER UPDATED', user);
       } else {
-        setLoggedIn(false);
-        setUser(null);
+        console.log(user.loggedIn);
+        user.handleLogin(false);
+        user.handleSetUser({});
       }
     });
-
-    return () => {
-      setLoggedIn(false);
-      setUser(null);
-    };
   }, []);
 
-  const logout = (e) => {
-    e.preventDefault();
-
-    AUTH.logout().then(response => {
-      if (response.status === 200) {
-        setLoggedIn(false);
-        setUser(null);
-      }
-    });
-  };
+  useEffect(() => {
+    console.log('user changed', user.user);
+  }, [user.user]);
 
   return (
     <div className="App">
-      { !loggedIn && (
-        <div>
+        {user.loggedIn && (
+          <div>
+
             <Header />
-          <Router>
-            <Switch>
-              <Route exact path={["/"]} component={Home} />
-              <Route exact path={["/register"]} component={Register} />
-              <loginContext.Provider value={{ loggedInMemo, userMemo, donationMemo }}>
-                <Route exact path={["/login"]} component={Login} />
-              </loginContext.Provider>
-              <Route component={Error} />
-            </Switch>
-          </Router>
-        </div>
-      )}
-      { loggedIn && (
-        <div>
-          <logoutContext.Provider value={{ loggedInMemo, userMemo, donationMemo }}>
-            <Header />
-          </logoutContext.Provider>
-          <Router>
-            <Switch>
-              <Route exact path={["/"]} component={Home} />
-              <donationContext.Provider value={{ user, userDonations, setDonations }}>
+            <Router>
+              <Switch>
+                <Route exact path={["/"]} component={Dashboard} />
+
                 <Route exact path={["/donate"]} component={donationForm} />
-              </donationContext.Provider>
-              <Route exact path={["/dashboard"]} component={Dashboard} />
-              <Route exact path={["/home"]} component={Home} />
-              <Route exact path={["/pickup"]} component={Pickup} />
-              <Route exact path={["/register"]} component={Register} />
-              <Route component={Error} />
-            </Switch>
-            <Footer />
-          </Router>
-        </div>
-      )}
+                <Route exact path={["/dashboard"]} component={Dashboard} />
+                <Route exact path={["/home"]} component={Home} />
+                <Route exact path={["/pickup"]} component={Pickup} />
+                <Route exact path={["/register"]} component={Register} />
+                <Route component={Error} />
+              </Switch>
+              <Footer />
+            </Router>
+          </div>
+        )}
+        {!user.loggedIn && (
+          <div>
+            <Header />
+            <Router>
+              <Switch>
+                <Route exact path={["/"]} component={Home} />
+                <Route exact path={["/register"]} component={Register} />
+
+                <Route exact path={["/login"]} component={Login} />
+
+                <Route component={Error} />
+              </Switch>
+            </Router>
+
+          </div>
+        )}
     </div>
   );
 }

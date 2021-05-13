@@ -4,12 +4,12 @@ const db = require ('../models');
 
 passport.serializeUser((user, done) => {
     console.log('SERIALIZE', user);
-    done(null, { _id: user });
+    done(null, { _id: user._id });
 });
 
 passport.deserializeUser((id, done) => {
     console.log('DESERIALIZE', id)
-    db.Users.findOne(
+    db.User.findOne(
         { _id: id },
         'firstName lastName username',
         (err, user) => {

@@ -3,8 +3,8 @@ const db = require('../models');
 // Defining Methods for userController
 module.exports = {
     getUser: (req, res, next) => {
-        console.log('GETUSER HERE');
-        if (req.username) return res.json({ username: req.username });
+        console.log('GETUSER HERE', req.user);
+        if (req.user) return res.json({ user: req.user });
         return res.json({ user: null });
     },
     register: (req, res) => {
@@ -38,17 +38,16 @@ module.exports = {
     },
     auth: (req, res, next) => {
         console.log('HI HI USERCONTROLELR AUTH HERE');
-        console.log(req.body);
         next();
     },
     authenticate: (req, res) => {
         console.log('NOW ARRIVING AT AUTHENTICATE STATION');
         console.log(req.body);
         console.log(req.body.username);
-        console.log(JSON.parse(JSON.stringify(req.body.username)));
-        const username = JSON.parse(JSON.stringify(req.body.username));
-        const cleanUser = Object.assign({}, username);
+        console.log(JSON.parse(JSON.stringify(req.user)));
+        const user = JSON.parse(JSON.stringify(req.user));
+        const cleanUser = Object.assign({}, user);
         if (cleanUser) delete cleanUser.password;
-        res.json({ username: cleanUser });
+        res.json({ user: cleanUser });
     }
 };

@@ -3,7 +3,6 @@ import axios from 'axios';
 export default {
     // Get user informaiton
     getUser: () => {
-        console.log('This is GET');
         return axios.get('/auth/user');
     },
     // Log the user out
@@ -12,7 +11,6 @@ export default {
     },
     // Log the user in
     login: (username, password) => {
-        console.log('THIS IS UTIL LOGIN');
         console.log(username, password);
         return axios.post('/auth/login', { username, password });
     },

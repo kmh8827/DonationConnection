@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import "../assets/scss/login.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
-import { loginContext } from '../components/loginContext';
 import AUTH from "../utils/AUTH";
+import { CurrentUserContext } from "../context/currentUser";
 
-const Login = (props) => {
+const Login = () => {
   // const username = useFormInput('');
   // const password = useFormInput('');
   const [error, setError] = useState(null);
@@ -16,22 +16,24 @@ const Login = (props) => {
     username: '',
     password: ''
   });
-  const { user, setUser, loggedIn, setLoggedIn, userDonations, setDonations } = useContext(loginContext);
+  const user = useContext(CurrentUserContext);
 
   const login = (username, password) => {
     console.log('login function');
     AUTH.login(username, password).then(response => {
-      console.log(response.data);
-      console.log('Logged in ', loggedIn);
-      setLoggedIn(true);
-      setUser(response.data.username);
-      console.log(response.data.username);
-      console.log(user);
-      setDonations(response.data.donation);
-      console.log(userDonations);
-      console.log('Logged in ', loggedIn);
-    });
+      console.log('Logged in ', user.loggedIn);
+      console.log(user.user);
+      user.handleLogin();
+      user.handleSetUser(response.data.user);
+    }).then(() => {
+      console.log(user.user);
+      console.log('Logged in ', user.loggedIn);
+    })
   };
+
+  useEffect(() => {
+    console.log(user.loggedIn);
+  }, [user.loggedIn]);
 
   // handle button click of login form
   const handleLogin = (event) => {
@@ -39,7 +41,6 @@ const Login = (props) => {
     event.preventDefault();
     login(userObject.username, userObject.password);
     setRedirectTo('/');
-
     // });
   }
 
@@ -91,22 +92,22 @@ const Login = (props) => {
           </div>
           <form>
             <div className="form-group">
-                <label for="inputUsername" className="form-label">Username </label>
-                <input type="text"
-                  className="form-control"
-                  autoComplete="new-username"
-                  name="username"
-                  onChange={handleInputChange}
-                  value={userObject.username} />
+              <label for="inputUsername" className="form-label">Username </label>
+              <input type="text"
+                className="form-control"
+                autoComplete="new-username"
+                name="username"
+                onChange={handleInputChange}
+                value={userObject.username} />
             </div>
             <div className="form-group mb-4">
               <label className="form-label" id="password">Password</label>
               <input type="text"
-                  className="form-control"
-                  autoComplete="new-password"
-                  name="password"
-                  onChange={handleInputChange}
-                  value={userObject.password} />
+                className="form-control"
+                autoComplete="new-password"
+                name="password"
+                onChange={handleInputChange}
+                value={userObject.password} />
             </div>
           </form>
           <div className="row floater mb-5">
@@ -114,7 +115,11 @@ const Login = (props) => {
             <a className="registerBtn" href="/register">Register</a>
 
             {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-            <input type="button" className="btn btn-info loginBtn mr-3" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
+            <input type="button" 
+            className="btn btn-info loginBtn mr-3" 
+            value={loading ? 'Loading...' : 'Login'} 
+            onClick={(e) => handleLogin(e)} 
+            disabled={loading} /><br />
           </div>
 
 
