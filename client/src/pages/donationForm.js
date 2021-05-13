@@ -88,7 +88,7 @@ class Form extends React.Component {
             .catch(err => console.log(err));
     };
 
-    handlePreviousTwo = (event) => {
+    handlePrevP2 = (event) => {
         event.preventDefault();
         const previousP2 = this.state.clickedPreviousP2;
 
@@ -100,7 +100,8 @@ class Form extends React.Component {
             })
         }
     }
-    handlePreviousThree = (event) => {
+
+    handlePrevP3 = (event) => {
         event.preventDefault();
         const previousP3 = this.state.clickedPreviousP3;
 
@@ -113,7 +114,7 @@ class Form extends React.Component {
         }
     }
 
-    handleNextOne = (event)  => {
+    handleNextP1 = (event)  => {
         event.preventDefault();
         const nextP1 = this.state.clickedNextP1;
 
@@ -125,7 +126,7 @@ class Form extends React.Component {
             })
         }
     }
-    handleNextTwo = (event)  => {
+    handleNextP2 = (event)  => {
         event.preventDefault();
         const nextP2 = this.state.clickedNextP2;
 
@@ -182,7 +183,7 @@ class Form extends React.Component {
                                 type="button"
                                 className="btn btn-info float-right nextBtn"
                                 value={this.state.clickedNextP1}
-                                onClick={this.handleNextOne}
+                                onClick={this.handleNextP1}
                             >Next</div>
                         </div>
 
@@ -228,14 +229,14 @@ class Form extends React.Component {
                                 name="previous"
                                 className="btn btn-light float-left previousBtn"
                                 value={this.state.clickedPreviousP2}
-                                onClick={this.handlePreviousTwo} 
+                                onClick={this.handlePrevP2} 
                             >Previous</div>
                             <div
                                 disabled={this.state.disable}
                                 type="button"
                                 className="btn btn-info float-right nextBtn"
                                 value={this.state.clickedNextP2}
-                                onClick={this.handleNextTwo}
+                                onClick={this.handleNextP2}
                             >Next</div>
                         </div>
 
@@ -281,7 +282,7 @@ class Form extends React.Component {
                                 name="previous"
                                 className="btn btn-light float-left previousBtn"
                                 value={this.state.clickedPreviousP2}
-                                onClick={this.handlePreviousThree}
+                                onClick={this.handlePrevP3}
                             >previous</div>
                             <div
                                 disabled={this.state.disable}

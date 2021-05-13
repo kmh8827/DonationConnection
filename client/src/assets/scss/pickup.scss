@@ -7,11 +7,11 @@ $white-color: whitesmoke;
 }
 
 .reserveCard {
-  background-color: rgba(245, 245, 245, 0.788);
+  background-color: rgb(245, 245, 245);
   border-radius: 15px;
   color: rgb(44, 44, 44);
   font-weight: bold;
-  border: 3px solid $white-color;
+  // border: 3px solid $white-color;
   box-shadow:
   -1px -1px 0 rgba(255, 255, 255, 0),
   2px 2px 0 rgba(0,0,0,.25),
@@ -29,4 +29,8 @@ $white-color: whitesmoke;
 
 .reserveBtn {
   float: right;
+}
+
+.ReactCollapse--collapse {
+  transition: height 500ms;
 }
