@@ -116,8 +116,8 @@ const Register = () => {
                         </div>
                     </div>
                     <div className="col-md-9 floater mr-10">
-                        <button className="btn btn-info registerBtn ml-2 mr-0" onClick={handleSubmit}>Register Now</button>
-                        <a href="/login" className="loginBtn">Login</a>
+                        <button className="btn btn-info registrationBtn ml-3 mr-0 press-on" onClick={handleSubmit}>Register Now</button>
+                        <a href="/login" className="logBtn">Login</a>
                     </div>
                    
                 </form>
