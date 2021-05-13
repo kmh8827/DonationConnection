@@ -10,12 +10,9 @@ import Header from "./components/header";
 import Register from "./pages/register";
 import Footer from "./components/footer";
 import Error from "./pages/errorPage";
-<<<<<<< HEAD
 import { CurrentUserContext } from "./context/currentUser";
-
-=======
 import AccountInfo from "./pages/accountInfo";
->>>>>>> 4c09ae86dc5527f04d81da320b96a4de4775fc53
+
 function App() {
   const user = useContext(CurrentUserContext);
 
@@ -42,7 +39,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
         {user.loggedIn && (
           <div>
 
@@ -50,7 +46,7 @@ function App() {
             <Router>
               <Switch>
                 <Route exact path={["/"]} component={Dashboard} />
-
+                <Route exact path={["/accountInfo"]} component={AccountInfo} />
                 <Route exact path={["/donate"]} component={donationForm} />
                 <Route exact path={["/dashboard"]} component={Dashboard} />
                 <Route exact path={["/home"]} component={Home} />
@@ -69,31 +65,14 @@ function App() {
               <Switch>
                 <Route exact path={["/"]} component={Home} />
                 <Route exact path={["/register"]} component={Register} />
-
+                <Route exact path={["/accountInfo"]} component={AccountInfo} />
                 <Route exact path={["/login"]} component={Login} />
-
                 <Route component={Error} />
               </Switch>
             </Router>
 
           </div>
         )}
-=======
-        <Router>
-          <Switch>
-            <Route exact path={["/"]} component={Home} />
-            <Route exact path={["/donate"]} component={donationForm} />
-            <Route exact path={["/login"]} component={Login} />
-            <Route exact path={["/dashboard"]} component={Dashboard} />
-            <Route exact path={["/home"]} component={Home} />
-            <Route exact path={["/pickup"]} component={Pickup}/>
-            <Route exact path={["/register"]} component={Register} />
-            <Route exact path={["/error"]} component={Error} />
-            <Route exact path={["/accountInfo"]} component={AccountInfo} />
-          </Switch>
-          <Footer />
-        </Router>
->>>>>>> 4c09ae86dc5527f04d81da320b96a4de4775fc53
     </div>
   );
 }
