@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { Redirect, Link } from "react-router-dom";
 import AUTH from "../utils/AUTH";
+=======
+import { Redirect } from "react-router-dom";
+import axios from "axios";
+import "../assets/scss/register.scss";
+import BrandIcon from '../assets/images/icons/BrandIcon.png'
+>>>>>>> 4c09ae86dc5527f04d81da320b96a4de4775fc53
 
 const Register = () => {
     const [userObject, setUserObject] = useState({
@@ -47,10 +54,28 @@ const Register = () => {
 
     return (
         <div>
-            <div className="container">
-                <h2>New User Registration Form</h2><br/>
-                <form className="row g-3 needs-validation" novalidate>
-                    <div className="col-md-4">
+            <nav className="navbar navTitleBar navbar-expand-lg fixed-top">
+                <img id="brandIcon" className=" mx-auto image-fluid" alt="Pickup" src={BrandIcon}/>
+                <div className="navbar-brand appTitle ml-4">Donation Connection</div>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse text-right" id="navbarNav">
+                    <ul className="navbar-nav ml-auto pl-0">
+                        <li className="nav-item active">
+                            <a className="nav-link navBtn" href="/home">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div className="container registerPage">
+                <div className="headingRegister">
+                    <h2 style={{color: "black"}}>Registration Form</h2>
+                </div>                
+                <form className="row g-1 needs-validation" noValidate>
+                    
+                    <div className="col-md-9 registerField">
                         <label for="validationCustom01" className="form-label">First name</label>
                         <input type="text"
                         name="firstName"
@@ -63,7 +88,7 @@ const Register = () => {
                         Looks good!
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-9 registerField">
                         <label for="validationCustom02" className="form-label">Last name</label>
                         <input type="text" 
                         name="lastName"
@@ -76,9 +101,10 @@ const Register = () => {
                         Looks good!
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-9 registerField">
                         <label for="validationCustomUsername" className="form-label">Username</label>
                         <div className="input-group has-validation">
+<<<<<<< HEAD
                         <span className="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text"
                         name="username"
@@ -88,12 +114,15 @@ const Register = () => {
                         onChange={handleChange} 
                         value={userObject.username} 
                         required />
+=======
+                        <input type="text" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.username} required />
+>>>>>>> 4c09ae86dc5527f04d81da320b96a4de4775fc53
                         <div className="invalid-feedback">
                             Please choose a username.
                         </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-9 registerField">
                         <label for="validationCustomPassword" className="form-label">Password</label>
                         <div className="input-group has-validation">
                         <input type="password" 
@@ -109,7 +138,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-9 registerField">
                         <label for="validationCustomPassword" className="form-label">Confirm password</label>
                         <div className="input-group has-validation">
                         <input type="password" 
@@ -125,10 +154,12 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-12">
-                        <button className="btn btn-primary" onClick={handleSubmit}>Register</button>
+                    <div className="col-md-9 floater mr-10">
+                        <button className="btn btn-info registrationBtn ml-3 mr-0 press-on" onClick={handleSubmit}>Register Now</button>
+                        <a href="/login" className="logBtn">Login</a>
                     </div>
-                    </form>
+                   
+                </form>
                 </div>
         </div>
     );

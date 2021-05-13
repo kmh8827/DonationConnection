@@ -17,10 +17,10 @@ function Home() {
                     </div>
 
                     <div className="about">
-                        <section className="container">
+                        <section className="flex-container">
                             <div className="speech-bubble">
                             <br></br>
-                            <h2>Where hunger meets a helping hand.</h2>
+                            <h2>Where hunger meets a helping hand...</h2>
                             <p>Our mission is to help connect those in need with those who are willing to lend a helping hand. On one end restaurants, businesses, and any other organizations are able to reduce food waste by donating food items. On the other end, those who are in need of food items can search and find donations around them for pickup.</p> 
                             <br></br>
                             </div>
@@ -29,8 +29,13 @@ function Home() {
 
                     <div className="navv">
                         <section className="container">
+<<<<<<< HEAD
                             <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/login'}>Login</button>
                             <button type="button" className="btn btn-light" onClick={event =>  window.location.href='/register'}>Register</button>
+=======
+                            <button type="button" className="buttonz btn btn-light" onClick={event =>  window.location.href='/login'}>Login</button>
+                            <button type="button" className=" buttonz btn btn-light" onClick={event =>  window.location.href='/register'}>Register</button>
+>>>>>>> 4c09ae86dc5527f04d81da320b96a4de4775fc53
                         </section>
                     </div>
                 </div>
