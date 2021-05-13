@@ -1,19 +1,22 @@
 .registerPage {
     background: whitesmoke;
     width: 45%;
-    height: 60%;
+    height: 50%;
     margin-top: 10%;
     box-shadow:
     -1px -1px 0 rgba(255, 255, 255, 0),
     2px 2px 0 rgba(0,0,0,.25),
     6px 6px 6px rgba(0,0,0,.25);
     border-radius: 15px;
-    padding: 60px;
+    padding-top: 60px;
+    
 };
 .registerField {
     margin-left: 60px;
     margin-right: 50px;
     margin-bottom: 10px;
+    padding-left: 4%;
+    padding-right: 0;
 };
 .headingRegister {
     text-align: center;
@@ -31,4 +34,6 @@
     width: 90%; 
     margin-left: 60px;
     margin-right: 50px;
+    padding-left: 4%;
+    padding-right: 0;
 }

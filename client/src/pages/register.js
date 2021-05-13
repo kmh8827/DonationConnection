@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "../assets/scss/register.scss";
 
+
 const Register = () => {
     const [userObject, setUserObject] = useState({
         firstName: "",
@@ -52,6 +53,20 @@ const Register = () => {
 
     return (
         <div>
+            <nav className="navbar navTitleBar navbar-expand-lg fixed-top">
+                <div className="navbar-brand appTitle ml-4">Donation Connection</div>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse text-right" id="navbarNav">
+                    <ul className="navbar-nav ml-auto pl-0">
+                        <li className="nav-item active">
+                            <a className="nav-link navBtn" href="/home">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
             <div className="container registerPage">
                 <div className="headingRegister">
                     <h2 style={{color: "black"}}>New User Registration Form</h2>
@@ -101,7 +116,7 @@ const Register = () => {
                         </div>
                     </div>
                     <div className="col-md-9 floater mr-10">
-                        <button className="btn btn-info registerBtn ml-3 mr-0" onClick={handleSubmit}>Register</button>
+                        <button className="btn btn-info registerBtn ml-2 mr-0" onClick={handleSubmit}>Register</button>
                         <a href="/login" className="loginBtn">Login</a>
                     </div>
                    
