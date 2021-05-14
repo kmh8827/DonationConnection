@@ -17,16 +17,13 @@ function App() {
   const user = useContext(CurrentUserContext);
 
   useEffect(() => {
-    console.log(user);
     AUTH.getUser().then(response => {
       if (!!response.data.user) {
         user.handleLogin(true);
         user.handleSetUser(response.data.user);
-        console.log(user);
       } else {
         user.handleLogin(false);
         user.handleSetUser({});
-        console.log(user);
       }
     });
   }, []);
@@ -40,22 +37,22 @@ function App() {
             <Switch>
               <Route exact path={["/"]} component={Dashboard} />
               <Route exact path={["/account"]} component={AccountInfo} />
-              <Route exact path={["/donate"]} component={donationForm} />
               <Route exact path={["/dashboard"]} component={Dashboard} />
-              <Route exact path={["/home"]} component={Home} />
+              <Route exact path={["/donate"]} component={donationForm} />
               <Route exact path={["/pickup"]} component={Pickup} />
               <Route exact path={["/register"]} component={Register} />
               <Route exact path={["/account"]} component={AccountInfo} />
-              <Route exact path={["/login"]} component={Login} />
               {/* <Route component={Error} /> */}
             </Switch>
           </div>
         )}
+        
         {!user.loggedIn && (
           <div>
             <Switch>
               <Route exact path={["/"]} component={Home} />
               <Route exact path={["/register"]} component={Register} />
+              <Route exact path={["/login"]} component={Login} />
               {/* <Route component={Error} /> */}
             </Switch>
           </div>

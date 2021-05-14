@@ -30,6 +30,7 @@ const Register = () => {
             firstName: userObject.firstName,
             lastName: userObject.lastName,
             username: userObject.username,
+            email: userObject.email,
             password: userObject.password,
         })
         .then(response => {
@@ -97,9 +98,30 @@ const Register = () => {
                     <div className="col-md-9 registerField">
                         <label for="validationCustomUsername" className="form-label">Username</label>
                         <div className="input-group has-validation">
-                        <input type="text" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.username} required />
+                        <input type="text" 
+                        name="username"
+                        className="form-control" 
+                        id="validationCustomUsername" 
+                        aria-describedby="inputGroupPrepend" 
+                        onChange={handleChange} 
+                        value={userObject.username} required />
                         <div className="invalid-feedback">
                             Please choose a username.
+                        </div>
+                        </div>
+                    </div>
+                    <div className="col-md-9 registerField">
+                        <label for="validationCustomEmail" className="form-label">E-mail</label>
+                        <div className="input-group has-validation">
+                        <input type="text" 
+                        name="email"
+                        className="form-control" 
+                        id="validationCustomEmail" 
+                        aria-describedby="inputGroupPrepend" 
+                        onChange={handleChange} 
+                        value={userObject.email} required />
+                        <div className="invalid-feedback">
+                            Please choose an e-mail.
                         </div>
                         </div>
                     </div>

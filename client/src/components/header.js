@@ -10,11 +10,9 @@ function Header() {
 
   const logout = (e) => {
     e.preventDefault();
-    AUTH.logout().then(response => {
-      if (response.status === 200) {
-        user.handleLogin(false);
-        user.handleSetUser({});
-      }
+    AUTH.logout().then(() => {
+      user.handleLogin(false);
+      user.handleSetUser({});
     }); 
   };
 
