@@ -10,7 +10,6 @@ function Header() {
 
   const logout = (e) => {
     e.preventDefault();
-
     AUTH.logout().then(response => {
       if (response.status === 200) {
         user.handleLogin(false);
@@ -29,11 +28,18 @@ function Header() {
       <div className="collapse navbar-collapse text-right" id="navbarNav">
         <ul className="navbar-nav ml-auto pl-0">
           <li className="nav-item active">
-            <a className="nav-link navBtn" href="/home">Home</a>
+            <a className="nav-link navBtn" href="/">Home</a>
           </li>
+          {!user.loggedIn && (
           <li className="nav-item">
-            <a className="nav-link navBtn" href="/login">Login</a>
+            <a className="nav-link navBtn" href="/">Login</a>
           </li>
+          )}
+          {user.loggedIn && (
+          <li className="nav-item">
+            <a className="nav-link navBtn" onClick={logout} href="/">Logout</a>
+          </li>
+          )}
           <li className="nav-item">
             <a className="nav-link navBtn" href="/account">Account</a>
           </li>

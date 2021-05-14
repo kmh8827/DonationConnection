@@ -15,8 +15,6 @@ const Register = () => {
     });
 
     const [redirectTo, setRedirectTo] = useState(null);
-    // const [registered, setRegistered] = useState(false);
-    // const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         setUserObject({

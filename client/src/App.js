@@ -9,7 +9,7 @@ import AUTH from './utils/AUTH';
 import Header from "./components/header";
 import Register from "./pages/register";
 import Footer from "./components/footer";
-import Error from "./pages/errorPage";
+// import Error from "./pages/errorPage";
 import { CurrentUserContext } from "./context/currentUser";
 import AccountInfo from "./pages/accountInfo";
 
@@ -19,56 +19,49 @@ function App() {
   useEffect(() => {
     console.log(user);
     AUTH.getUser().then(response => {
-      console.log('THE RESPONSE DATA IS ', response.data);
       if (!!response.data.user) {
-        console.log('hi')
         user.handleLogin(true);
         user.handleSetUser(response.data.user);
-        console.log('USER UPDATED', user);
+        console.log(user);
       } else {
-        console.log(user.loggedIn);
         user.handleLogin(false);
         user.handleSetUser({});
+        console.log(user);
       }
     });
   }, []);
 
   return (
     <div className="App">
+      <Header />
+      <Router>
         {user.loggedIn && (
           <div>
-
-            <Header />
-            <Router>
-              <Switch>
-                <Route exact path={["/"]} component={Dashboard} />
-                <Route exact path={["/accountInfo"]} component={AccountInfo} />
-                <Route exact path={["/donate"]} component={donationForm} />
-                <Route exact path={["/dashboard"]} component={Dashboard} />
-                <Route exact path={["/home"]} component={Home} />
-                <Route exact path={["/pickup"]} component={Pickup} />
-                <Route exact path={["/register"]} component={Register} />
-                <Route component={Error} />
-              </Switch>
-              <Footer />
-            </Router>
+            <Switch>
+              <Route exact path={["/"]} component={Dashboard} />
+              <Route exact path={["/account"]} component={AccountInfo} />
+              <Route exact path={["/donate"]} component={donationForm} />
+              <Route exact path={["/dashboard"]} component={Dashboard} />
+              <Route exact path={["/home"]} component={Home} />
+              <Route exact path={["/pickup"]} component={Pickup} />
+              <Route exact path={["/register"]} component={Register} />
+              <Route exact path={["/account"]} component={AccountInfo} />
+              <Route exact path={["/login"]} component={Login} />
+              {/* <Route component={Error} /> */}
+            </Switch>
           </div>
         )}
         {!user.loggedIn && (
           <div>
-            <Header />
-            <Router>
-              <Switch>
-                <Route exact path={["/"]} component={Home} />
-                <Route exact path={["/register"]} component={Register} />
-                <Route exact path={["/accountInfo"]} component={AccountInfo} />
-                <Route exact path={["/login"]} component={Login} />
-                <Route component={Error} />
-              </Switch>
-            </Router>
-
+            <Switch>
+              <Route exact path={["/"]} component={Home} />
+              <Route exact path={["/register"]} component={Register} />
+              {/* <Route component={Error} /> */}
+            </Switch>
           </div>
         )}
+      </Router>
+      <Footer />
     </div>
   );
 }
