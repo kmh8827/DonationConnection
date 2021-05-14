@@ -1,46 +1,45 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import {
   Card, CardTitle
 } from 'reactstrap';
 import { Collapse } from 'react-collapse';
 import ReserveButton from '../components/reserveButton';
 
+function ReserveCard(props) {
 
-class reserveCard extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { isOpened: false};
-  }
+  const [state, setState] = useState({ isOpened: false, availability: props.availability, backgroundColor: 'red' })
 
-  render() {
-    const { isOpened } = this.state;
-    const height = 100;
+  const { isOpened } = state;
 
-    return (
-      <div>
-        <Card className="reserveCard card m-3" type="button" checked={isOpened} onClick={() => this.setState({isOpened: !isOpened})}>
-          <div className="row">
-            <CardTitle className="m-3 p-4 pr-2" tag="h5">{this.props.companyName}</CardTitle>
-            <CardTitle className="m-3 p-4" tag="h5">{this.props.product}</CardTitle>
-          </div>
-          <Collapse isOpened={isOpened}>
-            <div style={{ height }} className="blob">
-              <ul className="infoList">
-                {/* <li>Company Name: {this.props.companyName}</li> */}
-                {/* <li>Perishable: {this.props.perishable}</li> */}
-                <li>Expiration Date: {this.props.expDate}</li>
-                {/* <li>Availablity: {this.props.availability}</li> */}
-                <li>Address: {this.props.address}</li>
-                <li>Allergies: {this.props.allergies}</li>
+  const height = 100;
+
+  return (
+    <div>
+      <Card className="reserveCard" type="button" style={props.availability === 'true' ? { backgroundColor: "green" } : { backgroundColor: "red" }} checked={isOpened} onClick={() => setState({ isOpened: !isOpened })}>
+
+        <CardTitle className="m-3 pr-2" tag="h6">{props.companyName}</CardTitle>
+        <CardTitle className="m-3" tag="h6">{props.product}</CardTitle>
+
+        <Collapse isOpened={isOpened}>
+          <div style={{ height }} className="blob">
+            <div className="row ml-4 mr-4">
+              <ul className="infoList col">
+                {/* <li>Company Name: {props.companyName}</li> */}
+                {/* <li>Perishable: {props.perishable}</li> */}
+                <li>Expiration Date: {props.expDate}</li>
+                <li>Availablity: {props.availability}</li>
+                <li>Address: {props.address}</li>
+                <li>Allergies: {props.allergies}</li>
               </ul>
-              <ReserveButton availability={this.props.availability} id={this.props.id} text={'Reserve'} />
+              <div className="col">
+                <ReserveButton reserved={props.availability} reservePickup={props.reservePickup} loadPickups={props.loadPickups} availability={props.availability} id={props.id} text={'Reserve'} />
+              </div>
             </div>
-          </Collapse>
-        </Card>
-      </div>
-    );
-  }
+          </div>
+        </Collapse>
+      </Card>
+    </div>
+  );
 }
 
-export default reserveCard;
+export default ReserveCard;
