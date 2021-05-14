@@ -7,8 +7,8 @@ const reserveButton = (props) => {
 
     return (
         <div className="reserveBtn">
-            {console.log(props.reserved, 'availability:')}
-            { props.reserved 
+            {/* {console.log(props.reserved, 'availability:')} */}
+            { props.reserved === 'true'
              ? <Button onClick={() => props.reservePickup(props.id)}>{props.text}</Button>
              : <Button disabled={true} onClick={() => props.reservePickup(props.id)}>{props.text}</Button>
             }

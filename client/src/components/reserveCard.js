@@ -19,6 +19,8 @@ function ReserveCard(props) {
 
         <CardTitle className="m-3 pr-2" tag="h6">{props.companyName}</CardTitle>
         <CardTitle className="m-3" tag="h6">{props.product}</CardTitle>
+        <ReserveButton reserved={props.availability} reservePickup={props.reservePickup} loadPickups={props.loadPickups} availability={props.availability} id={props.id} text={'Reserve'} />
+
 
         <Collapse isOpened={isOpened}>
           <div style={{ height }} className="blob">
@@ -31,9 +33,9 @@ function ReserveCard(props) {
                 <li>Address: {props.address}</li>
                 <li>Allergies: {props.allergies}</li>
               </ul>
-              <div className="col-3-sm">
+              {/* <div className="col-3">
                 <ReserveButton reserved={props.availability} reservePickup={props.reservePickup} loadPickups={props.loadPickups} availability={props.availability} id={props.id} text={'Reserve'} />
-              </div>
+              </div> */}
             </div>
           </div>
         </Collapse>
