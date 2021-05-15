@@ -33,23 +33,24 @@ const Pickup = () => {
     };
 
     const reserved = donations.availability;
+
     const gridTileStyle = {
         position: 'center',
         width: '100%',
         minHeight: '400px',
-        minWidth: '664px',
         overflow: 'hidden',
-        // height: '100% !important'
+        height: '100% !important',
+        justifyContent: 'center'
     }
 
     return (
         <div className="bg-image-pickup">
             <Header />
             <div className="pickupContainer"></div>
-            <GridList style={gridTileStyle}>
+            <GridList className="mb-5" style={gridTileStyle}>
                 {console.log(donations, 'donations')}
                 {/* need something like lazy loading for better loading */}
-                {donations.map(thisDonation =>
+                {donations && donations.slice(6, 12).map(thisDonation =>
                     <ReserveCard
                         key={thisDonation._id}
                         product={thisDonation.product}
