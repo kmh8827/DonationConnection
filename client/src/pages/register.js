@@ -74,7 +74,8 @@ const Register = () => {
                         <input type="text"
                         name="firstName"
                         className="form-control" 
-                        id="validationCustom01" 
+                        id="validationCustom01"
+                        placeholder="Ex. Jane"
                         onChange={handleChange} 
                         value={userObject.firstName} 
                         required/>
@@ -87,7 +88,8 @@ const Register = () => {
                         <input type="text" 
                         name="lastName"
                         className="form-control" 
-                        id="validationCustom02" 
+                        id="validationCustom02"
+                        placeholder="Ex. Joe"
                         onChange={handleChange} 
                         value={userObject.lastName} 
                         required />
@@ -102,6 +104,7 @@ const Register = () => {
                         name="username"
                         className="form-control" 
                         id="validationCustomUsername" 
+                        placeholder="Ex. janejoe"
                         aria-describedby="inputGroupPrepend" 
                         onChange={handleChange} 
                         value={userObject.username} required />
@@ -116,7 +119,8 @@ const Register = () => {
                         <input type="text" 
                         name="email"
                         className="form-control" 
-                        id="validationCustomEmail" 
+                        id="validationCustomEmail"
+                        placeholder="Ex. jjoe@email.com" 
                         aria-describedby="inputGroupPrepend" 
                         onChange={handleChange} 
                         value={userObject.email} required />
@@ -132,6 +136,7 @@ const Register = () => {
                         name="password"
                         className="form-control" 
                         id="validationCustomPassword" 
+                        placeholder="Ex. 123"
                         aria-describedby="inputGroupPrepend" 
                         onChange={handleChange} 
                         value={userObject.password} 
@@ -148,6 +153,7 @@ const Register = () => {
                         name="confirmPassword"
                         className="form-control" 
                         id="validationCustomConfirmPassword" 
+                        placeholder="Ex. 123"
                         aria-describedby="inputGroupPrepend" 
                         onChange={handleChange} 
                         value={userObject.confirmPassword} 
