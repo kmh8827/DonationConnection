@@ -15,6 +15,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addDonation: (req, res) => {
+        console.log('REQ BODY IS ', req.body);
         db.Donations
             .create(req.body)
             .then(donations => res.json(donations))

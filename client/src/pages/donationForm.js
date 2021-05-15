@@ -16,8 +16,10 @@ const Form = () => {
     const [donation, setDonation] = useState({
         product: '',
         companyName: '',
+        perishable: 'true',
+        expDate: '',
+        availability: 'true',
         address: '',
-        expiration: '',
         specialInstructions: '',
         allergies: '',
         quantity: '',
@@ -31,9 +33,11 @@ const Form = () => {
     });
 
     const handleInputChange = event => {
+        console.log(donation);
         setDonation({
             ...donation,
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            userId: user.user._id
         });
 
         if (
@@ -49,27 +53,27 @@ const Form = () => {
 
     const handleClick = () => {
 
-        if (checked === true) setChecked(false);
-        if (checked === false) setChecked(true);
-
+        if (checked === true) {
+            setChecked(false);
+            setDonation({
+                ...donation,
+                perishable: 'false'
+            });
+        }
+        if (checked === false) {
+            setChecked(true);
+            setDonation({
+                ...donation,
+                perishable: 'false'
+            });
+        }
     }
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('DONATION', donation);
-        console.log('USER', user);
-        setDonation({
-            ...donation,
-            userId: user.user._id
-        })
-        APICall();
-    };
-
-    const APICall = () => {
-        console.log('DONATION CALL', donation)
         API.newDonation(donation)
         .catch(err => console.log(err));
-    }
+    };
 
     const handlePreviousTwo = (event) => {
         event.preventDefault();
