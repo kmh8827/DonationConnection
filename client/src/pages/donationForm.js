@@ -4,6 +4,8 @@ import { CurrentUserContext } from "../context/currentUser";
 import "../assets/scss/form.scss";
 
 const Form = () => {
+    const user = useContext(CurrentUserContext);
+    
     const [checked, setChecked] = useState(true);
     const [disable, setDisable] = useState(true);
     const clickedNextP1 = true;
@@ -18,16 +20,16 @@ const Form = () => {
         expiration: '',
         specialInstructions: '',
         allergies: '',
-        quantity: ''
+        quantity: '',
+        userId: user.user.user_id
     });
 
     const [business, setBusiness] = useState({
         businessInfo: '',
         donationInfo: 'd-none',
         foodInfo: 'd-none',
-    })
+    });
 
-    const user = useContext(CurrentUserContext);
     console.log(user);
 
     const handleInputChange = event => {

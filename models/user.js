@@ -8,12 +8,6 @@ const UserSchema = new Schema({
     username: { type: String, trim: true, unique: true, require: true },
     email: { type: String, trim: true, unique: true, require: true },
     password: { type: String, trim: true, unique: false, required: true },
-    donations: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Donation'
-        }
-    ]
 });
 
 UserSchema.methods = {

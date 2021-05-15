@@ -12,31 +12,21 @@ module.exports = {
     reserve: (req, res) => {
         db.Donations
             .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'false' }, { useFindAndModify: false })
-            .then(dbModel => res.json(dbModel))
+            .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
     },
     addDonation: (req, res) => {
-        console.log(req.body);
-        console.log(req.params.id);
-        db.User
-            .findOneAndUpdate({ _id: req.user_id }, { $push: { donations: 'pizza' } }, { new: true })
-            .then(() => {
         db.Donations
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
+            .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
-        });
     },
     removeDonation: (req, res) => {
-        db.User
-            .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
-            .then(() => {
-                db.Donations
-                    .findById({ _id: req.params.id })
-                    .then(dbModel => dbModel.remove())
-                    .then(dbModel => res.json(dbModel))
-                    .catch(err => res.status(422).json(err));
-            });
+        db.Donations
+            .findById({ _id: req.params.id })
+            .then(dbModel => dbModel.remove())
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
     },
     findDonation: (req, res) => {
         db.User
@@ -47,12 +37,5 @@ module.exports = {
                     .then(dbModel => res.json(dbModel))
                     .catch(err => res.status(422).json(err));
             });
-    },
-    sortDonation: (req, res) => {
-        db.Donations
-            .find({})
-            .where(req.body).in(allergies)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
     }
 };
