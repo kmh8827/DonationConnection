@@ -20,29 +20,31 @@ const AccountInfo = () => {
 
     return (
         <div>
-            <p>Hi</p>
             <div>
-                <div className="companyAbout">
-                    <h2 className="companyAbout accInfo">Account Info:</h2>
-                    <div>
-                        <label className="form-label">Username:</label>
-                        <p>{user.username}</p>
+                <div class="container infoo">
+
+                    <div className="companyAbout">
+                        <h2 className="companyAbout accInfo">Account Info:</h2>
+                        <row className="row justify-content-center">
+                            <div className="user">
+                                <label className="form-label">Username: {user.username}</label>
+                            </div>
+                            <div className="user">
+                                <label className="form-label">Email: {user.email}</label>
+                            </div>
+                            <div className="user">
+                                <label className="form-label">Total Donations: {donations ? donations.length : 'None'}</label>
+                            </div>
+
+                        </row>
                     </div>
-                    <div>
-                        <label className="form-label">Email:</label>
-                        <p>{user.email}</p>
-                    </div>
-                    <div>
-                        <label className="form-label">Total Donations:</label>
-                        <p>{donations ? donations.length : 'None'}</p>
+                    <React.Fragment>
+                        <label className="form-label status onHold">Donations on hold:</label>
+                        <label className="form-label status available">Available Donations:</label>
+                        <label className="form-label status pickedup">Picked-up Donations:</label>
+                    </React.Fragment>
                     </div>
                 </div>
-                <React.Fragment>
-                    <label className="form-label status onHold">Donations on hold:</label>
-                    <label className="form-label status available">Available Donations:</label>
-                    <label className="form-label status pickedup">Picked-up Donations:</label>
-                </React.Fragment>
-            </div>
         </div>
     )
 }
