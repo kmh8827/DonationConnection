@@ -64,7 +64,7 @@ const Pickup = () => {
                     {/* {console.log(donations, 'donations')} */}
                     {/* need next and previous buttons for different slice(x, x) */}
                     
-                    {donations && donations.slice(0, 6).map(thisDonation => {
+                    {donations && donations.slice(6, 12).map(thisDonation => {
                         // console.log(thisDonation._id)
                      return   (
                          

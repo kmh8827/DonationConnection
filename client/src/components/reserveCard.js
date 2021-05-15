@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardTitle } from 'reactstrap';
 import { Collapse } from 'react-collapse';
 import ReserveButton from '../components/reserveButton';
