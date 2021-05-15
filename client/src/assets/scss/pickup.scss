@@ -2,26 +2,35 @@ $white-color: whitesmoke;
 
 
 .pickupContainer {
-    padding-top: 100px;
-    padding-bottom: 60px;
+
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
 
+// .MultiGridList-root {
+//   padding-bottom: ;
+// }
+
+
+
+
+
 .reserveCard {
-  background-color: rgba(245, 245, 245, 0.788);
+  background-color: rgb(245, 245, 245);
   border-radius: 15px;
-  color: rgb(44, 44, 44);
+  color: rgb(255, 255, 255);
   font-weight: bold;
-  border: 3px solid $white-color;
+  // border: 3px solid $white-color;
   box-shadow:
   -1px -1px 0 rgba(255, 255, 255, 0),
   2px 2px 0 rgba(0,0,0,.25),
   6px 6px 6px rgba(0,0,0,.25);
-  width: auto;
+  width: 500px;
+  margin: 10px;
 }
-
-// .pickupTitle {
-//   ali: center;
-// }
+//  .blob {
+//    background-color: rgba(2, 2, 2, 0.308);
+//  }
 
 .infoList {
   float: left;
@@ -30,3 +39,13 @@ $white-color: whitesmoke;
 .reserveBtn {
   float: right;
 }
+
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}
+
+@media screen and (max-width: 400px) { 
+  .reserveCard {
+    width: 350px;
+  }
+} 
