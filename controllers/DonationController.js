@@ -32,5 +32,11 @@ module.exports = {
             .findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    findMine: (req, res) => {
+        db.Donations
+            .find({ userId: req.body })
+            .then(usersDonations => res.json(usersDonations))
+            .catch(err => res.status(422).json(err));
     }
 }
