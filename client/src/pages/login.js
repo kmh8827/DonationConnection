@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import "../assets/scss/login.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -10,6 +10,7 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [redirectTo, setRedirectTo] = useState(null)
+  
   const [userObject, setUserObject] = useState({
     username: '',
     password: ''
@@ -17,27 +18,18 @@ const Login = () => {
   const user = useContext(CurrentUserContext);
 
   const login = (username, password) => {
-    console.log('login function');
     AUTH.login(username, password).then(response => {
-      console.log('Logged in ', user.loggedIn);
-      console.log(user.user);
       user.handleLogin();
       user.handleSetUser(response.data.user);
-    }).then(() => {
-      console.log(user.user);
-      console.log('Logged in ', user.loggedIn);
+      console.log('login');
+      setRedirectTo('/');
     })
   };
-
-  useEffect(() => {
-    console.log(user.loggedIn);
-  }, [user.loggedIn]);
 
   // handle button click of login form
   const handleLogin = (event) => {
     event.preventDefault();
-    login(userObject.username, userObject.password);
-    setRedirectTo('/');
+    login(userObject.username, userObject.password)
   }
 
   // Updates the username and password while being typed in
@@ -50,7 +42,10 @@ const Login = () => {
 
   if (redirectTo) {
     return (
+      <div>
+      {console.log('THIS IS REDIRECT')}
       <Redirect to={{ pathname: redirectTo }} />
+      </div>
     )
   } else {
     return (
