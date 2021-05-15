@@ -5,7 +5,7 @@ import ReserveButton from '../components/reserveButton';
 
 function ReserveCard(props) {
 
-  const [state, setState] = useState({ availability: props.availability })
+  // const [state, setState] = useState({ availability: props.availability })
 
   const { isOpened, handleOpenCard } = props;
   
@@ -13,7 +13,6 @@ function ReserveCard(props) {
     
   return (
     <div>
-      {/* {console.log(props.key, "key")} */}
       <Card className="reserveCard" id={props.id} type="button" style={props.availability === 'true' ? { backgroundColor: "rgb(58, 175, 58)" } : { backgroundColor: "rgb(196, 75, 75)" }} checked={isOpened} onClick={() =>  handleOpenCard(props.id)}>
 
         <CardTitle className="m-3 pr-2" tag="h6">{props.companyName}</CardTitle>
