@@ -37,7 +37,7 @@ function Header() {
             </li>
           )}
           <li className="nav-item">
-            <a className="nav-link navBtn" href="/accountInfo">Account</a>
+            <a className="nav-link navBtn" href="/account">Account</a>
           </li>
         </ul>
       </div>
