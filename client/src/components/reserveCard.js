@@ -8,20 +8,6 @@ function ReserveCard(props) {
   const [state, setState] = useState({ availability: props.availability })
 
   const { isOpened, handleOpenCard } = props;
-
-  console.log(isOpened, "outsideFunction")
-
-  // const closeOtherCard = (opened, id) => {
-
-  //   const currentCard = (opened) ? id : false;
-  //   console.log(currentCard, "currentCard")
-    
-  //   setState({ isOpened: !opened })
-  //   // setState({isOpened: !isOpened})
-  //   // console.log(e)
-  //   console.log(isOpened, "isOpened") 
-
-  // }
   
   const height = 100;
     

@@ -15,9 +15,8 @@ const Pickup = () => {
     const loadPickups = () => {
         API.getDonations()
             .then(res => {
-                console.log("helo!!!!!");
                 let donationList = res.data;
-                console.log(donationList);
+                // console.log(donationList);
                 const formattedDonations = donationList.map(d => ({...d, isOpened: false}));
                 setDonations(formattedDonations);
             })
@@ -43,15 +42,7 @@ const Pickup = () => {
             return thisClosed;
         })
                 
-        setDonations(newOpened)
-        // const currentCard = (opened) ? id : false;
-        // console.log(currentCard, "currentCard")
-        
-        // setState({ isOpened: !opened })
-        // // setState({isOpened: !isOpened})
-        // // console.log(e)
-        // console.log(isOpened, "isOpened") 
-    
+        setDonations(newOpened)    
       }
 
     const reserved = donations.availability;
@@ -74,7 +65,7 @@ const Pickup = () => {
                     {/* need next and previous buttons for different slice(x, x) */}
                     
                     {donations && donations.slice(0, 6).map(thisDonation => {
-                        console.log(thisDonation._id)
+                        // console.log(thisDonation._id)
                      return   (
                          
                         <ReserveCard
