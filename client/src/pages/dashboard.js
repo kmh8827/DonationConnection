@@ -5,9 +5,7 @@ import pickup from '../assets/images/icons/pickup.png';
 import donate from '../assets/images/icons/donate.png';
 import Header from '../components/header'
 
-
-
-const Dashboard = (props) => {
+const Dashboard = () => {
     return (
         <>
         <div className="">

@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
 const DonationsSchema = new Schema({
@@ -18,12 +17,10 @@ const DonationsSchema = new Schema({
         default: true,
     },
     expDate: {
-        type: String,
-        trim: true
+        type: String
     },
     availability: {
         type: String,
-        trim: true,
         required: true
     },
     address: {
@@ -31,9 +28,19 @@ const DonationsSchema = new Schema({
         trim: true,
         required: true
     },
+    specialInstructions: {
+        type: String
+    },
     allergies: {
         type: String,
-        trim: true,
+        trim: true
+    },
+    quantity: {
+        type: Number,
+    },
+    userId: {
+        type: String,
+        trime: true,
         required: true
     }
 });

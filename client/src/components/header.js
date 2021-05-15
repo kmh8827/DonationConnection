@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../assets/scss/nav.scss'
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
+import AUTH from "../utils/AUTH";
+import { CurrentUserContext } from "../context/currentUser";
 
 function Header() {
+
+    const { user, handleSetUser } = useContext(CurrentUserContext);
+
+  const logout = (e) => {
+    e.preventDefault();
+    AUTH.logout().then(() => {
+      handleSetUser({});
+    }); 
+  };
+
   return (
     <nav className="nav navbar navTitleBar navbar-expand-md fixed-top">
       <img id="brandIcon" className=" image-fluid" alt="Pickup" src={BrandIcon}/>
@@ -13,13 +25,19 @@ function Header() {
       <div className="collapse navbar-collapse text-right" id="navbarNav">
         <ul className="navbar-nav ml-auto pl-0">
           <li className="nav-item active">
-            <a className="nav-link navBtn" href="/home">Home</a>
+            <a className="nav-link navBtn" href="/">Home</a>
           </li>
+          {(user && user.isLoggedIn) ? (
           <li className="nav-item">
-            <a className="nav-link navBtn" href="/login">Login</a>
+            <a className="nav-link navBtn" onClick={logout} href="/">Logout</a>
           </li>
+          ) : (
+            <li className="nav-item">
+              <a className="nav-link navBtn" href="/">Login</a>
+            </li>
+          )}
           <li className="nav-item">
-            <a className="nav-link navBtn" href="/account">Account</a>
+            <a className="nav-link navBtn" href="/accountInfo">Account</a>
           </li>
         </ul>
       </div>
@@ -28,4 +46,3 @@ function Header() {
 }
 
 export default Header;
-
