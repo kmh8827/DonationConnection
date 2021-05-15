@@ -1,4 +1,3 @@
-const ObjectId = require('mongoose').Types.ObjectId;
 const db = require('../models');
 
 module.exports = {
@@ -6,51 +5,39 @@ module.exports = {
         db.Donations
             .find()
             .sort({ date: -1 })
-            .then(dbModel => res.json(dbModel))
+            .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
     },
     reserve: (req, res) => {
         db.Donations
             .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'false' }, { useFindAndModify: false })
-            .then(dbModel => res.json(dbModel))
+            .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
     },
     addDonation: (req, res) => {
-        // db.User
-        //     .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
-        //     .then(() => {
         db.Donations
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
+            .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
-        // });
     },
     removeDonation: (req, res) => {
-        db.User
-            .findOneAndUpdate({ _id: req.user_id }, { $push: { donation: new ObjectId(req.params.id) } }, { new: true })
-            .then(() => {
-                db.Donations
-                    .findById({ _id: req.params.id })
-                    .then(dbModel => dbModel.remove())
-                    .then(dbModel => res.json(dbModel))
-                    .catch(err => res.status(422).json(err));
-            });
+        db.Donations
+            .findById({ _id: req.params.id })
+            .then(donation => donation.remove())
+            .then(donations => res.json(donations))
+            .catch(err => res.status(422).json(err));
     },
     findDonation: (req, res) => {
-        db.User
-            .findOne({ _id: req.user_id })
-            .then(() => {
-                db.Donations
-                    .findById(req.params.id)
-                    .then(dbModel => res.json(dbModel))
-                    .catch(err => res.status(422).json(err));
-            });
-    },
-    sortDonation: (req, res) => {
         db.Donations
-            .find({})
-            .where(req.body).in(allergies)
+            .findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    findMine: (req, res) => {
+        console.log('FINDMINE', req.body.userId)
+        db.Donations
+            .find({ userId: req.body.userId })
+            .then(usersDonations => res.json(usersDonations))
+            .catch(err => res.status(422).json(err));
     }
-};
+}
