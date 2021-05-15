@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import API from "../utils/API";
 import { CurrentUserContext } from "../context/currentUser";
 import "../assets/scss/accountInfo.scss";
+import Header from "../components/header"
 
 const AccountInfo = () => {
     const { user } = useContext(CurrentUserContext);
@@ -21,6 +22,11 @@ const AccountInfo = () => {
     return (
         <div>
             <div>
+<<<<<<< HEAD
+=======
+                <Header />
+                <div className="container loginContainer">
+>>>>>>> 5c6d47cca4e94466fe99bf429669e2b1c1867a81
                 <div className="companyAbout">
                     <h2 className="companyAbout accInfo">Account Info:</h2>
                     <div>
@@ -37,9 +43,9 @@ const AccountInfo = () => {
                     </div>
                 </div>
                 <React.Fragment>
-                    <label className="form-label onHold">Donations on hold:</label>
-                    <label className="form-label onHold">Available Donations:</label>
-                    <label className="form-label onHold">Cancel Donation:</label>
+                    <label className="form-label status onHold">Donations on hold:</label>
+                    <label className="form-label status available">Available Donations:</label>
+                    <label className="form-label status pickedup">Picked-up Donations:</label>
                 </React.Fragment>
             </div>
         </div>

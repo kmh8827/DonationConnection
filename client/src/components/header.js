@@ -29,7 +29,14 @@ function Header() {
           </li>
           {(user && user.isLoggedIn) ? (
           <li className="nav-item">
+<<<<<<< HEAD
             <a className="nav-link navBtn" onClick={logout} href="/">Logout</a>
+=======
+            <a className="nav-link navBtn" href="/dashboard">Dashboard</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link navBtn" href="/login">Login</a>
+>>>>>>> 5c6d47cca4e94466fe99bf429669e2b1c1867a81
           </li>
           ) : (
             <li className="nav-item">
@@ -37,7 +44,7 @@ function Header() {
             </li>
           )}
           <li className="nav-item">
-            <a className="nav-link navBtn" href="/account">Account</a>
+            <a className="nav-link navBtn" href="/accountInfo">Account</a>
           </li>
         </ul>
       </div>
