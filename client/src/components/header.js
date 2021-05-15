@@ -19,7 +19,7 @@ function Header() {
             <a className="nav-link navBtn" href="/login">Login</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link navBtn" href="/account">Account</a>
+            <a className="nav-link navBtn" href="/accountInfo">Account</a>
           </li>
         </ul>
       </div>
