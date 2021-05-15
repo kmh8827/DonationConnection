@@ -3,23 +3,17 @@ import { createContext, useState } from "react";
 export const CurrentUserContext = createContext({});
 
 export default function CurrentUserProvider({children}){
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [user, setUser] = useState({});
-
-    const handleLogin = (isLogIn) => {
-        setLoggedIn(isLogIn);
-    }
+    const [user, setUser] = useState();
 
     const handleSetUser = (userData) => {
+        console.log('setting the user');
         setUser(userData);
     }
 
     return (
         <CurrentUserContext.Provider value={{ 
             user, 
-            handleSetUser, 
-            loggedIn,
-            handleLogin
+            handleSetUser
         }} >
             {children}
         </CurrentUserContext.Provider>

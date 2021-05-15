@@ -14,16 +14,16 @@ import { CurrentUserContext } from "./context/currentUser";
 import AccountInfo from "./pages/accountInfo";
 
 function App() {
-  const user = useContext(CurrentUserContext);
+  const { user, handleSetUser } = useContext(CurrentUserContext);
 
   useEffect(() => {
     AUTH.getUser().then(response => {
       if (!!response.data.user) {
-        user.handleLogin(true);
-        user.handleSetUser(response.data.user);
+        const responseUser = response.data.user;
+        responseUser.isLoggedIn = true
+        handleSetUser(responseUser);
       } else {
-        user.handleLogin(false);
-        user.handleSetUser({});
+        handleSetUser({});
       }
     });
   }, []);
@@ -32,10 +32,9 @@ function App() {
     <div className="App">
       <Header />
       <Router>
-        {user.loggedIn && (
+        {(user && user.isLoggedIn) ? (
           <div>
             <Switch>
-              <Route exact path={["/"]} component={Dashboard} />
               <Route exact path={["/account"]} component={AccountInfo} />
               <Route exact path={["/dashboard"]} component={Dashboard} />
               <Route exact path={["/donate"]} component={donationForm} />
@@ -45,9 +44,7 @@ function App() {
               {/* <Route component={Error} /> */}
             </Switch>
           </div>
-        )}
-        
-        {!user.loggedIn && (
+        ) : (
           <div>
             <Switch>
               <Route exact path={["/"]} component={Home} />

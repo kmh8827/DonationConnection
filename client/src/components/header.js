@@ -6,13 +6,12 @@ import { CurrentUserContext } from "../context/currentUser";
 
 function Header() {
 
-    const user = useContext(CurrentUserContext);
+    const { user, handleSetUser } = useContext(CurrentUserContext);
 
   const logout = (e) => {
     e.preventDefault();
     AUTH.logout().then(() => {
-      user.handleLogin(false);
-      user.handleSetUser({});
+      handleSetUser({});
     }); 
   };
 
@@ -28,15 +27,14 @@ function Header() {
           <li className="nav-item active">
             <a className="nav-link navBtn" href="/">Home</a>
           </li>
-          {!user.loggedIn && (
-          <li className="nav-item">
-            <a className="nav-link navBtn" href="/">Login</a>
-          </li>
-          )}
-          {user.loggedIn && (
+          {(user && user.isLoggedIn) ? (
           <li className="nav-item">
             <a className="nav-link navBtn" onClick={logout} href="/">Logout</a>
           </li>
+          ) : (
+            <li className="nav-item">
+              <a className="nav-link navBtn" href="/">Login</a>
+            </li>
           )}
           <li className="nav-item">
             <a className="nav-link navBtn" href="/account">Account</a>
