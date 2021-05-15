@@ -34,6 +34,10 @@ const DonationsSchema = new Schema({
         type: String,
         trim: true,
         required: true
+    },
+    userId: {
+        type: Number,
+        required: true
     }
 });
 
