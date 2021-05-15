@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
 
 export default {
@@ -16,5 +17,10 @@ export default {
             url: 'api/donations/give',
             data: donation
         })
-    }
+    },
+    // Gets all of a users donations
+    myDonations: (userId) => {
+        console.log('MYDONATIONS', userId);
+        return axios.post('api/donations/userDonations', userId)
+    },
 };

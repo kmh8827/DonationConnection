@@ -5,26 +5,23 @@ const bcrypt = require('bcryptjs');
 const UserSchema = new Schema({
     firstName: { type: String, trim: true, unique: false },
     lastName: { type: String, trim: true, unique: false },
-    username: { type: String, trim: true, unique: false, require: false },
-    password: { type: String, unique: false, required: false },
-    donations: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Donation'
-        }
-    ]
+    username: { type: String, trim: true, unique: true, require: true },
+    email: { type: String, trim: true, unique: true, require: true },
+    password: { type: String, trim: true, unique: false, required: true },
 });
 
 UserSchema.methods = {
-    checkPassword: (inputPassword) => {
+    checkPassword: function(inputPassword) {
+        console.log('inputPassword', inputPassword);
+        console.log(this);
         return bcrypt.compareSync(inputPassword, this.password);
     },
-    hashPassword: plainTextPassword => {
+    hashPassword: function(plainTextPassword) {
         return bcrypt.hashSync(plainTextPassword, 10);
     }
 };
 
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function(next) {
     if (!this.password) next();
     else {
         this.password = this.hashPassword(this.password);
@@ -33,4 +30,5 @@ UserSchema.pre('save', (next) => {
 })
 
 const User = mongoose.model("User", UserSchema);
+
 module.exports = User;

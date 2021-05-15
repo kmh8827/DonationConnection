@@ -14,12 +14,20 @@ const Pickup = () => {
     const loadPickups = () => {
         API.getDonations()
             .then(res => {
-                console.log("helo!!!!!");
                 let donationList = res.data;
-                console.log(donationList);
                 setDonations(donationList);
             })
             .catch(err => console.log(err));
+    };
+
+    const reservePickup = (id) => {
+        API.reserveDonations(id)
+          .then(response => {
+              if (response.status === 200) {
+                  loadPickups()
+              }
+          })
+          .catch(err => console.log(err));
     };
 
     return (
@@ -38,6 +46,7 @@ const Pickup = () => {
                     address={thisDonation.address}
                     allergies={thisDonation.allergies}
                     id={thisDonation._id}
+                    reservePickup={reservePickup}
                 />
             )}
         </div>
