@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import API from "../utils/API";
 import { CurrentUserContext } from "../context/currentUser";
 import "../assets/scss/form.scss";
@@ -21,7 +21,7 @@ const Form = () => {
         specialInstructions: '',
         allergies: '',
         quantity: '',
-        userId: user.user.user_id
+        userId: '',
     });
 
     const [business, setBusiness] = useState({
@@ -29,8 +29,6 @@ const Form = () => {
         donationInfo: 'd-none',
         foodInfo: 'd-none',
     });
-
-    console.log(user);
 
     const handleInputChange = event => {
         setDonation({
@@ -58,14 +56,20 @@ const Form = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-
-        const newUserEntry = {
-            userId: user.user.use_id
-        };
-
-        API.newDonation(donation)
-            .catch(err => console.log(err));
+        console.log('DONATION', donation);
+        console.log('USER', user);
+        setDonation({
+            ...donation,
+            userId: user.user._id
+        })
+        APICall();
     };
+
+    const APICall = () => {
+        console.log('DONATION CALL', donation)
+        API.newDonation(donation)
+        .catch(err => console.log(err));
+    }
 
     const handlePreviousTwo = (event) => {
         event.preventDefault();

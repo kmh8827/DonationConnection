@@ -1,13 +1,18 @@
-import React, { useContext, useEffect } from "react";
-import "../assets/scss/accountInfo.scss";
+import React, { useContext, useEffect, useState } from "react";
+import API from "../utils/API";
 import { CurrentUserContext } from "../context/currentUser";
+import "../assets/scss/accountInfo.scss";
 
 const AccountInfo = () => {
     const user = useContext(CurrentUserContext);
+    const [donations, setDonations] = useState(null);
     console.log(user);
 
     useEffect(() => {
-
+        API.myDonations().then(response => {
+            console.log(response.data);
+            setDonations(response.data);
+        })
     }, []);
 
     return (
@@ -21,10 +26,10 @@ const AccountInfo = () => {
                     </div>
                     <div>
                         <label className="form-label">Email:</label>
+                        <p>{user.user.email}</p>
                     </div>
                     <div>
                         <label className="form-label">Total Donations:</label>
-                        <p>{user.user.donations.length}</p>
                     </div>
                 </div>
                 <React.Fragment>
