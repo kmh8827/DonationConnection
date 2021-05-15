@@ -15,7 +15,6 @@ class AccountInfo extends React.Component {
                     <h2 className="companyAbout accInfo">Account Info:</h2>
                 <div>
                     <label className="form-label">Company Name:</label>
-                    <input type="text" class="form-control" id="inputFirst" value="{{userObject.userName}}" placeholder="John"></input>
                 </div>
                 <div>
                     <label className="form-label">Address:</label>
