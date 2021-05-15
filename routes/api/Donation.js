@@ -12,4 +12,7 @@ router.route('/receive')
 router.route('/receive/:id')
     .post(donationController.reserve)
 
+router.route('/userDonations')
+    .get(donationController.findMine)
+
 module.exports = router;
