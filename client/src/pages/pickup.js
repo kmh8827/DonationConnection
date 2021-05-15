@@ -18,7 +18,8 @@ const Pickup = () => {
                 console.log("helo!!!!!");
                 let donationList = res.data;
                 console.log(donationList);
-                setDonations(donationList);
+                const formattedDonations = donationList.map(d => ({...d, isOpened: false}));
+                setDonations(formattedDonations);
             })
             .catch(err => console.log(err));
     };
@@ -31,6 +32,27 @@ const Pickup = () => {
             })
             .catch(err => console.log(err));
     };
+
+    const handleOpenCard = (id) => {
+        const closed = donations.map(d => ({...d, isOpened: false}));
+        const newOpened = closed.map(c => {
+            const thisClosed = c
+            if(thisClosed._id === id) {
+                thisClosed.isOpened = true;
+            }
+            return thisClosed;
+        })
+                
+        setDonations(newOpened)
+        // const currentCard = (opened) ? id : false;
+        // console.log(currentCard, "currentCard")
+        
+        // setState({ isOpened: !opened })
+        // // setState({isOpened: !isOpened})
+        // // console.log(e)
+        // console.log(isOpened, "isOpened") 
+    
+      }
 
     const reserved = donations.availability;
 
@@ -50,38 +72,47 @@ const Pickup = () => {
                 <GridList style={gridTileStyle}>
                     {/* {console.log(donations, 'donations')} */}
                     {/* need next and previous buttons for different slice(x, x) */}
-                    {donations && donations.slice(0, 6).map(thisDonation =>
+                    
+                    {donations && donations.slice(6, 12).map(thisDonation => {
+                        console.log(thisDonation._id)
+                     return   (
+                         
                         <ReserveCard
-                            key={thisDonation._id}
-                            product={thisDonation.product}
-                            companyName={thisDonation.companyName}
-                            perishable={thisDonation.perishable}
-                            expDate={thisDonation.expDate}
-                            availability={thisDonation.availability}
-                            address={thisDonation.address}
-                            allergies={thisDonation.allergies}
-                            id={thisDonation._id}
-                            loadPickups={loadPickups}
-                            reserved={reserved}
-                            reservePickup={reservePickup}
-                        />
+                        isOpened={thisDonation.isOpened}
+                        handleOpenCard={handleOpenCard}
+                        key={thisDonation._id}
+                        product={thisDonation.product}
+                        companyName={thisDonation.companyName}
+                        perishable={thisDonation.perishable}
+                        expDate={thisDonation.expDate}
+                        availability={thisDonation.availability}
+                        address={thisDonation.address}
+                        allergies={thisDonation.allergies}
+                        id={thisDonation._id}
+                        loadPickups={loadPickups}
+                        reserved={reserved}
+                        reservePickup={reservePickup}
+                    />
+                    
+                    )}
+
                     )}
                 </GridList>
-                <div className="row fixed-bottom justify-content-center p-2">
-                    <div
-                        type="button"
-                        className="btn btn-light mr-4 previousBtn"
-                    // value={this.state.clickedPreviousP2}
-                    // onClick={this.handlePrevP2}
-                    >Previous</div>
-                    <div
-                        // disabled={this.state.disable}
-                        type="button"
-                        className="btn btn-info ml-4 nextBtn"
-                    // value={this.state.clickedNextP2}
-                    // onClick={this.handleNextP2}
-                    >Next</div>
-                </div>
+            </div>
+            <div className="row fixed-bottom justify-content-center p-2">
+                <div
+                    type="button"
+                    className="btn btn-light mr-4 previousBtn"
+                // value={this.state.clickedPreviousP2}
+                // onClick={this.handlePrevP2}
+                >Previous</div>
+                <div
+                    // disabled={this.state.disable}
+                    type="button"
+                    className="btn btn-info ml-4 nextBtn"
+                // value={this.state.clickedNextP2}
+                // onClick={this.handleNextP2}
+                >Next</div>
             </div>
         </div>
     );
