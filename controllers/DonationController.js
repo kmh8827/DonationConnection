@@ -15,7 +15,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addDonation: (req, res) => {
-        console.log('REQ BODY IS ', req.body);
         db.Donations
             .create(req.body)
             .then(donations => res.json(donations))
@@ -35,8 +34,9 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findMine: (req, res) => {
+        console.log('FINDMINE', req.body.userId)
         db.Donations
-            .find({ userId: req.body })
+            .find({ userId: req.body.userId })
             .then(usersDonations => res.json(usersDonations))
             .catch(err => res.status(422).json(err));
     }

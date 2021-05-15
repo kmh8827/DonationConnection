@@ -13,6 +13,6 @@ router.route('/receive/:id')
     .post(donationController.reserve)
 
 router.route('/userDonations')
-    .get(donationController.findMine)
+    .post(donationController.findMine)
 
 module.exports = router;

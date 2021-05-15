@@ -20,6 +20,7 @@ export default {
     },
     // Gets all of a users donations
     myDonations: (userId) => {
-        return axios.get('api/donations/userDonations', { data: userId })
+        console.log('MYDONATIONS', userId);
+        return axios.post('api/donations/userDonations', userId)
     },
 };

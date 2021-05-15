@@ -6,14 +6,17 @@ import "../assets/scss/accountInfo.scss";
 const AccountInfo = () => {
     const user = useContext(CurrentUserContext);
     const [donations, setDonations] = useState(null);
-    console.log(user);
 
     useEffect(() => {
-        API.myDonations().then(response => {
+        const donationCall = {
+            userId: user.user._id
+        }
+
+        API.myDonations(donationCall).then(response => {
             console.log(response.data);
             setDonations(response.data);
         })
-    }, []);
+    }, [user]);
 
     return (
         <div>
@@ -30,6 +33,7 @@ const AccountInfo = () => {
                     </div>
                     <div>
                         <label className="form-label">Total Donations:</label>
+                        <p>{donations ? donations.length : 'None'}</p>
                     </div>
                 </div>
                 <React.Fragment>

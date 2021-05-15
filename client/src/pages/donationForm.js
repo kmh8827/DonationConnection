@@ -200,8 +200,8 @@ const Form = () => {
                                     type="date"
                                     className="form-control"
                                     id="expiration"
-                                    name="expiration"
-                                    value={donation.expiration}
+                                    name="expDate"
+                                    value={donation.expDate}
                                     onChange={handleInputChange}
                                 />
                             </div>
