@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/header";
+import Header from "../components/header";
 import API from "../utils/API";
 import Footer from "../components/footer"
 import "../assets/scss/form.scss";
@@ -85,7 +85,7 @@ class Form extends React.Component {
     render() {
         return (
             <div>
-                <NavBar />
+                <Header />
                 <div className="background">
                     <form className="board">
                         <h2>Donation Form</h2>
