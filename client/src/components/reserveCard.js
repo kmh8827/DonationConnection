@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Card, CardTitle
-} from 'reactstrap';
+import { Card, CardTitle } from 'reactstrap';
 import { Collapse } from 'react-collapse';
 import ReserveButton from '../components/reserveButton';
 

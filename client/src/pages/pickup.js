@@ -46,27 +46,43 @@ const Pickup = () => {
     return (
         <div className="bg-image-pickup">
             <Header />
-            <div className="pickupContainer"></div>
-            <GridList className="mb-5" style={gridTileStyle}>
-                {console.log(donations, 'donations')}
-                {/* need something like lazy loading for better loading */}
-                {donations && donations.slice(6, 12).map(thisDonation =>
-                    <ReserveCard
-                        key={thisDonation._id}
-                        product={thisDonation.product}
-                        companyName={thisDonation.companyName}
-                        perishable={thisDonation.perishable}
-                        expDate={thisDonation.expDate}
-                        availability={thisDonation.availability}
-                        address={thisDonation.address}
-                        allergies={thisDonation.allergies}
-                        id={thisDonation._id}
-                        loadPickups={loadPickups}
-                        reserved={reserved}
-                        reservePickup={reservePickup}
-                    />
-                )}
-            </GridList>
+            <div className="pickupContainer">
+                <GridList style={gridTileStyle}>
+                    {/* {console.log(donations, 'donations')} */}
+                    {/* need next and previous buttons for different slice(x, x) */}
+                    {donations && donations.slice(0, 6).map(thisDonation =>
+                        <ReserveCard
+                            key={thisDonation._id}
+                            product={thisDonation.product}
+                            companyName={thisDonation.companyName}
+                            perishable={thisDonation.perishable}
+                            expDate={thisDonation.expDate}
+                            availability={thisDonation.availability}
+                            address={thisDonation.address}
+                            allergies={thisDonation.allergies}
+                            id={thisDonation._id}
+                            loadPickups={loadPickups}
+                            reserved={reserved}
+                            reservePickup={reservePickup}
+                        />
+                    )}
+                </GridList>
+                <div className="row fixed-bottom justify-content-center p-2">
+                    <div
+                        type="button"
+                        className="btn btn-light mr-4 previousBtn"
+                    // value={this.state.clickedPreviousP2}
+                    // onClick={this.handlePrevP2}
+                    >Previous</div>
+                    <div
+                        // disabled={this.state.disable}
+                        type="button"
+                        className="btn btn-info ml-4 nextBtn"
+                    // value={this.state.clickedNextP2}
+                    // onClick={this.handleNextP2}
+                    >Next</div>
+                </div>
+            </div>
         </div>
     );
 }
