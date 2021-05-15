@@ -8,7 +8,7 @@ class AccountInfo extends React.Component {
     render() {
         return(
             <div>
-                <div>
+                <div className="container loginContainer">
                 <div className="companyAbout">
                     <h2 className="companyAbout accInfo">Account Info:</h2>
                 <div>
@@ -22,9 +22,9 @@ class AccountInfo extends React.Component {
                 </div>
                 </div>
                 <React.Fragment>
-                    <label className="form-label onHold">Donations on hold:</label>
-                    <label className="form-label onHold">Available Donations:</label>
-                    <label className="form-label onHold">Cancel Donation:</label>
+                    <label className="form-label status onHold">Donations on hold:</label>
+                    <label className="form-label status available">Available Donations:</label>
+                    <label className="form-label status pickup">Picked-up Donations:</label>
                 </React.Fragment>
                 </div>
             </div>
