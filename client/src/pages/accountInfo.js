@@ -1,5 +1,6 @@
 import React from "react";
 import "../assets/scss/accountInfo.scss";
+import Header from "../components/header"
 
 class AccountInfo extends React.Component {
     state ={
@@ -8,6 +9,7 @@ class AccountInfo extends React.Component {
     render() {
         return(
             <div>
+                <Header />
                 <div className="container loginContainer">
                 <div className="companyAbout">
                     <h2 className="companyAbout accInfo">Account Info:</h2>
@@ -24,7 +26,7 @@ class AccountInfo extends React.Component {
                 <React.Fragment>
                     <label className="form-label status onHold">Donations on hold:</label>
                     <label className="form-label status available">Available Donations:</label>
-                    <label className="form-label status pickup">Picked-up Donations:</label>
+                    <label className="form-label status pickedup">Picked-up Donations:</label>
                 </React.Fragment>
                 </div>
             </div>
