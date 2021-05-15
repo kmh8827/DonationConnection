@@ -76,14 +76,14 @@ const Register = () => {
                     
                     <div className="col-md-9 registerField">
                         <label for="validationCustom01" className="form-label">First name</label>
-                        <input type="text" className="form-control" id="validationCustom01" onChange={handleChange} value={userObject.firstName} required/>
+                        <input type="text" className="form-control" id="validationCustom01" placeholder="Ex. Jane" onChange={handleChange} value={userObject.firstName} required/>
                         <div className="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div className="col-md-9 registerField">
                         <label for="validationCustom02" className="form-label">Last name</label>
-                        <input type="text" className="form-control" id="validationCustom02" onChange={handleChange} value={userObject.lastName} required />
+                        <input type="text" className="form-control" id="validationCustom02" placeholder="Ex. Doe" onChange={handleChange} value={userObject.lastName} required />
                         <div className="valid-feedback">
                         Looks good!
                         </div>
@@ -91,7 +91,7 @@ const Register = () => {
                     <div className="col-md-9 registerField">
                         <label for="validationCustomUsername" className="form-label">Username</label>
                         <div className="input-group has-validation">
-                        <input type="text" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.username} required />
+                        <input type="text" className="form-control" id="validationCustomUsername" placeholder="Ex. janedoe" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.username} required />
                         <div className="invalid-feedback">
                             Please choose a username.
                         </div>
@@ -100,7 +100,7 @@ const Register = () => {
                     <div className="col-md-9 registerField">
                         <label for="validationCustomPassword" className="form-label">Password</label>
                         <div className="input-group has-validation">
-                        <input type="password" className="form-control" id="validationCustomPassword" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.password} required />
+                        <input type="password" className="form-control" id="validationCustomPassword" placeholder="Ex. 123"aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.password} required />
                         <div className="invalid-feedback">
                             Please enter a password.
                         </div>
@@ -109,7 +109,7 @@ const Register = () => {
                     <div className="col-md-9 registerField">
                         <label for="validationCustomPassword" className="form-label">Confirm password</label>
                         <div className="input-group has-validation">
-                        <input type="password" className="form-control" id="validationCustomConfirmPassword" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.confirmPassword} required />
+                        <input type="password" className="form-control" id="validationCustomConfirmPassword" placeholder="Ex. 123" aria-describedby="inputGroupPrepend" onChange={handleChange} value={userObject.confirmPassword} required />
                         <div className="invalid-feedback">
                             Please confirm your password.
                         </div>
