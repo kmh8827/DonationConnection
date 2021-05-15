@@ -57,7 +57,7 @@ const Register = () => {
                 <div className="collapse navbar-collapse text-right" id="navbarNav">
                     <ul className="navbar-nav ml-auto pl-0">
                         <li className="nav-item active">
-                            <a className="nav-link navBtn" href="/home">Home</a>
+                            <a className="nav-link navBtn" href="/">Home</a>
                         </li>
                     </ul>
                 </div>

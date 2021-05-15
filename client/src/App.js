@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+   
       <Router>
         {(user && user.isLoggedIn) ? (
           <div>

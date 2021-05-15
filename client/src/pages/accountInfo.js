@@ -20,6 +20,7 @@ const AccountInfo = () => {
 
     return (
         <div>
+            <p>Hi</p>
             <div>
                 <div className="companyAbout">
                     <h2 className="companyAbout accInfo">Account Info:</h2>
