@@ -4,12 +4,12 @@ import { CurrentUserContext } from "../context/currentUser";
 import "../assets/scss/accountInfo.scss";
 
 const AccountInfo = () => {
-    const user = useContext(CurrentUserContext);
+    const { user } = useContext(CurrentUserContext);
     const [donations, setDonations] = useState(null);
 
     useEffect(() => {
         const donationCall = {
-            userId: user.user._id
+            userId: user._id
         }
 
         API.myDonations(donationCall).then(response => {
@@ -25,11 +25,11 @@ const AccountInfo = () => {
                     <h2 className="companyAbout accInfo">Account Info:</h2>
                     <div>
                         <label className="form-label">Username:</label>
-                        <p>{user.user.username}</p>
+                        <p>{user.username}</p>
                     </div>
                     <div>
                         <label className="form-label">Email:</label>
-                        <p>{user.user.email}</p>
+                        <p>{user.email}</p>
                     </div>
                     <div>
                         <label className="form-label">Total Donations:</label>

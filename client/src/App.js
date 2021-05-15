@@ -35,6 +35,7 @@ function App() {
         {(user && user.isLoggedIn) ? (
           <div>
             <Switch>
+              <Route exact path={["/"]} component={Dashboard} />
               <Route exact path={["/account"]} component={AccountInfo} />
               <Route exact path={["/dashboard"]} component={Dashboard} />
               <Route exact path={["/donate"]} component={donationForm} />
