@@ -5,7 +5,18 @@ import API from '../utils/API';
 import ReserveCard from '../components/reserveCard';
 import '../assets/scss/pickup.scss';
 
+    // const nextPage = () => {
+    //     // setState({ clicks: this.state.clicks + 6 });
+    //     console.log("button clicked")
+    // }
+
 const Pickup = () => {
+
+    // const [state, setState] = useState({ clicks: 0, show: true })
+
+    const [clicks, setState] = useState({ clicks: 0, clicks2: 6, show: true });
+
+
     const [donations, setDonations] = useState([]);
 
     useEffect(() => {
@@ -64,7 +75,7 @@ const Pickup = () => {
 
                     {/* need next and previous buttons for different slice(x, x) */}
                     
-                    {donations && donations.slice(0, 6).map(thisDonation => {
+                    {donations && donations.slice(clicks.clicks, clicks.clicks2).map(thisDonation => {
                         // console.log(thisDonation._id)
                      return   (
                          
@@ -95,14 +106,14 @@ const Pickup = () => {
                     type="button"
                     className="btn btn-light mr-4 previousBtn"
                 // value={this.state.clickedPreviousP2}
-                // onClick={this.handlePrevP2}
+                onClick={() => {setState({ clicks: clicks.clicks - 6,  clicks2: clicks.clicks2 - 6});}}
                 >Previous</div>
                 <div
                     // disabled={this.state.disable}
                     type="button"
                     className="btn btn-info ml-4 nextBtn"
                 // value={this.state.clickedNextP2}
-                // onClick={this.handleNextP2}
+                onClick={() => {setState({ clicks: clicks.clicks + 6,  clicks2: clicks.clicks2 + 6});}}
                 >Next</div>
             </div>
         </div>
