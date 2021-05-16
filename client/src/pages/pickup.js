@@ -5,16 +5,16 @@ import API from '../utils/API';
 import ReserveCard from '../components/reserveCard';
 import '../assets/scss/pickup.scss';
 
-    // const nextPage = () => {
-    //     // setState({ clicks: this.state.clicks + 6 });
-    //     console.log("button clicked")
-    // }
+// const nextPage = () => {
+//     // setState({ start: this.state.start + 6 });
+//     console.log("button clicked")
+// }
 
 const Pickup = () => {
 
-    // const [state, setState] = useState({ clicks: 0, show: true })
+    // const [state, setState] = useState({ start: 0, show: true })
 
-    const [clicks, setState] = useState({ clicks: 0, clicks2: 6, show: true });
+    const [slicePosition, setState] = useState({ start: 0, end: 6, show: true });
 
 
     const [donations, setDonations] = useState([]);
@@ -28,7 +28,7 @@ const Pickup = () => {
             .then(res => {
                 let donationList = res.data;
                 // console.log(donationList);
-                const formattedDonations = donationList.map(d => ({...d, isOpened: false}));
+                const formattedDonations = donationList.map(d => ({ ...d, isOpened: false }));
                 setDonations(formattedDonations);
             })
             .catch(err => console.log(err));
@@ -44,16 +44,16 @@ const Pickup = () => {
     };
 
     const handleOpenCard = (id) => {
-        const closed = donations.map(d => ({...d, isOpened: false}));
+        const closed = donations.map(d => ({ ...d, isOpened: false }));
         const newOpened = closed.map(c => {
             const thisClosed = c
-            if(thisClosed._id === id) {
+            if (thisClosed._id === id) {
                 thisClosed.isOpened = true;
             }
             return thisClosed;
         })
-                
-        setDonations(newOpened)    
+
+        setDonations(newOpened)
     }
 
     const reserved = donations.availability;
@@ -74,29 +74,30 @@ const Pickup = () => {
                 <GridList style={gridTileStyle}>
 
                     {/* need next and previous buttons for different slice(x, x) */}
-                    
-                    {donations && donations.slice(clicks.clicks, clicks.clicks2).map(thisDonation => {
+
+                    {donations && donations.slice(slicePosition.start, slicePosition.end).map(thisDonation => {
                         // console.log(thisDonation._id)
-                     return   (
-                         
-                        <ReserveCard
-                        isOpened={thisDonation.isOpened}
-                        handleOpenCard={handleOpenCard}
-                        key={thisDonation._id}
-                        product={thisDonation.product}
-                        companyName={thisDonation.companyName}
-                        perishable={thisDonation.perishable}
-                        expDate={thisDonation.expDate}
-                        availability={thisDonation.availability}
-                        address={thisDonation.address}
-                        allergies={thisDonation.allergies}
-                        id={thisDonation._id}
-                        loadPickups={loadPickups}
-                        reserved={reserved}
-                        reservePickup={reservePickup}
-                    />
-                    
-                    )}
+                        return (
+
+                            <ReserveCard
+                                isOpened={thisDonation.isOpened}
+                                handleOpenCard={handleOpenCard}
+                                key={thisDonation._id}
+                                product={thisDonation.product}
+                                companyName={thisDonation.companyName}
+                                perishable={thisDonation.perishable}
+                                expDate={thisDonation.expDate}
+                                availability={thisDonation.availability}
+                                address={thisDonation.address}
+                                allergies={thisDonation.allergies}
+                                id={thisDonation._id}
+                                loadPickups={loadPickups}
+                                reserved={reserved}
+                                reservePickup={reservePickup}
+                            />
+
+                        )
+                    }
 
                     )}
                 </GridList>
@@ -105,15 +106,13 @@ const Pickup = () => {
                 <div
                     type="button"
                     className="btn btn-light mr-4 previousBtn"
-                // value={this.state.clickedPreviousP2}
-                onClick={() => {setState({ clicks: clicks.clicks - 6,  clicks2: clicks.clicks2 - 6});}}
+                    onClick={() => { setState({ start: slicePosition.start - 6, end: slicePosition.end - 6 }); }}
                 >Previous</div>
                 <div
-                    // disabled={this.state.disable}
+                    disabled={ donations === null ? this.state.disable : ''}
                     type="button"
                     className="btn btn-info ml-4 nextBtn"
-                // value={this.state.clickedNextP2}
-                onClick={() => {setState({ clicks: clicks.clicks + 6,  clicks2: clicks.clicks2 + 6});}}
+                    onClick={() => { setState({ start: slicePosition.start + 6, end: slicePosition.end + 6 }); }}
                 >Next</div>
             </div>
         </div>
