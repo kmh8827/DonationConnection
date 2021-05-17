@@ -1,33 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardTitle } from 'reactstrap';
 import { Collapse } from 'react-collapse';
 import ReserveButton from '../components/reserveButton';
 
 function ReserveCard(props) {
 
-  const [state, setState] = useState({ availability: props.availability })
+  // const [state, setState] = useState({ availability: props.availability })
 
   const { isOpened, handleOpenCard } = props;
-
-  console.log(isOpened, "outsideFunction")
-
-  // const closeOtherCard = (opened, id) => {
-
-  //   const currentCard = (opened) ? id : false;
-  //   console.log(currentCard, "currentCard")
-    
-  //   setState({ isOpened: !opened })
-  //   // setState({isOpened: !isOpened})
-  //   // console.log(e)
-  //   console.log(isOpened, "isOpened") 
-
-  // }
   
   const height = 100;
     
   return (
     <div>
-      {/* {console.log(props.key, "key")} */}
       <Card className="reserveCard" id={props.id} type="button" style={props.availability === 'true' ? { backgroundColor: "rgb(58, 175, 58)" } : { backgroundColor: "rgb(196, 75, 75)" }} checked={isOpened} onClick={() =>  handleOpenCard(props.id)}>
 
         <CardTitle className="m-3 pr-2" tag="h6">{props.companyName}</CardTitle>
