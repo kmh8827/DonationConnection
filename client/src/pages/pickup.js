@@ -105,12 +105,9 @@ const Pickup = () => {
                 </GridList>
             </div>
             <div style={buttonHide} className="row fixed-bottom justify-content-center buttonRow p-2">
-            {/* {console.log(slicePosition.start + 6 > donations.length)}  */}
-            {/* {console.log(slicePosition.start - 6 < 0)} */}
+                
                 {slicePosition.start - 6 < 0
-
                 ? <Button disabled={true} className="btn btn-light mr-4 previousBtn">Previous</Button>
-
                 : <Button 
                 disabled={false}
                 type="button"
@@ -120,9 +117,7 @@ const Pickup = () => {
                 }
 
                 {slicePosition.start + 6 > donations.length
-
                 ? <Button disabled={true} className="btn btn-info ml-4 nextBtn">Next</Button>
-
                 : <Button
                 disabled={donations.length ? false : true }
                 type="button"

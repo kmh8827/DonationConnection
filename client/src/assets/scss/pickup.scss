@@ -28,9 +28,10 @@ $white-color: whitesmoke;
   width: 500px;
   margin: 10px;
 }
-//  .blob {
-//    background-color: rgba(2, 2, 2, 0.308);
-//  }
+
+.companyTitle, .donationProduct { 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 .infoList {
   float: left;
@@ -44,15 +45,9 @@ $white-color: whitesmoke;
   transition: height 500ms;
 }
 
-// .buttonRow {
-//   display: '';
-// }
 
 @media screen and (max-width: 400px) { 
   .reserveCard {
     width: 350px;
   }
-  // .buttonRow {
-  //   display: 'none';
-  // }
 } 
