@@ -17,25 +17,23 @@ const AccountInfo = () => {
             userId: user._id
         }
 
-        API.myDonations(donationCall).then(response => {
-            setDonations(response.data)
-        })
+        API.myDonations(donationCall).then(response => setDonations(response.data))
             .catch(err => console.log(err));
     };
 
     const completePickup = (id) => {
-        API.completeDonations(id).then(response => setDonations(response.data))
-          .catch(err => console.log(err));
+        API.completeDonations(id).catch(err => console.log(err));
+        loadDonations()
     };
 
     const removeDonations = (id) => {
         API.removeDonations(id).catch(err => console.log(err));
-        loadDonations()
+        loadDonations();
     };
 
     const makeAvailable = (id) => {
-        API.makeAvailable(id).then(response => setDonations(response.data))
-            .catch(err => console.log(err));
+        API.makeAvailable(id).catch(err => console.log(err))
+        loadDonations();
     }
 
     return (
