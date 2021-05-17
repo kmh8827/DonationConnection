@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import API from "../utils/API";
 import { CurrentUserContext } from "../context/currentUser";
+import Header from "../components/header";
 import "../assets/scss/form.scss";
 
 const Form = () => {
@@ -129,6 +130,7 @@ const Form = () => {
     return (
 
         <div>
+            <Header />
             <div className="container loginContainer mb-5 w-50 h-50">
                 <div className="row mb-2 ml-1">
                     <h2 className="font">Donate</h2>

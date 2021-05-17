@@ -22,35 +22,38 @@ const Pickup = () => {
 
     const reservePickup = (id) => {
         API.reserveDonations(id)
-          .then(response => {
-              if (response.status === 200) {
-                  loadPickups()
-              }
-          })
-          .catch(err => console.log(err));
+            .then(response => {
+                if (response.status === 200) {
+                    loadPickups()
+                }
+            })
+            .catch(err => console.log(err));
     };
 
     return (
-    <div className="bg-image-pickup">
-        <Header />
-        <div className="container pickupContainer">
-            {/* need something like lazy loading for better loading */}
-            {donations && donations.map(thisDonation => 
-                <ReserveCard 
-                    key={thisDonation._id}
-                    product={thisDonation.product}
-                    companyName={thisDonation.companyName}
-                    perishable={thisDonation.perishable}
-                    expDate={thisDonation.expDate}
-                    availability={thisDonation.availability}
-                    address={thisDonation.address}
-                    allergies={thisDonation.allergies}
-                    id={thisDonation._id}
-                    reservePickup={reservePickup}
-                />
-            )}
+        <div>
+            <Header />
+            <div className="bg-image-pickup">
+
+                <div className="container pickupContainer">
+                    {/* need something like lazy loading for better loading */}
+                    {donations && donations.map(thisDonation =>
+                        <ReserveCard
+                            key={thisDonation._id}
+                            product={thisDonation.product}
+                            companyName={thisDonation.companyName}
+                            perishable={thisDonation.perishable}
+                            expDate={thisDonation.expDate}
+                            availability={thisDonation.availability}
+                            address={thisDonation.address}
+                            allergies={thisDonation.allergies}
+                            id={thisDonation._id}
+                            reservePickup={reservePickup}
+                        />
+                    )}
+                </div>
+            </div>
         </div>
-    </div>
     );
 }
 
