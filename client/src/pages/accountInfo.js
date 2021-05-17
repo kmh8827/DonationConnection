@@ -1,25 +1,44 @@
 import React, { useContext, useEffect, useState } from "react";
 import API from "../utils/API";
 import { CurrentUserContext } from "../context/currentUser";
+import Header from "../components/header";
 import "../assets/scss/accountInfo.scss";
 
 const AccountInfo = () => {
     const { user } = useContext(CurrentUserContext);
-    const [donations, setDonations] = useState(null);
+    const [donations, setDonations] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => {  
+        loadDonations();
+    }, [])
+
+    const loadDonations = () => {
         const donationCall = {
             userId: user._id
         }
 
-        API.myDonations(donationCall).then(response => {
-            console.log(response.data);
-            setDonations(response.data);
-        })
-    }, [user]);
+        API.myDonations(donationCall).then(response => setDonations(response.data))
+            .catch(err => console.log(err));
+    };
+
+    const completePickup = (id) => {
+        API.completeDonations(id).catch(err => console.log(err));
+        loadDonations()
+    };
+
+    const removeDonations = (id) => {
+        API.removeDonations(id).catch(err => console.log(err));
+        loadDonations();
+    };
+
+    const makeAvailable = (id) => {
+        API.makeAvailable(id).catch(err => console.log(err))
+        loadDonations();
+    }
 
     return (
         <div>
+            <Header />
             <div>
                 <div class="container infoo">
 
@@ -40,8 +59,48 @@ const AccountInfo = () => {
                     </div>
                     <React.Fragment>
                         <label className="form-label status onHold">Donations on hold:</label>
+              
+                        {donations && donations.map(thisDonation =>
+                            thisDonation.availability === "false" ?
+                            <ul key={thisDonation._id}>
+                                <li>{"Product: " + thisDonation.product}</li>
+                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <button onClick={() => makeAvailable(thisDonation._id)}>End Reservation</button>
+                                <button onClick={() => completePickup(thisDonation._id)}>Complete</button>
+                            </ul>
+                            :
+                            <ul></ul>
+                        )}
+
                         <label className="form-label status available">Available Donations:</label>
+
+                        {donations && donations.map(thisDonation =>
+                            thisDonation.availability === "true" ?
+                            <ul key={thisDonation._id}>
+                                <li>{"Product: " + thisDonation.product}</li>
+                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
+                            </ul>
+                            :
+                            <ul></ul>
+                        )}
+                           
                         <label className="form-label status pickedup">Picked-up Donations:</label>
+                        
+                        {donations && donations.map(thisDonation =>
+                            thisDonation.availability === "complete" ?
+                            <ul key={thisDonation._id}>
+                                <li>{"Product: " + thisDonation.product}</li>
+                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
+                            </ul>
+                            :
+                            <ul></ul>
+                        )}
+                        
                     </React.Fragment>
                     </div>
                 </div>
