@@ -44,8 +44,15 @@ $white-color: whitesmoke;
   transition: height 500ms;
 }
 
+// .buttonRow {
+//   display: '';
+// }
+
 @media screen and (max-width: 400px) { 
   .reserveCard {
     width: 350px;
   }
+  // .buttonRow {
+  //   display: 'none';
+  // }
 } 
