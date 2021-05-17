@@ -1,99 +1,87 @@
-import React from "react";
-import Header from "../components/header";
+import React, { useState, useContext, useEffect } from "react";
 import API from "../utils/API";
-import Footer from "../components/footer"
-
+import { CurrentUserContext } from "../context/currentUser";
+import Header from "../components/header";
 import "../assets/scss/form.scss";
 
-class Form extends React.Component {
-    state = {
-        product: "",
-        companyName: "",
-        address: "",
-        expiration: "",
-        specialInstructions: "",
-        allergies: "",
-        checked: true,
-        disable: true,
-        quantity: 0,
+const Form = () => {
+    const user = useContext(CurrentUserContext);
+    
+    const [checked, setChecked] = useState(true);
+    const [disable, setDisable] = useState(true);
+    const clickedNextP1 = true;
+    const clickedNextP2 = true;
+    const clickedPrevP2 = true;
+    const clickedPrevP3 = true;
+
+    const [donation, setDonation] = useState({
+        product: '',
+        companyName: '',
+        perishable: 'true',
+        expDate: '',
+        availability: 'true',
+        address: '',
+        specialInstructions: '',
+        allergies: '',
+        quantity: '',
+        userId: '',
+    });
+
+    const [business, setBusiness] = useState({
         businessInfo: '',
         donationInfo: 'd-none',
         foodInfo: 'd-none',
-        clickedNextP1: true,
-        clickedNextP2: true,
-        clickedPreviousP2: true,
-        clickedPreviousP3: true
+    });
 
-    };
-
-    handleInputChange = event => {
-        const name = event.target.name;
-        const value = event.target.value;
-
-        this.setState({
-            [name]: value
+    const handleInputChange = event => {
+        console.log(donation);
+        setDonation({
+            ...donation,
+            [event.target.name]: event.target.value,
+            userId: user.user._id
         });
 
         if (
-            this.state.product !== "" && this.state.companyName !== "" &&
-            this.state.address !== "" && this.state.allergies !== "" &&
-            this.state.quantity !== 0
+            donation.product !== "" && donation.companyName !== "" &&
+            donation.address !== "" && donation.allergies !== "" &&
+            donation.quantity !== 0
         ) {
-            this.setState({
-                disable: false
-            })
+            setDisable(false);
         } else {
-            this.setState({
-                disable: false
-            })
+            setDisable(true);
         }
     };
 
-    handleClick = event => {
-        const name = event.target.name;
-        const value = this.state.checked;
+    const handleClick = () => {
 
-        if (value === false) {
-            this.setState({
-                [name]: true
-            })
+        if (checked === true) {
+            setChecked(false);
+            setDonation({
+                ...donation,
+                perishable: 'false'
+            });
         }
-
-        if (value === true) {
-            this.setState({
-                [name]: false
-            })
+        if (checked === false) {
+            setChecked(true);
+            setDonation({
+                ...donation,
+                perishable: 'false'
+            });
         }
-
-        console.log(value);
-        console.log(this.state.checked);
-
     }
 
-    handleSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault();
-
-        const newEntry = {
-            day: new Date().setDate(new Date().getDate()),
-            product: this.state.product,
-            companyName: this.state.companyName,
-            address: this.state.address,
-            perishable: this.state.checked ? 'false' : 'true',
-            expDate: this.state.expiration,
-            availability: 'true',
-            allergies: this.state.allergies
-        };
-        console.log('The new Entry is ' + JSON.stringify(newEntry));
-        API.newDonation(newEntry)
-            .catch(err => console.log(err));
+        API.newDonation(donation)
+        .catch(err => console.log(err));
     };
 
-    handlePrevP2 = (event) => {
+    const handlePreviousTwo = (event) => {
         event.preventDefault();
-        const previousP2 = this.state.clickedPreviousP2;
+        const previousP2 = clickedPrevP2;
 
-        if(previousP2 === true) {
-            this.setState({
+        if (previousP2 === true) {
+            setBusiness({
                 businessInfo: '',
                 donationInfo: 'd-none',
                 foodInfo: 'd-none'
@@ -101,12 +89,12 @@ class Form extends React.Component {
         }
     }
 
-    handlePrevP3 = (event) => {
+    const handlePreviousThree = (event) => {
         event.preventDefault();
-        const previousP3 = this.state.clickedPreviousP3;
+        const previousP3 = clickedPrevP3;
 
-        if(previousP3 === true) {
-            this.setState({
+        if (previousP3 === true) {
+            setBusiness({
                 businessInfo: 'd-none',
                 donationInfo: '',
                 foodInfo: 'd-none'
@@ -114,188 +102,183 @@ class Form extends React.Component {
         }
     }
 
-    handleNextP1 = (event)  => {
+    const handleNextOne = (event) => {
         event.preventDefault();
-        const nextP1 = this.state.clickedNextP1;
+        const nextP1 = clickedNextP1;
 
-        if(nextP1 === true) {
-            this.setState({
+        if (nextP1 === true) {
+            setBusiness({
                 businessInfo: 'd-none',
                 donationInfo: '',
                 foodInfo: 'd-none'
             })
         }
     }
-    handleNextP2 = (event)  => {
+    const handleNextTwo = (event) => {
         event.preventDefault();
-        const nextP2 = this.state.clickedNextP2;
+        const nextP2 = clickedNextP2;
 
-        if(nextP2 === true) {
-            this.setState({
+        if (nextP2 === true) {
+            setBusiness({
                 businessInfo: 'd-none',
                 donationInfo: 'd-none',
                 foodInfo: ''
             })
         }
-
     }
 
+    return (
 
-    render() {
-        // hides expiration date unless perishable is checked
-        const hidden = this.state.checked === true ? 'd-none' : '';
-        return (
-
-            <div>
-                <Header />
-                <div className="container loginContainer mb-5 w-50 h-50">
-                    <div className="row mb-2 ml-1">
-                        <h2 className="font">Donate</h2>
-                    </div>
-                    <form className="pb-5">
-                        <div className={this.state.businessInfo}>
-                            <div className="form-group">
-                                <label className="form-label">Company Name:</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Ex. Papa John's"
-                                    id="companyName"
-                                    name="companyName"
-                                    value={this.state.companyName}
-                                    onChange={this.handleInputChange}
-                                />
-                            </div>
-                            <div className="form-group mb-4">
-                                <label className="form-label">Address:</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Ex. 1003 main st Newbern NC"
-                                    id="address"
-                                    name="address"
-                                    value={this.state.address}
-                                    onChange={this.handleInputChange}
-                                />
-                            </div>
-                            <div
-                                disabled={this.state.next}
-                                type="button"
-                                className="btn btn-info float-right nextBtn"
-                                value={this.state.clickedNextP1}
-                                onClick={this.handleNextP1}
-                            >Next</div>
-                        </div>
-
-                        <div className={this.state.donationInfo}>
-                            <div className="form-group mb-4">
-                                <label className="form-label">Product:</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Ex. cheese pizzas"
-                                    id="Product"
-                                    name="product"
-                                    value={this.state.product}
-                                    onChange={this.handleInputChange}
-                                />
-                            </div>
-                            <div className="ml-4 form-group mb-4">
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    name="checked"
-                                    value=""
-                                    id="perishableCheck"
-                                    onChange={this.handleClick}
-                                />
-                                <label className="form-check-label">Perishable</label>
-                            </div>
-                            <div className={hidden}>
-                                <div className="form-group mb-4">
-                                    <label className="form-label">Expiration Date:</label>
-                                    <input
-                                        type="date"
-                                        className="form-control"
-                                        id="expiration"
-                                        name="expiration"
-                                        value={this.state.expiration}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </div>
-                            </div>
-                            <div 
-                                type="button"
-                                name="previous"
-                                className="btn btn-light float-left previousBtn"
-                                value={this.state.clickedPreviousP2}
-                                onClick={this.handlePrevP2} 
-                            >Previous</div>
-                            <div
-                                disabled={this.state.disable}
-                                type="button"
-                                className="btn btn-info float-right nextBtn"
-                                value={this.state.clickedNextP2}
-                                onClick={this.handleNextP2}
-                            >Next</div>
-                        </div>
-
-                        <div className={this.state.foodInfo}>
-                            <div className="form-group mb-4">
-                                <label className="form-label">Quantity:</label>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    placeholder="#"
-                                    id="quantity"
-                                    name="quantity"
-                                    value={this.state.quantity}
-                                    onChange={this.handleInputChange}
-                                />
-                            </div>
-                            <div className="form-group mb-4">
-                                <label className="form-label">Special Instructions:</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Ex. keep frozen until ready to eat"
-                                    id="specInstructions"
-                                    name="specialInstructions"
-                                    value={this.state.specialInstructions}
-                                    onChange={this.handleInputChange}
-                                />
-                            </div>
-                            <div className="form-group mb-4">
-                                <label className="form-label">Allergies:</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Ex. Peanuts"
-                                    id="allergies"
-                                    name="allergies"
-                                    value={this.state.allergies}
-                                    onChange={this.handleInputChange}
-                                />
-                            </div>
-                            <div 
-                                type="button"
-                                name="previous"
-                                className="btn btn-light float-left previousBtn"
-                                value={this.state.clickedPreviousP2}
-                                onClick={this.handlePrevP3}
-                            >previous</div>
-                            <div
-                                disabled={this.state.disable}
-                                type="button"
-                                className="btn btn-success float-right submit"
-                                onClick={this.handleSubmit}
-                            >Donate!</div>
-                        </div>
-                    </form>
+        <div>
+            <Header />
+            <div className="container loginContainer mb-5 w-50 h-50">
+                <div className="row mb-2 ml-1">
+                    <h2 className="font">Donate</h2>
                 </div>
-                <Footer />
+                <form className="pb-5">
+                    <div className={business.businessInfo}>
+                        <div className="form-group">
+                            <label className="form-label">Company Name:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Ex. Papa John's"
+                                id="companyName"
+                                name="companyName"
+                                value={donation.companyName}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-4">
+                            <label className="form-label">Address:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Ex. 1003 main st Newbern NC"
+                                id="address"
+                                name="address"
+                                value={donation.address}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div
+                            disabled={disable}
+                            type="button"
+                            className="btn btn-info float-right nextBtn"
+                            value={clickedNextP1}
+                            onClick={handleNextOne}
+                        >Next</div>
+                    </div>
+
+                    <div className={business.donationInfo}>
+                        <div className="form-group mb-4">
+                            <label className="form-label">Product:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Ex. cheese pizzas"
+                                id="Product"
+                                name="product"
+                                value={donation.product}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="ml-4 form-group mb-4">
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                name="checked"
+                                value=""
+                                id="perishableCheck"
+                                onChange={handleClick}
+                            />
+                            <label className="form-check-label">Perishable</label>
+                        </div>
+                        {/* hides expiration date unless perishable is checked */}
+                        <div className={checked === true ? 'd-none' : ''}>
+                            <div className="form-group mb-4">
+                                <label className="form-label">Expiration Date:</label>
+                                <input
+                                    type="date"
+                                    className="form-control"
+                                    id="expiration"
+                                    name="expDate"
+                                    value={donation.expDate}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        </div>
+                        <div
+                            type="button"
+                            name="previous"
+                            className="btn btn-light float-left previousBtn"
+                            value={clickedPrevP2}
+                            onClick={handlePreviousTwo}
+                        >Previous</div>
+                        <div
+                            disabled={disable}
+                            type="button"
+                            className="btn btn-info float-right nextBtn"
+                            value={clickedNextP2}
+                            onClick={handleNextTwo}
+                        >Next</div>
+                    </div>
+
+                    <div className={business.foodInfo}>
+                        <div className="form-group mb-4">
+                            <label className="form-label">Quantity:</label>
+                            <input
+                                type="number"
+                                className="form-control"
+                                placeholder="#"
+                                id="quantity"
+                                name="quantity"
+                                value={donation.quantity}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-4">
+                            <label className="form-label">Special Instructions:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Ex. keep frozen until ready to eat"
+                                id="specInstructions"
+                                name="specialInstructions"
+                                value={donation.specialInstructions}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-4">
+                            <label className="form-label">Allergies:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Ex. Peanuts"
+                                id="allergies"
+                                name="allergies"
+                                value={donation.allergies}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div
+                            type="button"
+                            name="previous"
+                            className="btn btn-light float-left previousBtn"
+                            value={clickedPrevP2}
+                            onClick={handlePreviousThree}
+                        >previous</div>
+                        <div
+                            disabled={disable}
+                            type="button"
+                            className="btn btn-success float-right submit"
+                            onClick={handleSubmit}
+                        >Donate!</div>
+                    </div>
+                </form>
             </div>
-        )
-    }
+        </div>
+    )
 }
+
 export default Form;

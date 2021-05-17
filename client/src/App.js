@@ -6,7 +6,6 @@ import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import Pickup from "./pages/pickup";
 import AUTH from './utils/AUTH';
-import Header from "./components/header";
 import Register from "./pages/register";
 import Footer from "./components/footer";
 // import Error from "./pages/errorPage";
@@ -30,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-   
+
       <Router>
         {(user && user.isLoggedIn) ? (
           <div>
