@@ -13,17 +13,26 @@ export default {
     reserveDonations: (id) => {
         return axios.post('/api/donations/receive/' + id)
     },
+    // Removes the resereved status from a donation
+    makeAvailable: (id) => {
+        return axios.post('api/donations/available/' + id)
+    },
+    // Gets all of a users donations
+    myDonations: (userId) => {
+        return axios.post('api/donations/userDonations', userId)
+    },
     // Allows a user to create a donation
     newDonation: (donation) => {
-        return axios({ 
+        return axios({
             method: 'POST',
             url: 'api/donations/give',
             data: donation
         })
     },
-    // Gets all of a users donations
-    myDonations: (userId) => {
-        console.log('MYDONATIONS', userId);
-        return axios.post('api/donations/userDonations', userId)
-    },
+    // Removes a donation
+    removeDonations: (id) => {
+        console.log('REMOVE DONATIONS')
+        return axios.delete('/api/donations/remove/' + id);
+    }
+
 };

@@ -22,13 +22,22 @@ const AccountInfo = () => {
             setDonations(response.data);
         })
         .catch(err => console.log(err));
-    }
+    };
 
     const completePickup = (id) => {
-        console.log('hi');
         API.completeDonations(id)
           .catch(err => console.log(err));
     };
+
+    const removeDonations = (id) => {
+        API.removeDonations(id)
+            .catch(err => console.log(err));
+    };
+
+    const makeAvailable = (id) => {
+        API.makeAvailable(id)
+        .catch(err => console.log(err));
+    }
 
     return (
         <div>
@@ -60,7 +69,7 @@ const AccountInfo = () => {
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                 <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
-                                <button>Remove</button>
+                                <button onClick={() => makeAvailable(thisDonation._id)}>End Reservation</button>
                                 <button onClick={() => completePickup(thisDonation._id)}>Complete</button>
                             </ul>
                             :
@@ -75,7 +84,7 @@ const AccountInfo = () => {
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                 <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
-                                <button>Remove</button>
+                                <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
                             </ul>
                             :
                             <ul></ul>
@@ -89,7 +98,7 @@ const AccountInfo = () => {
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                 <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
-                                <button>Remove</button>
+                                <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
                             </ul>
                             :
                             <ul></ul>
