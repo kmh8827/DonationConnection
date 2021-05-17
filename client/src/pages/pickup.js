@@ -12,7 +12,7 @@ const Pickup = () => {
 
     const [donations, setDonations] = useState([]);
 
-    const [buttonHide, setButtonHide] = useState({display: 'none'});
+    const [buttonHide, setButtonHide] = useState({display: ''});
 
     // const [buttonStop, setButtonStop] = useState({disabled: false});
     // const [index, setIndex] = useState(0);
@@ -107,7 +107,7 @@ const Pickup = () => {
                 </GridList>
                 {/* {console.log(donations.__proto__.lastIndexOf())} */}
 
-                {console.log(donations.id)}
+                {/* {console.log(donations.id)} */}
             </div>
             <div style={buttonHide} className="row fixed-bottom justify-content-center p-2">
             {/* {console.log(donations.length )}
