@@ -45,7 +45,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     remove: (req, res) => {
-        console.log('REMOVE DONATIONS')
         db.Donations
             .findOneAndDelete({ _id: req.params.id })
             .catch(err => res.status(422).json(err));

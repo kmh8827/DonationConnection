@@ -18,25 +18,24 @@ const AccountInfo = () => {
         }
 
         API.myDonations(donationCall).then(response => {
-            console.log(response.data);
-            setDonations(response.data);
+            setDonations(response.data)
         })
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
     };
 
     const completePickup = (id) => {
-        API.completeDonations(id)
+        API.completeDonations(id).then(response => setDonations(response.data))
           .catch(err => console.log(err));
     };
 
     const removeDonations = (id) => {
-        API.removeDonations(id)
-            .catch(err => console.log(err));
+        API.removeDonations(id).catch(err => console.log(err));
+        loadDonations()
     };
 
     const makeAvailable = (id) => {
-        API.makeAvailable(id)
-        .catch(err => console.log(err));
+        API.makeAvailable(id).then(response => setDonations(response.data))
+            .catch(err => console.log(err));
     }
 
     return (
@@ -65,7 +64,7 @@ const AccountInfo = () => {
               
                         {donations && donations.map(thisDonation =>
                             thisDonation.availability === "false" ?
-                            <ul>
+                            <ul key={thisDonation._id}>
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                 <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
@@ -80,7 +79,7 @@ const AccountInfo = () => {
 
                         {donations && donations.map(thisDonation =>
                             thisDonation.availability === "true" ?
-                            <ul>
+                            <ul key={thisDonation._id}>
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                 <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
@@ -94,7 +93,7 @@ const AccountInfo = () => {
                         
                         {donations && donations.map(thisDonation =>
                             thisDonation.availability === "complete" ?
-                            <ul>
+                            <ul key={thisDonation._id}>
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                 <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
