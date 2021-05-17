@@ -15,8 +15,8 @@ function ReserveCard(props) {
     <div>
       <Card className="reserveCard" id={props.id} type="button" style={props.availability === 'true' ? { backgroundColor: "rgb(58, 175, 58)" } : { backgroundColor: "rgb(196, 75, 75)" }} checked={isOpened} onClick={() =>  handleOpenCard(props.id)}>
 
-        <CardTitle className="m-3 pr-2" tag="h6">{props.companyName}</CardTitle>
-        <CardTitle className="m-3" tag="h6">{props.product}</CardTitle>
+        <CardTitle className="m-3 pr-2 companyTitle text-center" tag="h6">{props.companyName}</CardTitle>
+        <CardTitle className="m-3 donationProduct text-center" tag="h6">{props.product}</CardTitle>
 
         <Collapse  isOpened={isOpened}>
           <div style={{ height }} className="blob">

@@ -8,14 +8,12 @@ import '../assets/scss/pickup.scss';
 
 const Pickup = () => {
 
-    const [slicePosition, setPosition] = useState({ start: 0, end: 6, show: true });
+    const [slicePosition, setPosition] = useState({ start: 0, end: 6 });
 
     const [donations, setDonations] = useState([]);
 
     const [buttonHide, setButtonHide] = useState({display: ''});
 
-    // const [buttonStop, setButtonStop] = useState({disabled: false});
-    // const [index, setIndex] = useState(0);
     useEffect(() => {
         loadPickups();
         const onScroll = function () {
@@ -105,25 +103,28 @@ const Pickup = () => {
 
                     )}
                 </GridList>
-                {/* {console.log(donations.__proto__.lastIndexOf())} */}
-
-                {/* {console.log(donations.id)} */}
             </div>
-            <div style={buttonHide} className="row fixed-bottom justify-content-center p-2">
-            {/* {console.log(donations.length )}
-            {console.log(donations.indexOf())} */}
-                <Button
-                    disabled={false}
-                    type="button"
-                    className="btn btn-light mr-4 previousBtn"
-                    onClick={() => { setPosition({ start: slicePosition.start - 6, end: slicePosition.end - 6 }); }}
-                >Previous</Button>
-                <Button
-                    disabled={donations.length ? false : true }
-                    type="button"
-                    className="btn btn-info ml-4 nextBtn"
-                    onClick={() => { setPosition({ start: slicePosition.start + 6, end: slicePosition.end + 6 }); }}
-                >Next</Button>
+            <div style={buttonHide} className="row fixed-bottom justify-content-center buttonRow p-2">
+                
+                {slicePosition.start - 6 < 0
+                ? <Button disabled={true} className="btn btn-light mr-4 previousBtn">Previous</Button>
+                : <Button 
+                disabled={false}
+                type="button"
+                className="btn btn-light mr-4 previousBtn"
+                onClick={() => { setPosition({ start: slicePosition.start - 6, end: slicePosition.end - 6 }); }}
+            >Previous</Button>
+                }
+
+                {slicePosition.start + 6 > donations.length
+                ? <Button disabled={true} className="btn btn-info ml-4 nextBtn">Next</Button>
+                : <Button
+                disabled={donations.length ? false : true }
+                type="button"
+                className="btn btn-info ml-4 nextBtn"
+                onClick={() => { setPosition({ start: slicePosition.start + 6, end: slicePosition.end + 6 }); }}
+            >Next</Button>
+                }
             </div>
         </div>
     );
