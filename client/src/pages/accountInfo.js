@@ -25,6 +25,7 @@ const AccountInfo = () => {
     }
 
     const completePickup = (id) => {
+        console.log('hi');
         API.completeDonations(id)
           .catch(err => console.log(err));
     };
@@ -59,13 +60,15 @@ const AccountInfo = () => {
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                 <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
-                                <button onClick={completePickup(this.thisDonation._id)}>Remove</button>
-                                <button>Complete</button>
+                                <button>Remove</button>
+                                <button onClick={() => completePickup(thisDonation._id)}>Complete</button>
                             </ul>
                             :
                             <ul></ul>
                         )}
+
                         <label className="form-label status available">Available Donations:</label>
+
                         {donations && donations.map(thisDonation =>
                             thisDonation.availability === "true" ?
                             <ul>
@@ -77,8 +80,11 @@ const AccountInfo = () => {
                             :
                             <ul></ul>
                         )}
-                            {donations && donations.map(thisDonation =>
-                            thisDonation.availability === "completed" ?
+                           
+                        <label className="form-label status pickedup">Picked-up Donations:</label>
+                        
+                        {donations && donations.map(thisDonation =>
+                            thisDonation.availability === "complete" ?
                             <ul>
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
@@ -88,7 +94,7 @@ const AccountInfo = () => {
                             :
                             <ul></ul>
                         )}
-                        <label className="form-label status pickedup">Picked-up Donations:</label>
+                        
                     </React.Fragment>
                     </div>
                 </div>

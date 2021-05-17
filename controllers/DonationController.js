@@ -2,8 +2,10 @@ const db = require('../models');
 
 module.exports = {
     completeDonation: (req, res) => {
+        console.log('COMPLETE DONATIONS');
+        console.log(req.params.id);
         db.Donations
-            .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'copmlete' }, { useFindAndModify: false })
+            .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'complete' }, { useFindAndModify: false })
             .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
     },

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const donationController = require('../../controllers/DonationController');
 
-router.route('/copmlete/:id')
+router.route('/complete/:id')
     .post(donationController.completeDonation)
 
 router.route('/give')
