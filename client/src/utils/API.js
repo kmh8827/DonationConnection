@@ -2,6 +2,9 @@
 import axios from "axios";
 
 export default {
+    completeDonations: () => {
+        return axios.post('api/donations/complete' + id)
+    },
     // Gets a list of all Donations
     getDonations: () => {
         return axios.get('/api/donations/receive')

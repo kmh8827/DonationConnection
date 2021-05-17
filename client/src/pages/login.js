@@ -22,7 +22,6 @@ const Login = () => {
     AUTH.login(username, password).then(response => {
       const responseUser = response.data.user;
       responseUser.isLoggedIn = true;
-      console.log('RESPONSE USER', responseUser);
       handleSetUser(responseUser);
       history.push('/dashboard');
     })

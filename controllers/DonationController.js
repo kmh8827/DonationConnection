@@ -1,6 +1,12 @@
 const db = require('../models');
 
 module.exports = {
+    completeDonation: (req, res) => {
+        db.Donations
+            .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'copmlete' }, { useFindAndModify: false })
+            .then(donations => res.json(donations))
+            .catch(err => res.status(422).json(err));
+    },
     findAll: (req, res) => {
         db.Donations
             .find()
@@ -34,7 +40,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findMine: (req, res) => {
-        console.log('FINDMINE', req.body.userId)
         db.Donations
             .find({ userId: req.body.userId })
             .then(usersDonations => res.json(usersDonations))

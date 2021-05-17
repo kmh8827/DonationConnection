@@ -1,13 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import API from "../utils/API";
 import { CurrentUserContext } from "../context/currentUser";
+import Header from "../components/header";
 import "../assets/scss/accountInfo.scss";
 
 const AccountInfo = () => {
     const { user } = useContext(CurrentUserContext);
-    const [donations, setDonations] = useState(null);
+    const [donations, setDonations] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => {  
+        loadDonations();
+    }, [])
+
+    const loadDonations = () => {
         const donationCall = {
             userId: user._id
         }
@@ -16,10 +21,17 @@ const AccountInfo = () => {
             console.log(response.data);
             setDonations(response.data);
         })
-    }, [user]);
+        .catch(err => console.log(err));
+    }
+
+    const completePickup = (id) => {
+        API.completeDonations(id)
+          .catch(err => console.log(err));
+    };
 
     return (
         <div>
+            <Header />
             <div>
                 <div class="container infoo">
 
@@ -40,7 +52,42 @@ const AccountInfo = () => {
                     </div>
                     <React.Fragment>
                         <label className="form-label status onHold">Donations on hold:</label>
+              
+                        {donations && donations.map(thisDonation =>
+                            thisDonation.availability === "false" ?
+                            <ul>
+                                <li>{"Product: " + thisDonation.product}</li>
+                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <button onClick={completePickup(this.thisDonation._id)}>Remove</button>
+                                <button>Complete</button>
+                            </ul>
+                            :
+                            <ul></ul>
+                        )}
                         <label className="form-label status available">Available Donations:</label>
+                        {donations && donations.map(thisDonation =>
+                            thisDonation.availability === "true" ?
+                            <ul>
+                                <li>{"Product: " + thisDonation.product}</li>
+                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <button>Remove</button>
+                            </ul>
+                            :
+                            <ul></ul>
+                        )}
+                            {donations && donations.map(thisDonation =>
+                            thisDonation.availability === "completed" ?
+                            <ul>
+                                <li>{"Product: " + thisDonation.product}</li>
+                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <button>Remove</button>
+                            </ul>
+                            :
+                            <ul></ul>
+                        )}
                         <label className="form-label status pickedup">Picked-up Donations:</label>
                     </React.Fragment>
                     </div>
