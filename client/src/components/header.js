@@ -3,6 +3,7 @@ import '../assets/scss/nav.scss'
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
 import AUTH from "../utils/AUTH";
 import { CurrentUserContext } from "../context/currentUser";
+import { Dropdown } from "react-bootstrap";
 
 function Header() {
 
@@ -14,6 +15,17 @@ function Header() {
       handleSetUser({});
     }); 
   };
+
+  // Dropdown needs access to the DOM node in order to position the Menu
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+  <a id="dropdownToggle" href="" ref={ref} onClick={(e) => {
+      e.preventDefault();
+      onClick(e); 
+  }}>
+    {children}
+    &#x25BE;
+  </a>
+));
 
   return (
     <nav className="nav navbar navTitleBar navbar-expand-md fixed-top">
@@ -27,18 +39,26 @@ function Header() {
           <li className="nav-item active">
             <a className="nav-link navBtn" href="/">Home</a>
           </li>
-          {(user && user.isLoggedIn) ? (
-          <li className="nav-item">
-            <a className="nav-link navBtn" onClick={logout} href="/">Logout</a>
-          </li>
-          ) : (
-            <li className="nav-item">
-              <a className="nav-link navBtn" href="/">Login</a>
-            </li>
-          )}
-          <li className="nav-item">
-            <a className="nav-link navBtn" href="/account">Account</a>
-          </li>
+          
+          <Dropdown className="dropdown">
+            <Dropdown.Toggle as={CustomToggle} id="dropdownToggle">
+              Account
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="/account">Account Information</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item> 
+              {(user && user.isLoggedIn) ? (
+                <Dropdown.Item href="/">Logout</Dropdown.Item>
+              ) : (
+                  <Dropdown.Item href="/">Login</Dropdown.Item>
+              )}
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          
+          
         </ul>
       </div>
     </nav>

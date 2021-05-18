@@ -47,3 +47,18 @@ nav {
     height: auto;
 }
 
+.dropdown {
+    margin-top: 10px;
+    margin-left: 7px;
+};
+
+#dropdownToggle {
+    color:rgb(150, 141, 141);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: large;
+    text-shadow:
+    -1px -1px 0 rgba(0, 0, 0, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25);
+}
