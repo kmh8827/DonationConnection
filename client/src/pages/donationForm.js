@@ -6,7 +6,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Slide from '@material-ui/core/Slide';
-
 import API from "../utils/API";
 import { CurrentUserContext } from "../context/currentUser";
 import Header from "../components/header";

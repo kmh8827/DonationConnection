@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import "../assets/scss/login.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -74,7 +74,7 @@ const Login = () => {
           </div>
           <div className="form-group mb-4">
             <label className="form-label" id="password">Password</label>
-            <input type="text"
+            <input type="password"
               className="form-control"
               autoComplete="new-password"
               name="password"
@@ -84,7 +84,11 @@ const Login = () => {
         </form>
         <div className="row floater mb-5">
 
-          <a className="registerBtn" href="/register">Register</a>
+          <input type="button"
+          className="btn btn-info registerBtn mr-3" 
+          value={loading ? 'Loading...' : 'Register'}
+          onClick={() => history.push('/register')}
+          disabled={loading} />
 
           {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
           <input type="button"
