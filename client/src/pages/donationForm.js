@@ -1,12 +1,23 @@
 import React, { useState, useContext, useEffect } from "react";
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import Slide from '@material-ui/core/Slide';
+
 import API from "../utils/API";
 import { CurrentUserContext } from "../context/currentUser";
 import Header from "../components/header";
 import "../assets/scss/form.scss";
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
 const Form = () => {
     const user = useContext(CurrentUserContext);
-    
+
     const [checked, setChecked] = useState(true);
     const [disable, setDisable] = useState(true);
     const clickedNextP1 = true;
@@ -32,6 +43,16 @@ const Form = () => {
         donationInfo: 'd-none',
         foodInfo: 'd-none',
     });
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
 
     const handleInputChange = event => {
         console.log(donation);
@@ -71,9 +92,10 @@ const Form = () => {
     }
 
     const handleSubmit = event => {
-        event.preventDefault();
+        handleClose();
+        window.location.reload();
         API.newDonation(donation)
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
     };
 
     const handlePreviousTwo = (event) => {
@@ -269,11 +291,40 @@ const Form = () => {
                             onClick={handlePreviousThree}
                         >previous</div>
                         <div
-                            disabled={disable}
+                            // disabled={disable}
                             type="button"
                             className="btn btn-success float-right submit"
-                            onClick={handleSubmit}
+                            onClick={handleClickOpen}
                         >Donate!</div>
+                        <Dialog
+                            open={open}
+                            TransitionComponent={Transition}
+                            keepMounted
+                            onClose={handleClose}
+                            aria-labelledby="alert-dialog-slide-title"
+                            aria-describedby="alert-dialog-slide-description"
+                        >
+                            <DialogContent>
+                            <DialogContentText className="m-4" id="alert-dialog-slide-description">
+                                Please confirm everything you've entered is correct:
+                            </DialogContentText>
+                            <DialogContent className="row ">Company Name:<p className="ml-4 confirmItem">{donation.companyName}</p></DialogContent>
+                            <DialogContent className="row ">Address:<p className="ml-4 confirmItem">{donation.address}</p></DialogContent>
+                            <DialogContent className="row ">Product:<p className="ml-4 confirmItem">{donation.product}</p></DialogContent>
+                            <DialogContent className="row ">Expiration Date:<p className="ml-4 confirmItem">{donation.expDate}</p></DialogContent>
+                            <DialogContent className="row ">Quantity:<p className="ml-4 confirmItem">{donation.quantity}</p></DialogContent>
+                            <DialogContent className="row ">Special Instructions:<p className="ml-4 confirmItem">{donation.specialInstructions}</p></DialogContent>
+                            <DialogContent className="row ">Allergies:<p className="ml-4 confirmItem">{donation.allergies}</p></DialogContent>
+                            </DialogContent>
+                            <DialogActions>
+                            <Button onClick={handleClose} color="primary">
+                                Go Back
+                            </Button>
+                            <Button onClick={handleSubmit} color="primary">
+                                Confirm
+                            </Button>
+                            </DialogActions>
+                        </Dialog>
                     </div>
                 </form>
             </div>
