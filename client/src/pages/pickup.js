@@ -5,11 +5,6 @@ import Header from '../components/header'
 import API from '../utils/API';
 import ReserveCard from '../components/reserveCard';
 import '../assets/scss/pickup.scss';
-// import { zoomIn } from 'react-animations'
-// import styled, { keyframes } from 'styled-components'
-
-
-// const Animate = styled.div`animation: 1s ${keyframes`${zoomIn}`} `;
 
 
 
@@ -87,7 +82,6 @@ const Pickup = () => {
                     {donations && donations.slice(slicePosition.start, slicePosition.end).map(thisDonation => {
                         // console.log(thisDonation._id)
                         return (
-                        // <Animate>
                             <ReserveCard
                                 isOpened={thisDonation.isOpened}
                                 handleOpenCard={handleOpenCard}
@@ -104,7 +98,6 @@ const Pickup = () => {
                                 reserved={reserved}
                                 reservePickup={reservePickup}
                             />
-                        // </Animate>
                         )
                     }
 

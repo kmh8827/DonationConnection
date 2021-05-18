@@ -97,7 +97,7 @@ const Form = () => {
 
     const handleSubmit = event => {
         handleClose();
-        // window.location.reload(); //needs useHistory
+        // window.location.reload();
         history.push('/dashboard')
         API.newDonation(donation)
             .catch(err => console.log(err));
