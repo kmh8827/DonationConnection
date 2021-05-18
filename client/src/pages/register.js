@@ -24,6 +24,7 @@ const Register = () => {
     };
 
     const handleSubmit = (e) => {
+        console.log('SUBMIT');
         e.preventDefault();
 
         AUTH.signup({
@@ -34,6 +35,7 @@ const Register = () => {
             password: userObject.password,
         })
         .then(response => {
+            console.log(response);
             if (!response.data.errmsg) {
                 setRedirectTo('/dashboard')
             } else {
