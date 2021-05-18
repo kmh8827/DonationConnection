@@ -31,7 +31,6 @@ export default {
     },
     // Removes a donation
     removeDonations: (id) => {
-        console.log('REMOVE DONATIONS')
         return axios.delete('/api/donations/remove/' + id);
     }
 
