@@ -27,6 +27,22 @@ $white-color: whitesmoke;
   6px 6px 6px rgba(0,0,0,.25);
   width: 500px;
   margin: 10px;
+
+  animation-duration: 1s;
+  animation-name: pickup-animation;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes pickup-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .companyTitle, .donationProduct { 

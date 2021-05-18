@@ -8,7 +8,22 @@
     2px 2px 0 rgba(0,0,0,.25),
     6px 6px 6px rgba(0,0,0,.25);
 
+    animation-duration: 1s;
+    animation-name: login-animation;
+    animation-iteration-count: 1;
+    animation-direction: normal;
 }
+
+@keyframes login-animation {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
 .loginBtn, .registerBtn {
     width: 90px;
