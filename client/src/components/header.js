@@ -3,6 +3,7 @@ import '../assets/scss/nav.scss'
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
 import AUTH from "../utils/AUTH";
 import { CurrentUserContext } from "../context/currentUser";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
 function Header() {
 
@@ -27,18 +28,18 @@ function Header() {
           <li className="nav-item active">
             <a className="nav-link navBtn" href="/">Home</a>
           </li>
-          {(user && user.isLoggedIn) ? (
-          <li className="nav-item">
-            <a className="nav-link navBtn" onClick={logout} href="/">Logout</a>
-          </li>
-          ) : (
-            <li className="nav-item">
-              <a className="nav-link navBtn" href="/">Login</a>
-            </li>
-          )}
-          <li className="nav-item">
-            <a className="nav-link navBtn" href="/account">Account</a>
-          </li>
+          
+          <DropdownButton id="dropdownBtn" title="Account">
+            <Dropdown.Item href="/account">Account Information</Dropdown.Item>
+            <Dropdown.Item> 
+            {(user && user.isLoggedIn) ? (
+              <Dropdown.Item href="/">Logout</Dropdown.Item>
+            ) : (
+                <Dropdown.Item href="/">Login</Dropdown.Item>
+            )}
+            </Dropdown.Item>
+          </DropdownButton>
+          
         </ul>
       </div>
     </nav>
