@@ -105,6 +105,8 @@ const Register = () => {
                 console.log(response);
                 if (!response.data.errmsg) {
                     alert('Successful Creation')
+                    history.push('/login')
+
                 } else {
                     console.log('duplicate');
                 }
