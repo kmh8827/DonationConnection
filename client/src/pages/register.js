@@ -35,7 +35,7 @@ const Register = () => {
         })
         .then(response => {
             if (!response.data.errmsg) {
-                setRedirectTo('/')
+                setRedirectTo('/dashboard')
             } else {
                 console.log('duplicate');
             }
