@@ -50,7 +50,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
               <Dropdown.Divider />
               <Dropdown.Item> 
               {(user && user.isLoggedIn) ? (
-                <Dropdown.Item href="/">Logout</Dropdown.Item>
+                <Dropdown.Item href="/" onClick={logout}>Logout</Dropdown.Item>
               ) : (
                   <Dropdown.Item href="/">Login</Dropdown.Item>
               )}
