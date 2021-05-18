@@ -1,9 +1,10 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "../assets/scss/home.scss";
-// import Login from "./login.js";
  
 function Home() {
 
+    const history = useHistory();
 
     return(
         <div>
@@ -29,8 +30,8 @@ function Home() {
 
                     <div className="navv">
                         <section className="container">
-                            <button type="button" className="buttonz btn btn-light" onClick={event =>  window.location.href='/login'}>Login</button>
-                            <button type="button" className=" buttonz btn btn-light" onClick={event =>  window.location.href='/register'}>Register</button>
+                            <button type="button" className="buttonz btn btn-light" onClick={() => history.push('/login')}>Login</button>
+                            <button type="button" className=" buttonz btn btn-light" onClick={() => history.push('/register')}>Register</button>
                         </section>
                     </div>
                 </div>
