@@ -69,7 +69,7 @@ const Register = () => {
                 </div>                
                 <form className="row g-1 needs-validation" noValidate>
                     
-                    <div className="col-md-9 registerField">
+                    <div className="col-md-10 registerField">
                         <label for="validationCustom01" className="form-label">First name</label>
                         <input type="text"
                         name="firstName"
@@ -83,7 +83,7 @@ const Register = () => {
                         Looks good!
                         </div>
                     </div>
-                    <div className="col-md-9 registerField">
+                    <div className="col-md-10 registerField">
                         <label for="validationCustom02" className="form-label">Last name</label>
                         <input type="text" 
                         name="lastName"
@@ -97,7 +97,7 @@ const Register = () => {
                         Looks good!
                         </div>
                     </div>
-                    <div className="col-md-9 registerField">
+                    <div className="col-md-10 registerField">
                         <label for="validationCustomUsername" className="form-label">Username</label>
                         <div className="input-group has-validation">
                         <input type="text" 
@@ -113,7 +113,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-md-9 registerField">
+                    <div className="col-md-10 registerField">
                         <label for="validationCustomEmail" className="form-label">E-mail</label>
                         <div className="input-group has-validation">
                         <input type="text" 
@@ -129,7 +129,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-md-9 registerField">
+                    <div className="col-md-10 registerField">
                         <label for="validationCustomPassword" className="form-label">Password</label>
                         <div className="input-group has-validation">
                         <input type="password" 
@@ -146,7 +146,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-md-9 registerField">
+                    <div className="col-md-10 registerField">
                         <label for="validationCustomPassword" className="form-label">Confirm password</label>
                         <div className="input-group has-validation">
                         <input type="password" 
@@ -163,7 +163,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-md-9 floater mr-10">
+                    <div className="col-md-10 floater ">
                         <button className="btn btn-info registrationBtn ml-3 mr-0 press-on" onClick={handleSubmit}>Register Now</button>
                         <a href="/login" className="logBtn">Login</a>
                     </div>
