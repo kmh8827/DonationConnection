@@ -1,9 +1,9 @@
-import React, { useContext, useState, forwardRef } from 'react';
+import React, { useContext } from 'react';
 import '../assets/scss/nav.scss'
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
 import AUTH from "../utils/AUTH";
 import { CurrentUserContext } from "../context/currentUser";
-import { Dropdown, FormControl } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 
 function Header() {
 
@@ -18,9 +18,9 @@ function Header() {
 
   // Dropdown needs access to the DOM node in order to position the Menu
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-  <a href="" ref={ref} onClick={(e) => {
+  <a id="dropdownToggle" href="" ref={ref} onClick={(e) => {
       e.preventDefault();
-      onClick(e);
+      onClick(e); 
   }}>
     {children}
     &#x25BE;
@@ -40,8 +40,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
             <a className="nav-link navBtn" href="/">Home</a>
           </li>
           
-          <Dropdown>
-            <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+          <Dropdown className="dropdown">
+            <Dropdown.Toggle as={CustomToggle} id="dropdownToggle">
               Account
             </Dropdown.Toggle>
 
