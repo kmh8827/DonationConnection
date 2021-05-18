@@ -6,6 +6,8 @@ import API from '../utils/API';
 import ReserveCard from '../components/reserveCard';
 import '../assets/scss/pickup.scss';
 
+
+
 const Pickup = () => {
 
     const [slicePosition, setPosition] = useState({ start: 0, end: 6 });
@@ -80,7 +82,6 @@ const Pickup = () => {
                     {donations && donations.slice(slicePosition.start, slicePosition.end).map(thisDonation => {
                         // console.log(thisDonation._id)
                         return (
-
                             <ReserveCard
                                 isOpened={thisDonation.isOpened}
                                 handleOpenCard={handleOpenCard}
@@ -97,7 +98,6 @@ const Pickup = () => {
                                 reserved={reserved}
                                 reservePickup={reservePickup}
                             />
-
                         )
                     }
 

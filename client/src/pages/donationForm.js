@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -45,6 +46,9 @@ const Form = () => {
     });
 
     const [open, setOpen] = React.useState(false);
+
+    const history = useHistory();
+
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -93,7 +97,8 @@ const Form = () => {
 
     const handleSubmit = event => {
         handleClose();
-        window.location.reload();
+        // window.location.reload();
+        history.push('/dashboard')
         API.newDonation(donation)
             .catch(err => console.log(err));
     };
