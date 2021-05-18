@@ -31,6 +31,7 @@ function Header() {
           
           <DropdownButton id="dropdownBtn" title="Account">
             <Dropdown.Item href="/account">Account Information</Dropdown.Item>
+            <Dropdown.Divider />
             <Dropdown.Item> 
             {(user && user.isLoggedIn) ? (
               <Dropdown.Item href="/">Logout</Dropdown.Item>
