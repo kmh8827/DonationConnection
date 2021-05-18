@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, forwardRef } from 'react';
 import '../assets/scss/nav.scss'
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
 import AUTH from "../utils/AUTH";
 import { CurrentUserContext } from "../context/currentUser";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown, FormControl } from "react-bootstrap";
 
 function Header() {
 
@@ -15,6 +15,17 @@ function Header() {
       handleSetUser({});
     }); 
   };
+
+  // Dropdown needs access to the DOM node in order to position the Menu
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+  <a href="" ref={ref} onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+  }}>
+    {children}
+    &#x25BE;
+  </a>
+));
 
   return (
     <nav className="nav navbar navTitleBar navbar-expand-md fixed-top">
@@ -29,17 +40,24 @@ function Header() {
             <a className="nav-link navBtn" href="/">Home</a>
           </li>
           
-          <DropdownButton id="dropdownBtn" title="Account">
-            <Dropdown.Item href="/account">Account Information</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item> 
-            {(user && user.isLoggedIn) ? (
-              <Dropdown.Item href="/">Logout</Dropdown.Item>
-            ) : (
-                <Dropdown.Item href="/">Login</Dropdown.Item>
-            )}
-            </Dropdown.Item>
-          </DropdownButton>
+          <Dropdown>
+            <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+              Account
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="/account">Account Information</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item> 
+              {(user && user.isLoggedIn) ? (
+                <Dropdown.Item href="/">Logout</Dropdown.Item>
+              ) : (
+                  <Dropdown.Item href="/">Login</Dropdown.Item>
+              )}
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          
           
         </ul>
       </div>
