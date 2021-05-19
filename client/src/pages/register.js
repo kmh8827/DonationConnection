@@ -13,6 +13,7 @@ const Register = () => {
         username: "",
         password: "",
         confirmPassword: "",
+        company: "",
     });
     const [disabled, setDisabled] = useState(true)
     // Used to make sure all required information is sent to back-end
@@ -42,6 +43,7 @@ const Register = () => {
             username: userObject.username,
             email: userObject.email,
             password: userObject.password,
+            company: userObject.company
         })
             .then(response => {
                 console.log(response);
@@ -134,9 +136,7 @@ const Register = () => {
                                 aria-describedby="inputGroupPrepend"
                                 onChange={handleChange}
                                 value={userObject.email} required />
-                            <div className="invalid-feedback">
-                                Please choose an e-mail.
-                        </div>
+
                         </div>
                     </div>
                     {/* new User's Password */}
@@ -152,9 +152,6 @@ const Register = () => {
                                 onChange={handleChange}
                                 value={userObject.password}
                                 required />
-                            <div className="invalid-feedback">
-                                Please enter a password.
-                        </div>
                         </div>
                     </div>
                     {/* Confirm Password Input */}
@@ -170,9 +167,21 @@ const Register = () => {
                                 onChange={handleChange}
                                 value={userObject.confirmPassword}
                                 required />
-                            <div className="invalid-feedback">
-                                Please confirm your password.
-                            </div>
+                        </div>
+                    </div>
+                     {/* Give an Organization Name */}
+                     <div className="col-md-10 registerField">
+                        <label for="validationCustomPassword" className="form-label">Organizations Name</label>
+                        <div className="input-group has-validation">
+                            <input type="password"
+                                name="company"
+                                className="form-control"
+                                id="company"
+                                placeholder="Meals On Wheels"
+                                aria-describedby="inputGroupPrepend"
+                                onChange={handleChange}
+                                value={userObject.company}
+                                required />
                         </div>
                     </div>
                     <div className="col-md-10 floater ">
