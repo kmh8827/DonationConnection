@@ -29,6 +29,10 @@ router.route('/remove/:id')
 
 router.route('/userDonations')
     // Displays the donations that are associated with the signed in User
-    .post(donationController.findMine)
+    .post(donationController.findMyPosted)
 
+router.route('/userReservations')
+    // Displays the donations that are reserved with the signed in User
+    .post(donationController.findMyReserved)
+    
 module.exports = router;

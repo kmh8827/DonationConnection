@@ -46,7 +46,7 @@ function App() {
           </div>
         ) : (
           <div>
-            {/* Routes fi the user is not logged in */}
+            {/* Routes for if the user is not logged in */}
             <Switch>
               <Route exact path={["/"]} component={Home} />
               <Route exact path={["/register"]} component={Register} />

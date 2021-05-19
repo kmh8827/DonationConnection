@@ -7,7 +7,7 @@ export default {
     },
     // Gets a list of all Donations
     getDonations: () => {
-        return axios.get('/api/donations/receive')
+        return axios.get('/api/donations/receive/')
     },
     // Allows a user to reserve a donation
     reserveDonations: (id, userId) => {
@@ -19,7 +19,10 @@ export default {
     },
     // Gets all of a users donations
     myDonations: (userId) => {
-        return axios.post('api/donations/userDonations', userId)
+        return axios.post('api/donations/userDonations/', userId)
+    },
+    myReserved: (userId) => {
+        return axios.post('api/donations/userReservations/', userId)
     },
     // Allows a user to create a donation
     newDonation: (donation) => {

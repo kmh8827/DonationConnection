@@ -8,7 +8,6 @@ const UserSchema = new Schema({
     username: { type: String, trim: true, unique: true, require: true },
     email: { type: String, trim: true, unique: true, require: true },
     password: { type: String, trim: true, unique: false, require: true },
-    company: { type: String, trim: true, unique: false },
 });
 
 UserSchema.methods = {

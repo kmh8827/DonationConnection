@@ -52,7 +52,7 @@ const Pickup = () => {
     // Allows a user to reserve a pick-up
     const reservePickup = (id) => {
         const userId = {
-        userId: user._id
+        userId: user.username
         };
 
         console.log(userId)

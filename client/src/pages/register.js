@@ -13,7 +13,6 @@ const Register = () => {
         username: "",
         password: "",
         confirmPassword: "",
-        company: "",
     });
     const [disabled, setDisabled] = useState(true)
     // Used to make sure all required information is sent to back-end
@@ -43,7 +42,6 @@ const Register = () => {
             username: userObject.username,
             email: userObject.email,
             password: userObject.password,
-            company: userObject.company
         })
             .then(response => {
                 console.log(response);
@@ -169,24 +167,12 @@ const Register = () => {
                                 required />
                         </div>
                     </div>
-                     {/* Give an Organization Name */}
-                     <div className="col-md-10 registerField">
-                        <label for="validationCustomPassword" className="form-label">Organizations Name</label>
-                        <div className="input-group has-validation">
-                            <input type="password"
-                                name="company"
-                                className="form-control"
-                                id="company"
-                                placeholder="Meals On Wheels"
-                                aria-describedby="inputGroupPrepend"
-                                onChange={handleChange}
-                                value={userObject.company}
-                                required />
-                        </div>
-                    </div>
                     <div className="col-md-10 floater ">
                         {/* Takes the user to the log-in page */}
-                        <button className="btn btn-info logBtn ml-3 mr-0 press-on" onClick={() => history.push('/login')} >Login</button>
+                        <button className="btn btn-info logBtn ml-3 mr-0 press-on" onClick={() => {
+                            console.log('hello');
+                            history.push('/login')
+                        }} >Login</button>
                         {/* Submits the userObject */}
                         <button className="btn btn-info registrationBtn ml-3 mr-0 press-on" disabled={disabled} onClick={handleSubmit}>Register Now</button>
                     </div>

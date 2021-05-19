@@ -7,8 +7,12 @@ import "../assets/scss/accountInfo.scss";
 const AccountInfo = () => {
     const { user } = useContext(CurrentUserContext);
     const [donations, setDonations] = useState([]);
+    const [reserved, setReserved] = useState([]);
+    console.log(reserved.length);
+    console.log(typeof(reserved));
 
     useEffect(() => {  
+        loadReserved();
         loadDonations();
     }, [])
 
@@ -20,6 +24,22 @@ const AccountInfo = () => {
 
         API.myDonations(donationCall).then(response => setDonations(response.data))
             .catch(err => console.log(err));
+        console.log(donations);
+
+    };
+
+    // Loads the donations that the user has reserved
+    const loadReserved = () => {
+        const userReserved = {
+            reservedBy: user.username
+        };
+        console.log(userReserved.reservedBy)
+        console.log(reserved);
+        console.log(reserved.length);
+
+        API.myReserved(userReserved).then(response => setReserved(response.data))
+            .catch(err => console.log(err));
+        console.log(reserved);
     };
 
     // Completes the Transaction
@@ -59,14 +79,18 @@ const AccountInfo = () => {
                             </div>
                             {/* Currently Signed-In user's Total Number of Donations in database */}
                             <div className="user">
-                                <label className="form-label">Total Donations: {donations ? donations.length : 'None'}</label>
+                                <label className="form-label">Total Listed Donations: {donations ? donations.length : 'None'}</label>
+                            </div>
+                                {/* Currently Signed-In user's Total Number of Donations in database */}
+                                <div className="user">
+                                <label className="form-label">Total Reserved Donations: {reserved ? 'wut' : 'None'}</label>
                             </div>
 
                         </row>
                     </div>
                     <React.Fragment>
                         <label className="form-label status onHold">Donations on hold:</label>
-                            {/* List of currently reserved Donations */}
+                        {/* List of currently reserved Donations */}
                         {donations && donations.map(thisDonation =>
                             thisDonation.availability === "false" ?
                             <ul key={thisDonation._id}>
@@ -81,7 +105,7 @@ const AccountInfo = () => {
                         )}
 
                         <label className="form-label status available">Available Donations:</label>
-                            {/* The donations that the user has up that are currently Available */}
+                        {/* The donations that the user has up that are currently Available */}
                         {donations && donations.map(thisDonation =>
                             thisDonation.availability === "true" ?
                             <ul key={thisDonation._id}>
@@ -93,9 +117,9 @@ const AccountInfo = () => {
                             :
                             <ul></ul>
                         )}
-                            {/* A history of completed donations that the user can see  */}
+
                         <label className="form-label status pickedup">Picked-up Donations:</label>
-                        
+                        {/* A history of completed donations that the user can see  */}
                         {donations && donations.map(thisDonation =>
                             thisDonation.availability === "complete" ?
                             <ul key={thisDonation._id}>
@@ -103,6 +127,20 @@ const AccountInfo = () => {
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                 <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : thisDonation.expDate}</li>
                                 <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
+                            </ul>
+                            :
+                            <ul></ul>
+                        )}
+
+                        <label className="form-label status pickedup">Your Reserved Donations:</label>
+                        {/* A history of completed donations that the user can see  */}
+                        {reserved && reserved.map(thisDonation =>
+                            thisDonation.availability === "false" ?
+                            <ul key={thisDonation._id}>
+                                <li>{"Product: " + thisDonation.product}</li>
+                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : thisDonation.expDate}</li>
+                                <button onClick={() => makeAvailable(thisDonation._id)}>End Reservation</button>
                             </ul>
                             :
                             <ul></ul>
