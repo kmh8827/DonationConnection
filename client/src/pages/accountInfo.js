@@ -7,11 +7,16 @@ import "../assets/scss/accountInfo.scss";
 const AccountInfo = () => {
     const { user } = useContext(CurrentUserContext);
     const [donations, setDonations] = useState([]);
+    const [reserved, setReserved] = useState([]);
+    console.log(reserved.length);
+    console.log(typeof(reserved));
 
-    useEffect(() => {
+    useEffect(() => {  
+        loadReserved();
         loadDonations();
     }, [])
 
+    // Displays the donations
     const loadDonations = () => {
         const donationCall = {
             userId: user._id
@@ -19,18 +24,37 @@ const AccountInfo = () => {
 
         API.myDonations(donationCall).then(response => setDonations(response.data))
             .catch(err => console.log(err));
+        console.log(donations);
+
     };
 
+    // Loads the donations that the user has reserved
+    const loadReserved = () => {
+        const userReserved = {
+            reservedBy: user.username
+        };
+        console.log(userReserved.reservedBy)
+        console.log(reserved);
+        console.log(reserved.length);
+
+        API.myReserved(userReserved).then(response => setReserved(response.data))
+            .catch(err => console.log(err));
+        console.log(reserved);
+    };
+
+    // Completes the Transaction
     const completePickup = (id) => {
         API.completeDonations(id).catch(err => console.log(err));
         loadDonations()
     };
 
+    // Removes doantion from Database
     const removeDonations = (id) => {
         API.removeDonations(id).catch(err => console.log(err));
         loadDonations();
     };
 
+    // Ends the reservaiton on a Donations
     const makeAvailable = (id) => {
         API.makeAvailable(id).catch(err => console.log(err))
         loadDonations();
@@ -78,11 +102,17 @@ const AccountInfo = () => {
                             <div className="user">
                                 <label className="form-label">Username: {user.username}</label>
                             </div>
+                            {/* Currently Signed-In user's E-Mail Address */}
                             <div className="user">
-                                <label className="form-label">Email: {user.email}</label>
+                                <label className="form-label">E-mail: {user.email}</label>
                             </div>
+                            {/* Currently Signed-In user's Total Number of Donations in database */}
                             <div className="user">
-                                <label className="form-label">Total Donations: {donations ? donations.length : 'None'}</label>
+                                <label className="form-label">Total Listed Donations: {donations ? donations.length : 'None'}</label>
+                            </div>
+                                {/* Currently Signed-In user's Total Number of Donations in database */}
+                                <div className="user">
+                                <label className="form-label">Total Reserved Donations: {reserved ? reserved.length : 'None'}</label>
                             </div>
                         </div>
                         <div className="row">
@@ -133,6 +163,20 @@ const AccountInfo = () => {
                                             </ul>
                                             :
                                             <ul></ul>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="col-md">
+                                <div type="button" className="btn btn-success status available" onClick={showCompleted}>Your Reserved Donations</div>
+                                <div className={displayInfo.completedInfo}>
+                                    {reserved && reserved.map(thisDonation =>
+                                            <ul key={thisDonation._id}>
+                                                <li>{"Product: " + thisDonation.product}</li>
+                                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                                <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
+                                                <button className="btn btn-success" onClick={() => makeAvailable(thisDonation._id)}>Make Available</button>
+                                            </ul>
                                     )}
                                 </div>
                             </div>

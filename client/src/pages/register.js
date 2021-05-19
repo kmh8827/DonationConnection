@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AUTH from "../utils/AUTH";
 import "../assets/scss/register.scss";
@@ -6,6 +6,7 @@ import BrandIcon from '../assets/images/icons/BrandIcon.png'
 
 const Register = () => {
     const history = useHistory();
+    // Object that contains the new User's Information
     const [userObject, setUserObject] = useState({
         firstName: "",
         lastName: "",
@@ -77,21 +78,16 @@ const Register = () => {
         }
     }
 
+    // Changes the userObject when entering information
     const handleChange = (e) => {
         setUserObject({
             ...userObject,
             [e.target.name]: e.target.value
         });
-
-        // (userObject.firstName && userObject.lastName &&
-        //     userObject.username && userObject.password &&
-        //     userObject.confirmPassword)
-        //     ? setDisabled(false)
-        //     : setDisabled(true)
     };
 
+    // On Submit button click, attemps to make a new user
     const handleSubmit = (e) => {
-        console.log('SUBMIT');
         e.preventDefault();
 
         AUTH.signup({
@@ -126,7 +122,7 @@ const Register = () => {
                 <div className="collapse navbar-collapse text-right" id="navbarNav">
                     <ul className="navbar-nav ml-auto pl-0">
                         <li className="nav-item active">
-                            <a className="nav-link navBtn" href="/">Home</a>
+                            <p className="nav-link navBtn" onClick={() => history.push('/')}>Home</p>
                         </li>
                     </ul>
                 </div>

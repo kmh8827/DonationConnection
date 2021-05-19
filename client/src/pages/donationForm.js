@@ -20,7 +20,7 @@ const Form = () => {
 
     const [checked, setChecked] = useState(true);
     const [disable, setDisable] = useState(true);
-    const clickedNextP1 = true;
+    const clickedNextP1 = true; 
     const clickedNextP2 = true;
     const clickedPrevP2 = true;
     const clickedPrevP3 = true;
@@ -36,6 +36,7 @@ const Form = () => {
         allergies: '',
         quantity: '',
         userId: '',
+        reservedBy: '',
     });
 
     const [business, setBusiness] = useState({
@@ -48,6 +49,13 @@ const Form = () => {
 
     const history = useHistory();
 
+    useEffect(() => {
+         (donation.product !== "" && donation.companyName !== "" &&
+            donation.address !== "" && donation.allergies !== "" &&
+            donation.quantity !== 0) 
+         ? setDisable(false)
+         : setDisable(true)
+    }, [donation])
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -64,16 +72,6 @@ const Form = () => {
             [event.target.name]: event.target.value,
             userId: user.user._id
         });
-
-        if (
-            donation.product !== "" && donation.companyName !== "" &&
-            donation.address !== "" && donation.allergies !== "" &&
-            donation.quantity !== 0
-        ) {
-            setDisable(false);
-        } else {
-            setDisable(true);
-        }
     };
 
     const handleClick = () => {
@@ -324,7 +322,7 @@ const Form = () => {
                             <Button onClick={handleClose} color="primary">
                                 Go Back
                             </Button>
-                            <Button onClick={handleSubmit} color="primary">
+                            <Button onClick={handleSubmit} disabled={disable} color="primary">
                                 Confirm
                             </Button>
                             </DialogActions>

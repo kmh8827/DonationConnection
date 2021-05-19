@@ -7,11 +7,11 @@ export default {
     },
     // Gets a list of all Donations
     getDonations: () => {
-        return axios.get('/api/donations/receive')
+        return axios.get('/api/donations/receive/')
     },
     // Allows a user to reserve a donation
-    reserveDonations: (id) => {
-        return axios.post('/api/donations/receive/' + id)
+    reserveDonations: (id, userId) => {
+        return axios.post('/api/donations/receive/' + id, userId)
     },
     // Removes the resereved status from a donation
     makeAvailable: (id) => {
@@ -19,7 +19,10 @@ export default {
     },
     // Gets all of a users donations
     myDonations: (userId) => {
-        return axios.post('api/donations/userDonations', userId)
+        return axios.post('api/donations/userDonations/', userId)
+    },
+    myReserved: (userId) => {
+        return axios.post('api/donations/userReservations/', userId)
     },
     // Allows a user to create a donation
     newDonation: (donation) => {
