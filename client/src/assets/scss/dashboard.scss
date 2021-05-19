@@ -3,7 +3,23 @@ $white-color: whitesmoke;
 .dashContainer {
     margin-top: 110px;
     margin-bottom: 80px;
+
+    animation-duration: 1s;
+    animation-name: dash-animation;
+    animation-iteration-count: 1;
+    animation-direction: normal;
 }
+
+@keyframes dash-animation {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
 .bigBtn {
     width: 75%;
