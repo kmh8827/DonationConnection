@@ -103,15 +103,17 @@ const Register = () => {
         })
             .then(response => {
                 console.log(response);
-                if (!response.data.errmsg) {
+                if (!response.data.errors) {
                     alert('Successful Creation')
                     history.push('/login')
 
                 } else {
-                    console.log('duplicate');
+                    alert("invalid entry")
                 }
             });
     };
+
+    
 
     return (
         <div>
@@ -138,35 +140,37 @@ const Register = () => {
 
                     <div className={formPage.accountInfo}>
                         <div className="registerField">
-                            <label for="validationCustomEmail" className="form-label">E-mail</label>
+                            <label className="form-label">E-mail</label>
                             <div className="input-group has-validation">
                                 <input type="text"
                                     name="email"
                                     className="form-control"
-                                    id="validationCustomEmail"
-                                    placeholder="Ex. jjoe@email.com"
+                                    id={userObject.email ? '' : 'noInput'}
+                                    placeholder="jjoe@email.com"
                                     aria-describedby="inputGroupPrepend"
                                     onChange={handleChange}
-                                    value={userObject.email} required />
-                                <div className="invalid-feedback">
+                                    value={userObject.email}
+                                     />
+                                {/* <div className="invalid-feedback">
                                     Please choose an e-mail.
-                            </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="registerField">
-                            <label for="validationCustomUsername" className="form-label">Username</label>
+                            <label className="form-label">Username</label>
                             <div className="input-group has-validation">
                                 <input type="text"
                                     name="username"
                                     className="form-control"
-                                    id="validationCustomUsername"
+                                    id={userObject.username ? '' : 'noInput'}
                                     placeholder="Ex. janejoe"
                                     aria-describedby="inputGroupPrepend"
                                     onChange={handleChange}
-                                    value={userObject.username} required />
-                                <div className="invalid-feedback">
+                                    value={userObject.username}
+                                     />
+                                {/* <div className="invalid-feedback">
                                     Please choose a username.
-                        </div>
+                                </div> */}
                             </div>
                         </div>
                         <div
@@ -180,32 +184,32 @@ const Register = () => {
 
                     <div className={formPage.userInfo}>
                         <div className="registerField">
-                            <label for="validationCustom01" className="form-label">First name</label>
+                            <label className="form-label">First name</label>
                             <input type="text"
                                 name="firstName"
                                 className="form-control"
-                                id="validationCustom01"
-                                placeholder="Ex. Jane"
+                                id={userObject.firstName ? '' : 'noInput'}
+                                placeholder="Chuck"
                                 onChange={handleChange}
                                 value={userObject.firstName}
-                                required />
-                            <div className="valid-feedback">
+                                 />
+                            {/* <div className="valid-feedback">
                                 Looks good!
-                        </div>
+                            </div> */}
                         </div>
                         <div className="registerField">
-                            <label for="validationCustom02" className="form-label">Last name</label>
+                            <label className="form-label">Last name</label>
                             <input type="text"
                                 name="lastName"
                                 className="form-control"
-                                id="validationCustom02"
-                                placeholder="Ex. Joe"
+                                id={userObject.lastName ? '' : 'noInput'}
+                                placeholder="Norris"
                                 onChange={handleChange}
                                 value={userObject.lastName}
-                                required />
-                            <div className="valid-feedback">
+                                 />
+                            {/* <div className="valid-feedback">
                                 Looks good!
-                        </div>
+                            </div> */}
                         </div>
                         <div
                             type="button"
@@ -225,20 +229,20 @@ const Register = () => {
 
                     <div className={formPage.passwordInfo}>
                         <div className="registerField">
-                            <label for="validationCustomPassword" className="form-label">Password</label>
+                            <label className="form-label">Password</label>
                             <div className="input-group has-validation">
                                 <input type="password"
                                     name="password"
                                     className="form-control"
-                                    id="validationCustomPassword"
-                                    placeholder="Ex. 123"
+                                    id={userObject.password ? '' : 'noInput'}
+                                    placeholder=""
                                     aria-describedby="inputGroupPrepend"
                                     onChange={handleChange}
                                     value={userObject.password}
-                                    required />
-                                <div className="invalid-feedback">
+                                     />
+                                {/* <div className="invalid-feedback">
                                     Please enter a password.
-                        </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="registerField">
@@ -247,15 +251,15 @@ const Register = () => {
                                 <input type="password"
                                     name="confirmPassword"
                                     className="form-control"
-                                    id="validationCustomConfirmPassword"
-                                    placeholder="Ex. 123"
+                                    id={userObject.confirmPassword === userObject.password ? '' : 'noInput'}
+                                    placeholder=""
                                     aria-describedby="inputGroupPrepend"
                                     onChange={handleChange}
                                     value={userObject.confirmPassword}
                                     required />
-                                <div className="invalid-feedback">
+                                {/* <div className="invalid-feedback">
                                     Please confirm your password.
-                            </div>
+                                </div> */}
                             </div>
                         </div>
                         <div
