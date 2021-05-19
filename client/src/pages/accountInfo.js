@@ -40,12 +40,12 @@ const AccountInfo = () => {
         <div>
             <Header />
             <div>
-                <div class="container infoo">
+                <div class="container loginContainer">
 
                     <div className="companyAbout">
-                        <h2 className="companyAbout accInfo">Account Info:</h2>
-                        <row className="row justify-content-center">
-                            <div className="user">
+                        <h2 style={{ color: "black" }} className="text-center">Account Info:</h2>
+                        <row className="row">
+                            {/* <div className="user">
                                 <label className="form-label">Username: {user.username}</label>
                             </div>
                             <div className="user">
@@ -53,11 +53,11 @@ const AccountInfo = () => {
                             </div>
                             <div className="user">
                                 <label className="form-label">Total Donations: {donations ? donations.length : 'None'}</label>
-                            </div>
+                            </div> */}
 
                         </row>
                     </div>
-                    <React.Fragment>
+                    
                         <label className="form-label status onHold">Donations on hold:</label>
               
                         {donations && donations.map(thisDonation =>
@@ -65,7 +65,7 @@ const AccountInfo = () => {
                             <ul key={thisDonation._id}>
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
-                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
                                 <button onClick={() => makeAvailable(thisDonation._id)}>End Reservation</button>
                                 <button onClick={() => completePickup(thisDonation._id)}>Complete</button>
                             </ul>
@@ -80,28 +80,28 @@ const AccountInfo = () => {
                             <ul key={thisDonation._id}>
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
-                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
                                 <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
                             </ul>
                             :
                             <ul></ul>
                         )}
                            
-                        <label className="form-label status pickedup">Picked-up Donations:</label>
+                        <label className="form-label status pickedup">Completed Donations:</label>
                         
                         {donations && donations.map(thisDonation =>
                             thisDonation.availability === "complete" ?
                             <ul key={thisDonation._id}>
                                 <li>{"Product: " + thisDonation.product}</li>
                                 <li>{"Quantity: " + thisDonation.quantity}</li>
-                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
+                                <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
                                 <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
                             </ul>
                             :
                             <ul></ul>
                         )}
                         
-                    </React.Fragment>
+                    
                     </div>
                 </div>
         </div>
