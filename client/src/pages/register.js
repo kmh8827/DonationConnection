@@ -6,6 +6,7 @@ import BrandIcon from '../assets/images/icons/BrandIcon.png'
 
 const Register = () => {
     const history = useHistory();
+    const [disabled, setDisabled] = useState(true);
     // Object that contains the new User's Information
     const [userObject, setUserObject] = useState({
         firstName: "",
@@ -26,6 +27,15 @@ const Register = () => {
         userInfo: 'd-none',
         passwordInfo: 'd-none',
     });
+
+    useEffect(() => {
+        (userObject.firstName && userObject.lastName &&
+            userObject.username && (userObject.password.length >= 8) &&
+            (userObject.password === userObject.confirmPassword))
+        ? setDisabled(false)
+        : setDisabled(true);
+
+    }, [userObject])
 
     const handlePreviousTwo = (event) => {
         event.preventDefault();
@@ -268,6 +278,7 @@ const Register = () => {
                         <button
                             className="btn btn-info registrationBtn float-right ml-3 mr-0 press-on"
                             onClick={handleSubmit}
+                            disabled={disabled}
                         >Register Now</button>
                     </div>
                 </form>
