@@ -146,7 +146,7 @@ const Register = () => {
                                     name="email"
                                     className="form-control"
                                     id={userObject.email ? '' : 'noInput'}
-                                    placeholder="jjoe@email.com"
+                                    placeholder="jjoe43@gmail.com"
                                     aria-describedby="inputGroupPrepend"
                                     onChange={handleChange}
                                     value={userObject.email}
@@ -163,7 +163,7 @@ const Register = () => {
                                     name="username"
                                     className="form-control"
                                     id={userObject.username ? '' : 'noInput'}
-                                    placeholder="Ex. janejoe"
+                                    placeholder="joe345"
                                     aria-describedby="inputGroupPrepend"
                                     onChange={handleChange}
                                     value={userObject.username}
