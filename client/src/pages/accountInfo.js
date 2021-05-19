@@ -141,6 +141,7 @@ const AccountInfo = () => {
                                             <ul key={thisDonation._id}>
                                                 <li>{"Product: " + thisDonation.product}</li>
                                                 <li>{"Quantity: " + thisDonation.quantity}</li>
+                                                <li>{"ReservedBy: " + thisDonation.reservedBy}</li>
                                                 <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
                                                 <button className="btn btn-danger" onClick={() => makeAvailable(thisDonation._id)}>End Reservation</button>
                                                 <button className="btn btn-danger" onClick={() => completePickup(thisDonation._id)}>Complete</button>
@@ -175,6 +176,7 @@ const AccountInfo = () => {
                                             <ul key={thisDonation._id}>
                                                 <li>{"Product: " + thisDonation.product}</li>
                                                 <li>{"Quantity: " + thisDonation.quantity}</li>
+                                                <li>{"Picked Up By: " + thisDonation.reservedBy}</li>
                                                 <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
                                                 <button className="btn btn-success" onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
                                             </ul>
@@ -189,9 +191,13 @@ const AccountInfo = () => {
                                 <div className={displayInfo.myReserved}>
                                     {reserved && reserved.map(thisDonation =>
                                             <ul key={thisDonation._id}>
+                                                <li>{"Company Name: " + thisDonation.companyName}</li>
                                                 <li>{"Product: " + thisDonation.product}</li>
+                                                <li>{"Address: " + thisDonation.address}</li>
                                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                                 <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
+                                                
+
                                                 <button className="btn btn-success" onClick={() => makeAvailable(thisDonation._id)}>Make Available</button>
                                             </ul>
                                     )}
