@@ -64,6 +64,7 @@ const AccountInfo = () => {
         onHoldInfo: 'd-none',
         availableInfo: 'd-none',
         completedInfo: 'd-none',
+        myReserved: 'd-none'
     });
 
     const showDonations = () => {
@@ -71,6 +72,8 @@ const AccountInfo = () => {
             onHoldInfo: '',
             availableInfo: 'd-none',
             completedInfo: 'd-none',
+            myReserved: 'd-none'
+
         })
     }
 
@@ -79,6 +82,8 @@ const AccountInfo = () => {
             onHoldInfo: 'd-none',
             availableInfo: '',
             completedInfo: 'd-none',
+            myReserved: 'd-none'
+
         })
     }
 
@@ -87,8 +92,20 @@ const AccountInfo = () => {
             onHoldInfo: 'd-none',
             availableInfo: 'd-none',
             completedInfo: '',
+            myReserved: 'd-none'
+
         })
     }
+
+    const showMyreserved = () => {
+        setDisplayInfo({
+            onHoldInfo: 'd-none',
+            availableInfo: 'd-none',
+            completedInfo: 'd-none',
+            myReserved: 'd-none'
+        })
+    }
+
 
     return (
         <div>
@@ -117,7 +134,7 @@ const AccountInfo = () => {
                         </div>
                         <div className="row">
                             <div className="col-md">
-                                <div type="button" className="btn btn-danger status onHold" onClick={showDonations}>Reserved Donations</div>
+                                <div type="button" className="btn btn-danger status onHold" onClick={showDonations}>Pending Donation Pickups</div>
                                 <div className={displayInfo.onHoldInfo}>
                                     {donations && donations.map(thisDonation =>
                                         thisDonation.availability === "false" ?
@@ -170,8 +187,8 @@ const AccountInfo = () => {
                             </div>
 
                             <div className="col-md">
-                                <div type="button" className="btn btn-success status available" onClick={showCompleted}>Your Reserved Donations</div>
-                                <div className={displayInfo.completedInfo}>
+                                <div type="button" className="btn btn-info status myReserved" onClick={showMyreserved}>My Reserved Donations</div>
+                                <div className={displayInfo.myReserved}>
                                     {reserved && reserved.map(thisDonation =>
                                             <ul key={thisDonation._id}>
                                                 <li>{"Company Name: " + thisDonation.companyName}</li>
