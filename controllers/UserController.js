@@ -15,6 +15,7 @@ module.exports = {
                     error: `Sorry, there is already someone with the username: ${username}` 
             });
         }
+        if (firstName && lastName && email && username && password.length >= 8) {
         const newUser = new db.User({
             'firstName': firstName,
             'lastName': lastName,
@@ -26,6 +27,7 @@ module.exports = {
             if (err) return res.json(err);
             return res.json(savedUser);
         });
+        }
     });
     },
     logout: (req, res) => {

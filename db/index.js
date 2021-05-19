@@ -9,14 +9,12 @@ if (process.env.MONGODB_URI) {
         useNewUrlParser: true
     });
     MONGO_URL = process.env.MONGODB_URI;
-    console.log('MONGODB_URI IS TESTING CONNECTION TO MONGO ATLAS');
 } else {
     mongoose.connect(MONGO_LOCAL_URL, { 
         useNewUrlParser: true,
         useUnifiedTopology: true
      });
     MONGO_URL = MONGO_LOCAL_URL;
-    console.log('LOCAL IS TESTING CONNECTION TO MONGO ATLAS');
 }
 
 const db = mongoose.connection;

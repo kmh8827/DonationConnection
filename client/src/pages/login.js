@@ -20,10 +20,13 @@ const Login = () => {
 
   const login = (username, password) => {
     AUTH.login(username, password).then(response => {
+      console.log(response.data);
       const responseUser = response.data.user;
       responseUser.isLoggedIn = true;
-      handleSetUser(responseUser);
-      history.push('/dashboard');
+      if (response.status === 200) {
+        handleSetUser(responseUser);
+        history.push('/dashboard');
+      }
     })
   };
 
