@@ -41,7 +41,7 @@ const Header = () => {
       <div className="collapse navbar-collapse text-right" id="navbarNav">
         <ul className="navbar-nav ml-auto pl-0">
           <li className="nav-item active">
-            <p className="nav-link navBtn" onClick={() => history.push('/')}>Home</p>
+            <p className="nav-link navBtn" onClick={() => history.push('/')}>Dashboard</p>
           </li>
 
           <Dropdown className="dropdown">
