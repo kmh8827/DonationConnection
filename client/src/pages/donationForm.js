@@ -291,7 +291,7 @@ const Form = () => {
                             className="btn btn-light float-left previousBtn"
                             value={clickedPrevP2}
                             onClick={handlePreviousThree}
-                        >previous</div>
+                        >Previous</div>
                         <div
                             // disabled={disable}
                             type="button"
