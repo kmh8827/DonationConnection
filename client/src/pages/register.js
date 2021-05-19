@@ -103,12 +103,12 @@ const Register = () => {
         })
             .then(response => {
                 console.log(response);
-                if (!response.data.errors) {
-                    alert('Successful Creation')
+                if (!response.data.error) {
+                    alert('Account Successfully Created!')
                     history.push('/login')
 
                 } else {
-                    alert("invalid entry")
+                    alert(response.data.error)
                 }
             });
     };
