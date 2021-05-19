@@ -102,7 +102,7 @@ const AccountInfo = () => {
             onHoldInfo: 'd-none',
             availableInfo: 'd-none',
             completedInfo: 'd-none',
-            myReserved: 'd-none'
+            myReserved: ''
         })
     }
 
