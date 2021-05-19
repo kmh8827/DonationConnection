@@ -83,7 +83,7 @@ const Login = () => {
               value={userObject.password} />
           </div>
         </form>
-        <div className="row floater mb-5">
+        <div className="row float-right mb-5">
 
           <input type="button"
           className="btn btn-info registerBtn mr-3" 
