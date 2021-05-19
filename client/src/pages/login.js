@@ -7,17 +7,19 @@ import AUTH from "../utils/AUTH";
 import { CurrentUserContext } from "../context/currentUser";
 
 const Login = () => {
+  // Gets the user object from the context
+  const { handleSetUser } = useContext(CurrentUserContext);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-
+  // Object to send to back-end
   const [userObject, setUserObject] = useState({
     username: '',
     password: ''
   });
 
-  const { handleSetUser } = useContext(CurrentUserContext);
 
+  // Logs the user in if information is correct
   const login = (username, password) => {
     AUTH.login(username, password).then(response => {
       console.log(response.data);
@@ -55,7 +57,7 @@ const Login = () => {
         <div className="collapse navbar-collapse text-right" id="navbarNav">
           <ul className="navbar-nav ml-auto pl-0">
             <li className="nav-item active">
-              <a className="nav-link navBtn" href="/">Home</a>
+              <p className="nav-link navBtn" onClick={history.push('/')}>Home</p>
             </li>
           </ul>
         </div>
@@ -66,6 +68,7 @@ const Login = () => {
           <h2 className="font">Login</h2><br />
         </div>
         <form>
+          {/* Username Input */}
           <div className="form-group">
             <label for="inputUsername" className="form-label">Username </label>
             <input type="text"
@@ -75,6 +78,7 @@ const Login = () => {
               onChange={handleInputChange}
               value={userObject.username} />
           </div>
+          {/* Password Input */}
           <div className="form-group mb-4">
             <label className="form-label" id="password">Password</label>
             <input type="password"

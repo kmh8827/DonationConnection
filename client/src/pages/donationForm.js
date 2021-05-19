@@ -51,7 +51,7 @@ const Form = () => {
     useEffect(() => {
          (donation.product !== "" && donation.companyName !== "" &&
             donation.address !== "" && donation.allergies !== "" &&
-            donation.quantity !== 0)
+            donation.quantity !== 0) 
          ? setDisable(false)
          : setDisable(true)
     }, [donation])

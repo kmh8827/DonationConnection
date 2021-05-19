@@ -24,6 +24,7 @@ class Form extends React.Component {
         this.setState({
             [name]: value
         }, () => {
+            // Handles diabling of button if not all required information is present
             if (
                 this.state.product !== "" && this.state.companyName !== "" &&
                 this.state.address !== "" && this.state.allergies !== "" && 
@@ -56,15 +57,11 @@ class Form extends React.Component {
                 [name] : false
             })
         }
-
-        console.log(value);
-        console.log(this.state.checked);
-    
     }
 
     handleSubmit = event => {
         event.preventDefault();
-    
+        // Object to hold the new Entry
         const newEntry = {
             day: new Date().setDate(new Date().getDate()),
             product: this.state.product,
@@ -86,6 +83,7 @@ class Form extends React.Component {
         return (
             <div>
                 <Header />
+                {/* Form for creating a New Donation */}
                 <div className="background">
                     <form className="board">
                         <h2>Donation Form</h2>

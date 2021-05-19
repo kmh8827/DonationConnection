@@ -6,6 +6,7 @@ import BrandIcon from '../assets/images/icons/BrandIcon.png'
 
 const Register = () => {
     const history = useHistory();
+    // Object that contains the new User's Information
     const [userObject, setUserObject] = useState({
         firstName: "",
         lastName: "",
@@ -14,7 +15,7 @@ const Register = () => {
         confirmPassword: "",
     });
     const [disabled, setDisabled] = useState(true)
-
+    // Used to make sure all required information is sent to back-end
     useEffect(() => {
         (userObject.firstName && userObject.lastName &&
             userObject.username && (userObject.password.length >= 8) &&
@@ -23,6 +24,7 @@ const Register = () => {
             : setDisabled(true)
     }, [userObject])
 
+    // Changes the userObject when entering information
     const handleChange = (e) => {
         setUserObject({
             ...userObject,
@@ -30,6 +32,7 @@ const Register = () => {
         });
     };
 
+    // On Submit button click, attemps to make a new user
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -61,18 +64,18 @@ const Register = () => {
                 <div className="collapse navbar-collapse text-right" id="navbarNav">
                     <ul className="navbar-nav ml-auto pl-0">
                         <li className="nav-item active">
-                            <a className="nav-link navBtn" href="/">Home</a>
+                            <p className="nav-link navBtn" onClick={() => history.push('/')}>Home</p>
                         </li>
                     </ul>
                 </div>
             </nav>
-
+            {/* Registration Form */}
             <div className="container registerPage">
                 <div className="headingRegister">
                     <h2 style={{ color: "black" }}>Registration Form</h2>
                 </div>
                 <form className="row g-1 needs-validation" noValidate>
-
+                    {/* New User's First Name */}
                     <div className="col-md-10 registerField">
                         <label for="validationCustom01" className="form-label">First name</label>
                         <input type="text"
@@ -87,6 +90,7 @@ const Register = () => {
                             Looks good!
                         </div>
                     </div>
+                    {/* New User's Last Name */}
                     <div className="col-md-10 registerField">
                         <label for="validationCustom02" className="form-label">Last name</label>
                         <input type="text"
@@ -101,6 +105,7 @@ const Register = () => {
                             Looks good!
                         </div>
                     </div>
+                    {/* new User's Username */}
                     <div className="col-md-10 registerField">
                         <label for="validationCustomUsername" className="form-label">Username</label>
                         <div className="input-group has-validation">
@@ -117,6 +122,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
+                    {/* new User's E-mail Address */}
                     <div className="col-md-10 registerField">
                         <label for="validationCustomEmail" className="form-label">E-mail</label>
                         <div className="input-group has-validation">
@@ -133,6 +139,7 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
+                    {/* new User's Password */}
                     <div className="col-md-10 registerField">
                         <label for="validationCustomPassword" className="form-label">Password (at least 8 in length)</label>
                         <div className="input-group has-validation">
@@ -150,8 +157,9 @@ const Register = () => {
                         </div>
                         </div>
                     </div>
+                    {/* Confirm Password Input */}
                     <div className="col-md-10 registerField">
-                        <label for="validationCustomPassword" className="form-label">Confirm password</label>
+                        <label for="validationCustomPassword" className="form-label">Confirm password (Must match Password)</label>
                         <div className="input-group has-validation">
                             <input type="password"
                                 name="confirmPassword"
@@ -168,7 +176,9 @@ const Register = () => {
                         </div>
                     </div>
                     <div className="col-md-10 floater ">
+                        {/* Takes the user to the log-in page */}
                         <button className="btn btn-info logBtn ml-3 mr-0 press-on" onClick={() => history.push('/login')} >Login</button>
+                        {/* Submits the userObject */}
                         <button className="btn btn-info registrationBtn ml-3 mr-0 press-on" disabled={disabled} onClick={handleSubmit}>Register Now</button>
                     </div>
 

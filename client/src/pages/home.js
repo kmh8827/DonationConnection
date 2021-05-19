@@ -16,7 +16,7 @@ function Home() {
                             DONATION CONNECTION
                         </div>
                     </div>
-
+                    {/* Mission Statement */}
                     <div className="about">
                         <section className="flex-container">
                             <div className="speech-bubble">
@@ -30,7 +30,9 @@ function Home() {
 
                     <div className="navv">
                         <section className="container">
+                            {/* Go to Log-in */}
                             <button type="button" className="buttonz btn btn-light" onClick={() => history.push('/login')}>Login</button>
+                            {/* Go to Register */}
                             <button type="button" className=" buttonz btn btn-light" onClick={() => history.push('/register')}>Register</button>
                         </section>
                     </div>

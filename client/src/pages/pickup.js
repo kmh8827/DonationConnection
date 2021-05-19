@@ -9,12 +9,19 @@ import '../assets/scss/pickup.scss';
 
 
 const Pickup = () => {
-
     const [slicePosition, setPosition] = useState({ start: 0, end: 6 });
-
     const [donations, setDonations] = useState([]);
-
     const [buttonHide, setButtonHide] = useState({display: ''});
+    const reserved = donations.availability;
+
+    const gridTileStyle = {
+        position: 'center',
+        width: '100%',
+        minHeight: '400px',
+        overflow: 'hidden',
+        height: '100% !important',
+        justifyContent: 'center'
+    }
 
     useEffect(() => {
         loadPickups();
@@ -30,21 +37,21 @@ const Pickup = () => {
          return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
+    // Gets the donation's available for pick-up from the database
     const loadPickups = () => {
         API.getDonations()
             .then(res => {
                 let donationList = res.data;
-                // console.log(donationList);
                 const formattedDonations = donationList.map(d => ({ ...d, isOpened: false }));
                 setDonations(formattedDonations);
             })
             .catch(err => console.log(err));
     };
 
+    // Allows a user to reserve a pick-up
     const reservePickup = (id) => {
         API.reserveDonations(id)
             .then(res => {
-                // alert("available")
                 loadPickups()
             })
             .catch(err => console.log(err));
@@ -63,17 +70,6 @@ const Pickup = () => {
         setDonations(newOpened)
     }
 
-    const reserved = donations.availability;
-
-    const gridTileStyle = {
-        position: 'center',
-        width: '100%',
-        minHeight: '400px',
-        overflow: 'hidden',
-        height: '100% !important',
-        justifyContent: 'center'
-    }
-
     return (
         <div className="bg-image-pickup">
             <Header />
@@ -82,6 +78,7 @@ const Pickup = () => {
                     {donations && donations.slice(slicePosition.start, slicePosition.end).map(thisDonation => {
                         // console.log(thisDonation._id)
                         return (
+                            // Creates a card to display each donation in the donation array
                             <ReserveCard
                                 isOpened={thisDonation.isOpened}
                                 handleOpenCard={handleOpenCard}

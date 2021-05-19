@@ -33,6 +33,7 @@ function App() {
       <Router>
         {(user && user.isLoggedIn) ? (
           <div>
+            {/* Routes for if the user is logged in */}
             <Switch>
               <Route exact path={["/"]} component={Dashboard} />
               <Route exact path={["/account"]} component={AccountInfo} />
@@ -41,16 +42,15 @@ function App() {
               <Route exact path={["/pickup"]} component={Pickup} />
               <Route exact path={["/register"]} component={Register} />
               <Route exact path={["/account"]} component={AccountInfo} />
-              {/* <Route component={Error} /> */}
             </Switch>
           </div>
         ) : (
           <div>
+            {/* Routes fi the user is not logged in */}
             <Switch>
               <Route exact path={["/"]} component={Home} />
               <Route exact path={["/register"]} component={Register} />
               <Route exact path={["/login"]} component={Login} />
-              {/* <Route component={Error} /> */}
             </Switch>
           </div>
         )}

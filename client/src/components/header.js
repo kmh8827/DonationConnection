@@ -8,9 +8,10 @@ import { Dropdown } from "react-bootstrap";
 
 const Header = () => {
 
-  const { user, handleSetUser } = useContext(CurrentUserContext);
+  const { handleSetUser } = useContext(CurrentUserContext);
   const history = useHistory();
 
+  // Logs the user out of the application, redirects to Home Page
   const logout = (e) => {
     e.preventDefault();
     AUTH.logout().then(() => {
