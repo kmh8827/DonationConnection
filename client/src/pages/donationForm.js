@@ -168,7 +168,7 @@ const Form = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Ex. Papa John's"
+                                placeholder="Papa John's"
                                 id="companyName"
                                 name="companyName"
                                 value={donation.companyName}
@@ -180,7 +180,7 @@ const Form = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Ex. 1003 main st Newbern NC"
+                                placeholder="1003 main st Newbern NC"
                                 id="address"
                                 name="address"
                                 value={donation.address}
@@ -202,7 +202,7 @@ const Form = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Ex. cheese pizzas"
+                                placeholder="cheese pizza"
                                 id="Product"
                                 name="product"
                                 value={donation.product}
@@ -256,7 +256,7 @@ const Form = () => {
                             <input
                                 type="number"
                                 className="form-control"
-                                placeholder="#"
+                                placeholder=""
                                 id="quantity"
                                 name="quantity"
                                 value={donation.quantity}
@@ -268,7 +268,7 @@ const Form = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Ex. keep frozen until ready to eat"
+                                placeholder="keep frozen until ready to eat"
                                 id="specInstructions"
                                 name="specialInstructions"
                                 value={donation.specialInstructions}
@@ -280,7 +280,7 @@ const Form = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Ex. Peanuts"
+                                placeholder="Peanuts"
                                 id="allergies"
                                 name="allergies"
                                 value={donation.allergies}
