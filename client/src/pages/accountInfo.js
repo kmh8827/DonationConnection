@@ -8,7 +8,7 @@ const AccountInfo = () => {
     const { user } = useContext(CurrentUserContext);
     const [donations, setDonations] = useState([]);
 
-    useEffect(() => {  
+    useEffect(() => {
         loadDonations();
     }, [])
 
@@ -36,15 +36,45 @@ const AccountInfo = () => {
         loadDonations();
     }
 
+    const [displayInfo, setDisplayInfo] = useState({
+        onHoldInfo: 'd-none',
+        availableInfo: 'd-none',
+        completedInfo: 'd-none',
+    });
+
+    const showDonations = () => {
+        setDisplayInfo({
+            onHoldInfo: '',
+            availableInfo: 'd-none',
+            completedInfo: 'd-none',
+        })
+    }
+
+    const showAvailable = () => {
+        setDisplayInfo({
+            onHoldInfo: 'd-none',
+            availableInfo: '',
+            completedInfo: 'd-none',
+        })
+    }
+
+    const showCompleted = () => {
+        setDisplayInfo({
+            onHoldInfo: 'd-none',
+            availableInfo: 'd-none',
+            completedInfo: '',
+        })
+    }
+
     return (
         <div>
             <Header />
-            <div>
-                <div class="container infoo">
+            <div >
+                <div class="container loginContainer mb-5">
 
-                    <div className="companyAbout">
-                        <h2 className="companyAbout accInfo">Account Info:</h2>
-                        <row className="row justify-content-center">
+                    <div className="">
+                        <h2 style={{ color: "black" }} className="text-center">Account Info:</h2>
+                        <div className="row">
                             <div className="user">
                                 <label className="form-label">Username: {user.username}</label>
                             </div>
@@ -54,56 +84,62 @@ const AccountInfo = () => {
                             <div className="user">
                                 <label className="form-label">Total Donations: {donations ? donations.length : 'None'}</label>
                             </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md">
+                                <div type="button" className="btn btn-danger status onHold" onClick={showDonations}>Reserved Donations</div>
+                                <div className={displayInfo.onHoldInfo}>
+                                    {donations && donations.map(thisDonation =>
+                                        thisDonation.availability === "false" ?
+                                            <ul key={thisDonation._id}>
+                                                <li>{"Product: " + thisDonation.product}</li>
+                                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                                <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
+                                                <button className="btn btn-danger" onClick={() => makeAvailable(thisDonation._id)}>End Reservation</button>
+                                                <button className="btn btn-danger" onClick={() => completePickup(thisDonation._id)}>Complete</button>
+                                            </ul>
+                                            :
+                                            <ul></ul>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="col-md">
+                                <div type="button" className="btn btn-warning status pickedup" onClick={showAvailable}>Available Donations</div>
+                                <div className={displayInfo.availableInfo}>
+                                    {donations && donations.map(thisDonation =>
+                                        thisDonation.availability === "true" ?
+                                            <ul key={thisDonation._id}>
+                                                <li>{"Product: " + thisDonation.product}</li>
+                                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                                <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
+                                                <button className="btn btn-warning" onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
+                                            </ul>
+                                            :
+                                            <ul></ul>
+                                    )}
 
-                        </row>
-                    </div>
-                    <React.Fragment>
-                        <label className="form-label status onHold">Donations on hold:</label>
-              
-                        {donations && donations.map(thisDonation =>
-                            thisDonation.availability === "false" ?
-                            <ul key={thisDonation._id}>
-                                <li>{"Product: " + thisDonation.product}</li>
-                                <li>{"Quantity: " + thisDonation.quantity}</li>
-                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
-                                <button onClick={() => makeAvailable(thisDonation._id)}>End Reservation</button>
-                                <button onClick={() => completePickup(thisDonation._id)}>Complete</button>
-                            </ul>
-                            :
-                            <ul></ul>
-                        )}
-
-                        <label className="form-label status available">Available Donations:</label>
-
-                        {donations && donations.map(thisDonation =>
-                            thisDonation.availability === "true" ?
-                            <ul key={thisDonation._id}>
-                                <li>{"Product: " + thisDonation.product}</li>
-                                <li>{"Quantity: " + thisDonation.quantity}</li>
-                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
-                                <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
-                            </ul>
-                            :
-                            <ul></ul>
-                        )}
-                           
-                        <label className="form-label status pickedup">Picked-up Donations:</label>
-                        
-                        {donations && donations.map(thisDonation =>
-                            thisDonation.availability === "complete" ?
-                            <ul key={thisDonation._id}>
-                                <li>{"Product: " + thisDonation.product}</li>
-                                <li>{"Quantity: " + thisDonation.quantity}</li>
-                                <li>{"Expiration Date: " + !thisDonation.expDate ? "None" : "Hi"}</li>
-                                <button onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
-                            </ul>
-                            :
-                            <ul></ul>
-                        )}
-                        
-                    </React.Fragment>
+                                </div>
+                            </div>
+                            <div className="col-md">
+                                <div type="button" className="btn btn-success status available" onClick={showCompleted}>Completed Donations</div>
+                                <div className={displayInfo.completedInfo}>
+                                    {donations && donations.map(thisDonation =>
+                                        thisDonation.availability === "complete" ?
+                                            <ul key={thisDonation._id}>
+                                                <li>{"Product: " + thisDonation.product}</li>
+                                                <li>{"Quantity: " + thisDonation.quantity}</li>
+                                                <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
+                                                <button className="btn btn-success" onClick={() => removeDonations(thisDonation._id)}>Remove from Listing</button>
+                                            </ul>
+                                            :
+                                            <ul></ul>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
         </div>
     )
 }
