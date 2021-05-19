@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AUTH from "../utils/AUTH";
 import "../assets/scss/register.scss";
@@ -13,23 +13,24 @@ const Register = () => {
         password: "",
         confirmPassword: "",
     });
-    // const [disabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(true)
+
+    useEffect(() => {
+        (userObject.firstName && userObject.lastName &&
+            userObject.username && (userObject.password.length >= 8) &&
+            (userObject.confirmPassword === userObject.password))
+            ? setDisabled(false)
+            : setDisabled(true)
+    }, [userObject])
 
     const handleChange = (e) => {
         setUserObject({
             ...userObject,
             [e.target.name]: e.target.value
         });
-
-        // (userObject.firstName && userObject.lastName &&
-        //     userObject.username && userObject.password &&
-        //     userObject.confirmPassword)
-        //     ? setDisabled(false)
-        //     : setDisabled(true)
     };
 
     const handleSubmit = (e) => {
-        console.log('SUBMIT');
         e.preventDefault();
 
         AUTH.signup({
@@ -133,7 +134,7 @@ const Register = () => {
                         </div>
                     </div>
                     <div className="col-md-10 registerField">
-                        <label for="validationCustomPassword" className="form-label">Password</label>
+                        <label for="validationCustomPassword" className="form-label">Password (at least 8 in length)</label>
                         <div className="input-group has-validation">
                             <input type="password"
                                 name="password"
@@ -168,7 +169,7 @@ const Register = () => {
                     </div>
                     <div className="col-md-10 floater ">
                         <button className="btn btn-info logBtn ml-3 mr-0 press-on" onClick={() => history.push('/login')} >Login</button>
-                        <button className="btn btn-info registrationBtn ml-3 mr-0 press-on" onClick={handleSubmit}>Register Now</button>
+                        <button className="btn btn-info registrationBtn ml-3 mr-0 press-on" disabled={disabled} onClick={handleSubmit}>Register Now</button>
                     </div>
 
                 </form>
