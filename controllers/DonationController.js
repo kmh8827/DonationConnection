@@ -46,8 +46,9 @@ module.exports = {
     },
     // Creates a reservation on a donation
     reserve: (req, res) => {
+        console.log('RESERVE REQ BODY IS ', req.body)
         db.Donations
-            .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'false' }, { useFindAndModify: false })
+            .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'false', 'reservedBy': req.body.userId }, { useFindAndModify: false })
             .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
     },

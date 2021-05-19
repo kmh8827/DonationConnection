@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Button } from 'reactstrap';
 import { GridList } from '@material-ui/core/';
 import Header from '../components/header'
 import API from '../utils/API';
 import ReserveCard from '../components/reserveCard';
 import '../assets/scss/pickup.scss';
-
+import { CurrentUserContext } from "../context/currentUser";
 
 
 const Pickup = () => {
+    const { user } = useContext(CurrentUserContext);
     const [slicePosition, setPosition] = useState({ start: 0, end: 6 });
     const [donations, setDonations] = useState([]);
     const [buttonHide, setButtonHide] = useState({display: ''});
@@ -50,7 +51,13 @@ const Pickup = () => {
 
     // Allows a user to reserve a pick-up
     const reservePickup = (id) => {
-        API.reserveDonations(id)
+        const userId = {
+        userId: user._id
+        };
+
+        console.log(userId)
+        
+        API.reserveDonations(id, userId)
             .then(res => {
                 loadPickups()
             })

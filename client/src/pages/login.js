@@ -9,8 +9,8 @@ import { CurrentUserContext } from "../context/currentUser";
 const Login = () => {
   // Gets the user object from the context
   const { handleSetUser } = useContext(CurrentUserContext);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const error = null;
+  const loading = false;
   const history = useHistory();
   // Object to send to back-end
   const [userObject, setUserObject] = useState({

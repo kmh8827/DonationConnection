@@ -40,8 +40,13 @@ const DonationsSchema = new Schema({
     },
     userId: {
         type: String,
-        trime: true,
+        trim: true,
         required: true
+    },
+    reservedBy: {
+        type: String,
+        trim: true,
+        default: "",
     }
 });
 

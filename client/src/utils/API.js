@@ -10,8 +10,8 @@ export default {
         return axios.get('/api/donations/receive')
     },
     // Allows a user to reserve a donation
-    reserveDonations: (id) => {
-        return axios.post('/api/donations/receive/' + id)
+    reserveDonations: (id, userId) => {
+        return axios.post('/api/donations/receive/' + id, userId)
     },
     // Removes the resereved status from a donation
     makeAvailable: (id) => {

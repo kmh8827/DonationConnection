@@ -20,7 +20,7 @@ const Form = () => {
 
     const [checked, setChecked] = useState(true);
     const [disable, setDisable] = useState(true);
-    const clickedNextP1 = true;
+    const clickedNextP1 = true; 
     const clickedNextP2 = true;
     const clickedPrevP2 = true;
     const clickedPrevP3 = true;
@@ -36,6 +36,7 @@ const Form = () => {
         allergies: '',
         quantity: '',
         userId: '',
+        reservedBy: '',
     });
 
     const [business, setBusiness] = useState({
