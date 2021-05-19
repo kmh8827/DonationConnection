@@ -60,7 +60,7 @@ const Login = () => {
       </nav>
 
       <div className="container loginContainer w-50 h-50">
-        <div className="row mb-2 ml-1">
+        <div className="headingLogin">
           <h2 className="font">Login</h2><br />
         </div>
         <form>
