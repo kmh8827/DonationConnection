@@ -11,12 +11,8 @@ const AccountInfo = () => {
     console.log(reserved.length);
     console.log(typeof(reserved));
 
-<<<<<<< HEAD
     useEffect(() => {  
         loadReserved();
-=======
-    useEffect(() => {
->>>>>>> 432dbab1ece810101b557a7e7d49f9d4dd327e73
         loadDonations();
     }, [])
 
@@ -116,7 +112,7 @@ const AccountInfo = () => {
                             </div>
                                 {/* Currently Signed-In user's Total Number of Donations in database */}
                                 <div className="user">
-                                <label className="form-label">Total Reserved Donations: {reserved ? 'wut' : 'None'}</label>
+                                <label className="form-label">Total Reserved Donations: {reserved ? reserved.length : 'None'}</label>
                             </div>
                         </div>
                         <div className="row">
@@ -175,15 +171,12 @@ const AccountInfo = () => {
                                 <div type="button" className="btn btn-success status available" onClick={showCompleted}>Your Reserved Donations</div>
                                 <div className={displayInfo.completedInfo}>
                                     {reserved && reserved.map(thisDonation =>
-                                        thisDonation.availability === "complete" ?
                                             <ul key={thisDonation._id}>
                                                 <li>{"Product: " + thisDonation.product}</li>
                                                 <li>{"Quantity: " + thisDonation.quantity}</li>
                                                 <li>{"Expiration Date: " + thisDonation.expDate ? thisDonation.expDate : "None"}</li>
                                                 <button className="btn btn-success" onClick={() => makeAvailable(thisDonation._id)}>Make Available</button>
                                             </ul>
-                                            :
-                                            <ul></ul>
                                     )}
                                 </div>
                             </div>
