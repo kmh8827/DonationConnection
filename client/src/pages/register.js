@@ -3,10 +3,15 @@ import { useHistory } from "react-router-dom";
 import AUTH from "../utils/AUTH";
 import "../assets/scss/register.scss";
 import BrandIcon from '../assets/images/icons/BrandIcon.png'
+import GreenCheck from "../assets/images/icons/greencheck.png";
+import RedX from "../assets/images/icons/redX.jpg";
 
 const Register = () => {
     const history = useHistory();
     const [disabled, setDisabled] = useState(true);
+    const [passMatch, setPassMatch] = useState(RedX);
+    const [passMin, setPassMin] = useState(RedX);
+
     // Object that contains the new User's Information
     const [userObject, setUserObject] = useState({
         firstName: "",
@@ -34,7 +39,15 @@ const Register = () => {
             (userObject.password === userObject.confirmPassword))
         ? setDisabled(false)
         : setDisabled(true);
+        
+        (userObject.password === userObject.confirmPassword &&
+            userObject.confirmPassword !== '')
+        ? setPassMatch(GreenCheck)
+        : setPassMatch(RedX);
 
+        (userObject.password.length >= 8)
+        ? setPassMin(GreenCheck)
+        : setPassMin(RedX);
     }, [userObject])
 
     const handlePreviousTwo = (event) => {
@@ -244,8 +257,10 @@ const Register = () => {
                                     placeholder=""
                                     aria-describedby="inputGroupPrepend"
                                     onChange={handleChange}
-                                    value={userObject.password}
-                                     />
+                                    value={userObject.password} 
+                                    required />
+                                <img className="checkIcon" src={passMin} 
+                                alt="Checkmark to indicate if passwords match"/>
                                 {/* <div className="invalid-feedback">
                                     Please enter a password.
                                 </div> */}
@@ -263,6 +278,8 @@ const Register = () => {
                                     onChange={handleChange}
                                     value={userObject.confirmPassword}
                                     required />
+                                <img className="checkIcon" src={passMatch} 
+                                alt="Checkmark to indicate if passwords match"/>
                                 {/* <div className="invalid-feedback">
                                     Please confirm your password.
                                 </div> */}
