@@ -57,6 +57,7 @@ const AccountInfo = () => {
     // Ends the reservaiton on a Donations
     const makeAvailable = (id) => {
         API.makeAvailable(id).catch(err => console.log(err))
+        loadReserved();
         loadDonations();
     }
 
@@ -74,8 +75,8 @@ const AccountInfo = () => {
             completedInfo: 'd-none',
             myReserved: 'd-none'
 
-        })
-    }
+        });
+    };
 
     const showAvailable = () => {
         setDisplayInfo({
@@ -84,8 +85,8 @@ const AccountInfo = () => {
             completedInfo: 'd-none',
             myReserved: 'd-none'
 
-        })
-    }
+        });
+    };
 
     const showCompleted = () => {
         setDisplayInfo({
@@ -94,8 +95,8 @@ const AccountInfo = () => {
             completedInfo: '',
             myReserved: 'd-none'
 
-        })
-    }
+        });
+    };
 
     const showMyreserved = () => {
         setDisplayInfo({
@@ -103,9 +104,8 @@ const AccountInfo = () => {
             availableInfo: 'd-none',
             completedInfo: 'd-none',
             myReserved: ''
-        })
-    }
-
+        });
+    };
 
     return (
         <div>
