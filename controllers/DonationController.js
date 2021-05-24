@@ -46,8 +46,9 @@ module.exports = {
     },
     // Ends the reservation on a donation
     makeAvailable: (req, res) => {
+        console.log(req.params.id);
         db.Donations
-            .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'true' }, { useFindAndModify: false })
+            .findOneAndUpdate({ _id: req.params.id }, { 'availability': 'true', 'reservedBy': '' }, { useFindAndModify: false })
             .then(donations => res.json(donations))
             .catch(err => res.status(422).json(err));
     },
