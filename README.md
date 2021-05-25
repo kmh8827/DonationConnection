@@ -14,10 +14,8 @@ Link to deployed application: https://donation-connection.herokuapp.com/
 
 ### Table of Contents
 * [Installation](#installation)
-<!-- * [Usage](#usage) -->
 * [Testing](#testing)
 * [Contributors](#contributors)
-<!-- * [License](#License) -->
     
 ### Installation:
 <ul>
@@ -30,15 +28,8 @@ Link to deployed application: https://donation-connection.herokuapp.com/
     3. npm install
 </ul>
 
-<!-- ### Usage: -->
-
-
-<!-- ### License
-<ul>
-    This application is covered under the The Unlicense
-</ul> -->
-
 ### Contributors:
+
 #### Front-end:
 
 [@Elena Magay](https://github.com/elenamagay)
@@ -72,7 +63,7 @@ Link to deployed application: https://donation-connection.herokuapp.com/
 
 ### Questions?
 
-If you have any questions, feel free to contact any of us at:
+#### If you have any questions, feel free to contact any of us at:
 
 [@Elena Magay](https://github.com/elenamagay) email: elenamagay1985@gmail.com
 
