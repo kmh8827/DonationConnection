@@ -2,7 +2,7 @@
 
 Link to deployed application: https://donation-connection.herokuapp.com/
 
-![license badge](https://img.shields.io/github/license/mdu830/DonationConnection?color=green)
+![license badge](https://img.shields.io/github/license/kmh8827/DonationConnection?color=green)
 
 ### Description: 
 
