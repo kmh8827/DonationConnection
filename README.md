@@ -40,14 +40,17 @@ Link to deployed application: https://donation-connection.herokuapp.com/
 ### Contributors:
 Front-end:
 
-[@elenamagay](https://api.github.com/users/elenamagay)
-[@alexhstrickland](https://api.github.com/users/alexhstrickland)
-[@jbasquez](https://api.github.com/users/jbasquez)
+[@Elena Magay](https://api.github.com/users/elenamagay)
+
+[@Alex Strickland](https://api.github.com/users/alexhstrickland)
+
+[@Joe Basquez](https://api.github.com/users/jbasquez)
 
 Back-end:
 
-[@kmh8827](https://api.github.com/users/kmh8827)
-[@mdu830](https://api.github.com/users/mdu830)
+[@Kevin Hellman](https://api.github.com/users/kmh8827)
+
+[@Mitchell Duncan](https://api.github.com/users/mdu830)
 
 ### Testing:
 <ul>
@@ -61,15 +64,15 @@ Back-end:
 
 If you have any questions, feel free to contact any of us at:
 
-[@elenamagay](https://api.github.com/users/elenamagay) email: elenamagay1985@gmail.com
+[@Elena Magay](https://api.github.com/users/elenamagay) email: elenamagay1985@gmail.com
 
-[@alexhstrickland](https://api.github.com/users/alexhstrickland) email: alexhstrickland@gmail.com
+[@Alex Strickland](https://api.github.com/users/alexhstrickland) email: alexhstrickland@gmail.com
 
-[@jbasquez](https://api.github.com/users/jbasquez) email: jybasquez@yahoo.com
+[@Joe Basquez](https://api.github.com/users/jbasquez) email: jybasquez@yahoo.com
 
-[@kmh8827](https://api.github.com/users/kmh8827) email: kevinhellman94@gmail.com
+[@Kevin Hellman](https://api.github.com/users/kmh8827) email: kevinhellman94@gmail.com
 
-[@mdu830](https://api.github.com/users/mdu830) email: mdu830@yahoo.com
+[@Mitchell Duncan](https://api.github.com/users/mdu830) email: mdu830@yahoo.com
 
 
 <!-- This application allows users to create and log into accounts, then donate or pick-up food in their area.
