@@ -1,10 +1,11 @@
 # Donation Connection
 
-Link to deployed application: https://donation-connection.herokuapp.com/
-
 ![license badge](https://img.shields.io/github/license/kmh8827/DonationConnection?color=green)
 
+Link to deployed application: https://donation-connection.herokuapp.com/
+
 ### Description: 
+
 
 <ul>
     This application allows users to create and log into accounts, then donate or pick-up food in their area.
