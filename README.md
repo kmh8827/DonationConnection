@@ -1,11 +1,10 @@
 # Donation Connection
 
-![license badge](https://img.shields.io/github/license/kmh8827/DonationConnection?color=green)
-
 Link to deployed application: https://donation-connection.herokuapp.com/
 
-### Description: 
+![license badge](https://img.shields.io/github/license/kmh8827/DonationConnection?color=green)
 
+### Description: 
 
 <ul>
     This application allows users to create and log into accounts, then donate or pick-up food in their area.
@@ -62,7 +61,7 @@ Back-end:
 
 If you have any questions, feel free to contact any of us at:
 
-[@elenamagay](https://api.github.com/users/elenamagay)
+[@elenamagay](https://api.github.com/users/elenamagay) email: elenamagay1985@gmail.com
 
 [@alexhstrickland](https://api.github.com/users/alexhstrickland) email: alexhstrickland@gmail.com
 
