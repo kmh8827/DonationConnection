@@ -58,12 +58,14 @@ Back-end:
 </ul>
 <ul>
     Then git clone the repository, cd into the DonationConnection directory and type "npm install".
-
+</ul>
+<ul>
     After you have installed the application type (in the DonationConnection directory) "npm start" to run the application. 
 </ul>
 <ul>
     To populate the database with donations (in the DonationConnection directory) type "node /seeders/seed"
-
+</ul>
+<ul>
     If you'd like to view the database, install <a src="https://robomongo.org/download">Robo 3T</a>, then open it and connect to the localhost.
 </ul>
 
