@@ -38,7 +38,7 @@ Link to deployed application: https://donation-connection.herokuapp.com/
 </ul> -->
 
 ### Contributors:
-Front-end:
+#### Front-end:
 
 [@Elena Magay](https://api.github.com/users/elenamagay)
 
@@ -46,7 +46,7 @@ Front-end:
 
 [@Joe Basquez](https://api.github.com/users/jbasquez)
 
-Back-end:
+#### Back-end:
 
 [@Kevin Hellman](https://api.github.com/users/kmh8827)
 
