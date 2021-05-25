@@ -41,17 +41,17 @@ Link to deployed application: https://donation-connection.herokuapp.com/
 ### Contributors:
 #### Front-end:
 
-[@Elena Magay](https://api.github.com/users/elenamagay)
+[@Elena Magay](https://github.com/elenamagay)
 
-[@Alex Strickland](https://api.github.com/users/alexhstrickland)
+[@Alex Strickland](https://github.com/alexhstrickland)
 
-[@Joe Basquez](https://api.github.com/users/jbasquez)
+[@Joe Basquez](https://github.com/jbasquez)
 
 #### Back-end:
 
-[@Kevin Hellman](https://api.github.com/users/kmh8827)
+[@Kevin Hellman](https://github.com/kmh8827)
 
-[@Mitchell Duncan](https://api.github.com/users/mdu830)
+[@Mitchell Duncan](https://github.com/mdu830)
 
 ### Testing:
 <ul>
@@ -74,13 +74,13 @@ Link to deployed application: https://donation-connection.herokuapp.com/
 
 If you have any questions, feel free to contact any of us at:
 
-[@Elena Magay](https://api.github.com/users/elenamagay) email: elenamagay1985@gmail.com
+[@Elena Magay](https://github.com/elenamagay) email: elenamagay1985@gmail.com
 
-[@Alex Strickland](https://api.github.com/users/alexhstrickland) email: alexhstrickland@gmail.com
+[@Alex Strickland](https://github.com/alexhstrickland) email: alexhstrickland@gmail.com
 
-[@Joe Basquez](https://api.github.com/users/jbasquez) email: jybasquez@yahoo.com
+[@Joe Basquez](https://github.com/jbasquez) email: jybasquez@yahoo.com
 
-[@Kevin Hellman](https://api.github.com/users/kmh8827) email: kevinhellman94@gmail.com
+[@Kevin Hellman](https://github.com/kmh8827) email: kevinhellman94@gmail.com
 
-[@Mitchell Duncan](https://api.github.com/users/mdu830) email: mdu830@yahoo.com
+[@Mitchell Duncan](https://github.com/mdu830) email: mdu830@yahoo.com
 
