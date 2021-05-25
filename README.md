@@ -4,6 +4,8 @@ Link to deployed application: https://donation-connection.herokuapp.com/
 
 ![license badge](https://img.shields.io/github/license/kmh8827/DonationConnection?color=green)
 
+<img width="720" alt="Donation Connection Pic" src="https://user-images.githubusercontent.com/71075507/118566475-f2407580-b741-11eb-8a6d-9b3db6c24fdf.png">
+
 ### Description: 
 
 <ul>
@@ -12,7 +14,7 @@ Link to deployed application: https://donation-connection.herokuapp.com/
 
 ### Table of Contents
 * [Installation](#installation)
-* [Usage](#usage)
+<!-- * [Usage](#usage) -->
 * [Testing](#testing)
 * [Contributors](#contributors)
 <!-- * [License](#License) -->
@@ -28,9 +30,8 @@ Link to deployed application: https://donation-connection.herokuapp.com/
     3. npm install
 </ul>
 
-### Usage:
+<!-- ### Usage: -->
 
-<img width="720" alt="Donation Connection Pic" src="https://user-images.githubusercontent.com/71075507/118566475-f2407580-b741-11eb-8a6d-9b3db6c24fdf.png">
 
 <!-- ### License
 <ul>
